@@ -1,0 +1,23 @@
+{
+  "name": "cs2-decompiler",
+  "version": "1.0.0",
+  "description": "A decompiler for CS2 data",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pyragon/cs2-decompiler.git"
+  },
+  "keywords": [
+    "CS2",
+    "RS2"
+  ],
+  "author": "Pyragon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pyragon/cs2-decompiler/issues"
+  },
+  "homepage": "https://github.com/Pyragon/cs2-decompiler#readme"
+}
