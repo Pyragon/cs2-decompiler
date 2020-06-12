@@ -1,0 +1,142 @@
+[
+	{
+		"name": "PUSH_INT",
+		"opcode": 79,
+		"hasExtra": true
+	},
+	{
+		"name": "PUSH_STRING",
+		"opcode": 57,
+		"hasExtra": true
+	},
+	{
+		"name": "PUSH_LONG",
+		"opcode": 633,
+		"hasExtra": true
+	},
+	{
+		"name": "STORE_INT",
+		"opcode": 168,
+		"hasExtra": true
+	},
+	{
+		"name": "STORE_STRING",
+		"opcode": 356,
+		"hasExtra": true
+	},
+	{
+		"name": "STORE_LONG",
+		"opcode": 987,
+		"hasExtra": true
+	},
+	{
+		"name": "LOAD_INT",
+		"opcode": 500,
+		"hasExtra": true
+	},
+	{
+		"name": "LOAD_STRING",
+		"opcode": 799,
+		"hasExtra": true
+	},
+	{
+		"name": "LOAD_LONG",
+		"opcode": 473,
+		"hasExtra": true
+	},
+	{
+		"name": "ADD",
+		"opcode": 279,
+		"hasExtra": false
+	},
+	{
+		"name": "SUBTRACT",
+		"opcode": 130,
+		"hasExtra": true
+	},
+	{
+		"name": "DIVIDE",
+		"opcode": 56,
+		"hasExtra": false
+	},
+	{
+		"name": "MULTIPLY",
+		"opcode": 367,
+		"hasExtra": false
+	},
+	{
+		"name": "RETURN",
+		"opcode": 184,
+		"hasExtra": false
+	},
+	{
+		"name": "load_varc",
+		"opcode": 311,
+		"hasExtra": true
+	},
+	{
+		"name": "store_varc",
+		"opcode": 510,
+		"hasExtra": true
+	},
+	{
+		"name": "CALL_CS2",
+		"opcode": 902,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_LT",
+		"opcode": 566,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_GT",
+		"opcode": 939,
+		"hasExtra": true
+	},
+	{
+		"name": "GOTO",
+		"opcode": 123,
+		"hasExtra": true
+	},
+	{
+		"name": "if_isopen",
+		"opcode": 888,
+		"hasExtra": false
+	},
+	{
+		"name": "INT_EQ",
+		"opcode": 933,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_GE",
+		"opcode": 319,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_LE",
+		"opcode": 670,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_NE",
+		"opcode": 693,
+		"hasExtra": true
+	},
+	{
+		"name": "SWITCH",
+		"opcode": 377,
+		"hasExtra": true
+	},
+	{
+		"name": "send_message",
+		"opcode": 471,
+		"hasExtra": false
+	},
+	{
+		"name": "to_string",
+		"opcode": 688,
+		"hasExtra": false
+	}
+]

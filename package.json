@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Pyragon/cs2-decompiler/issues"
   },
-  "homepage": "https://github.com/Pyragon/cs2-decompiler#readme"
+  "homepage": "https://github.com/Pyragon/cs2-decompiler#readme",
+  "dependencies": {
+    "underscore": "^1.10.2"
+  }
 }
