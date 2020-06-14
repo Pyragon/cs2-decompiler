@@ -131,6 +131,8 @@
 	},
 	{
 		"name": "send_message",
+		"popOrder": [ "s" ],
+		"returnType": "void",
 		"opcode": 471,
 		"hasExtra": false
 	},
