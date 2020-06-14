@@ -28,6 +28,10 @@ class Printer {
 
     printInstruction(results) {
         switch(results.type) {
+			case 'STATEMENT':
+				this.print('TESTING STATEMENT');
+				this.newLine();
+				break;
             case 'VARIABLE_ASSIGNATION':
                 this.print(results.value.variable.name+' = ');
                 this.printInstruction(results.value.value);

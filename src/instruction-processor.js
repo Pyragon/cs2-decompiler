@@ -13,6 +13,8 @@ const process = function(script) {
         printer.newLine();
     });
 
+	let scope = [];
+
     let iStack = [];
 
     let sStack = [];
@@ -27,7 +29,6 @@ const process = function(script) {
         let variable;
         let variableIndex;
         let goto;
-        console.log(instruction);
         switch(instruction.name) {
             case 'PUSH_INT':
             case 'PUSH_STRING':
@@ -84,33 +85,32 @@ const process = function(script) {
                 });
                 break;
             case 'INT_LT':
-                let right = iStack.pop();
-                let left = iStack.pop();
-                goto = script.instructions[++i];
-                let gotoSize = script.iValues[i];
-                printer.print('if(');
-                printer.printInstruction(left);
-                printer.print(' < ');
-                printer.printInstruction(right);
-                printer.print(') {');
-                printer.newLine();
-                printer.tab();
-                console.log(iStack, lStack, sStack);
-                for(let k = 0; k < gotoSize; k++) {
+				let expr = [];
+				expr.push(this.asType('EXPRESSION')({
+					right: iStack.pop(),
+					left: iStack.pop(),
+					type: instruction.name
+				}));
+                results = this.asType('STATEMENT')({
+					expr,
+					scope: []
+				});
+
+                let gotoSize = script.iValues[++i];
+				let s = results.value.scope;
+				for(let k = 0; k < gotoSize; k++) {
                     let instr = script.instructions[++i];
-                    if(instr.name === 'GOTO') {
-                        printer.untab();
-                        printer.print('} else {');
-                        printer.newLine();
-                        printer.tab();
-                        gotoSize += script.iValues[i];
-                    } else {
-                        i = processInstruction(instr, i);
-                    }
+					if(instr.name === 'GOTO') {
+							results.value.hasElse = true;
+							results.value.else = {};
+							results.value.else.scope = [];
+							s = results.value.else.scope;
+							gotoSize += script.iValues[i];
+					}
+					let result;
+					[i, result] = processInstruction(instr, i);
+					if(result) s.push(result);
                 }
-                printer.untab();
-                printer.print('}');
-                printer.newLine();
                 break;
             case 'RETURN':
                 let size = iStack.length + sStack.length + lStack.length;
@@ -156,15 +156,16 @@ const process = function(script) {
                 break;
         }
         if(iStack.length == 0 && sStack.length == 0 && lStack.length == 0 && results) {
-            printer.printInstruction(results);
+            return [i, results];
         }
-        return i;
+        return [i, undefined];
     }
     for(let i = 0; i < script.instructions.length; i++) {
-        i = processInstruction(script.instructions[i], i);
-    }
+        [i, results] = processInstruction(script.instructions[i], i);
+    	if(results) scope.push(results);
+	}
 
-    console.log(printer.getData());
+    console.log(scope);
 
 }
 
