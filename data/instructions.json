@@ -138,6 +138,8 @@
 	},
 	{
 		"name": "to_string",
+		"popOrder": [ "i" ],
+		"returnType": "string",
 		"opcode": 688,
 		"hasExtra": false
 	}

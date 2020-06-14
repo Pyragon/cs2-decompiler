@@ -95,9 +95,18 @@ const process = function(script) {
                 printer.print(') {');
                 printer.newLine();
                 printer.tab();
+                console.log(iStack, lStack, sStack);
                 for(let k = 0; k < gotoSize; k++) {
                     let instr = script.instructions[++i];
-                    i = processInstruction(instr, i);
+                    if(instr.name === 'GOTO') {
+                        printer.untab();
+                        printer.print('} else {');
+                        printer.newLine();
+                        printer.tab();
+                        gotoSize += script.iValues[i];
+                    } else {
+                        i = processInstruction(instr, i);
+                    }
                 }
                 printer.untab();
                 printer.print('}');
@@ -105,7 +114,10 @@ const process = function(script) {
                 break;
             case 'RETURN':
                 let size = iStack.length + sStack.length + lStack.length;
-                if(size > 1) throw new Error('Only 1 value can be returned');
+                if(size > 1) {
+                    console.log(printer.getData());
+                    throw new Error('Only 1 value can be returned');
+                }
                 if(iStack.length > 0)
                     value = iStack.pop();
                 else if(sStack.length > 0)
