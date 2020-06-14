@@ -101,12 +101,17 @@ const process = function(script) {
 				let s = results.value.scope;
 				for(let k = 0; k < gotoSize; k++) {
                     let instr = script.instructions[++i];
-					if(instr.name === 'GOTO') {
+					if(instr.name === 'GOTO' && k == gotoSize-1) {
+							let size = script.iValues[i];
+							if(size < 0) {
+								results.value.type = 'while';
+								break;
+							}
 							results.value.hasElse = true;
 							results.value.else = {};
 							results.value.else.scope = [];
 							s = results.value.else.scope;
-							gotoSize += script.iValues[i];
+							gotoSize += size;
 					}
 					let result;
 					[i, result] = processInstruction(instr, i);
@@ -135,6 +140,27 @@ const process = function(script) {
                 //get case addresses from switchMap
                 //count down, include all instructions in scope
                 break;
+			case 'ADD':
+			case 'DIVIDE':
+			case 'SUBTRACT':
+			case 'MULTIPLY':
+				//todo - add others like mod, xor, or, and
+				results = this.asType('CALC_FUNCTION')({
+					left: iStack.pop(),
+					right: iStack.pop()
+				});
+				let operator;
+				if(instruction.name === 'ADD')
+					operator = '+';
+				else if(instruction.name === 'SUBTRACT')
+					operator = '-';
+				else if(instruction.name === 'DIVIDE')
+					operator = '/';
+				else if(instruction.name === 'MULTIPLY')
+					operator = '*';
+				results.value.operator = operator;
+				iStack.push(results);
+				break;
             default:
                 let params = [];
                 if(!instruction.popOrder) break;

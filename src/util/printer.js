@@ -42,7 +42,7 @@ class Printer {
 				for(let scope of results.value.scope)
 					this.printInstruction(scope);
 				this.untab();
-				if(results.value.hasElse) {
+				if(results.value.hasElse && results.value.type !== 'while') {
 					this.print('} else {', false);
 					this.tab();
 					this.newLine();
@@ -108,6 +108,14 @@ class Printer {
                 this.print(')', false);
                 if(results.value.returnType === 'void') this.newLine();
                 break;
+			case 'CALC_FUNCTION':
+				this.print('calc(', false);
+				this.printInstruction(results.value.left);
+				this.print(' '+results.value.operator+' ', false);
+				this.printInstruction(results.value.right);
+				this.print(')', false);
+				break;
+			default: throw new Error('Missing instructions to print '+results.type);
         }
     }
 
