@@ -29,8 +29,43 @@ class Printer {
     printInstruction(results) {
         switch(results.type) {
 			case 'STATEMENT':
-				this.print('TESTING STATEMENT');
+				this.print(results.value.type+'(');
+				let expr = results.value.expr;
+				for(let i = 0; i < expr.length; i++) {
+					this.printInstruction(expr[i]);
+					if(i != expr.length-1)
+						this.print(' || ', false);
+				}
+				this.print(') {', false);
 				this.newLine();
+				this.tab();
+				for(let scope of results.value.scope)
+					this.printInstruction(scope);
+				this.untab();
+				if(results.value.hasElse) {
+					this.print('} else {', false);
+					this.tab();
+					this.newLine();
+					for(let scope of results.value.else.scope)
+						this.printInstruction(scope, false);
+				}
+				this.untab();
+				this.print('}');
+				this.newLine();
+				break;
+			case 'EXPRESSION':
+				let left = results.value.left;
+				let right = results.value.right;
+				let type = results.value.type;
+				this.printInstruction(left);
+				this.print(' ', false);
+				switch(type) {
+					case 'INT_LT':
+						this.print('<', false);
+						break;
+				}
+				this.print(' ', false);
+				this.printInstruction(right);
 				break;
             case 'VARIABLE_ASSIGNATION':
                 this.print(results.value.variable.name+' = ');

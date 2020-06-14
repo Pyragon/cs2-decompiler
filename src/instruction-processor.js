@@ -93,7 +93,8 @@ const process = function(script) {
 				}));
                 results = this.asType('STATEMENT')({
 					expr,
-					scope: []
+					scope: [],
+					type: 'if'
 				});
 
                 let gotoSize = script.iValues[++i];
@@ -165,8 +166,10 @@ const process = function(script) {
     	if(results) scope.push(results);
 	}
 
-    console.log(scope);
+    for(let result of scope)
+		printer.printInstruction(result);
 
+	console.log(printer.getData());
 }
 
 asType = (type) => (value) => ({
