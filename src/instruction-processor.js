@@ -101,30 +101,31 @@ const process = function(script) {
                     		left: iStack.pop(),
                     		type: instruction.name
                 		}));
-                    }
-                    [ i ] = processInstruction(script.instructions[++i], i);
+                    } else
+                        [ i ] = processInstruction(instr, i);
                 }
                 results = this.asType('STATEMENT')({
 					expr,
 					scope: [],
 					type: 'if'
 				});
-
-                let gotoSize = script.iValues[++i];
-				let s = results.value.scope;
-				for(let k = 0; k < gotoSize; k++) {
+                console.log('Next Instr:', script.instructions[++i]);
+                let gotoSize = script.iValues[i];
+                let s = results.value.scope;
+                let end = i+gotoSize;
+				while(i < end) {
                     let instr = script.instructions[++i];
-					if(instr.name === 'GOTO' && k == gotoSize-1) {
-							let size = script.iValues[i];
-							if(size < 0) {
-								results.value.type = 'while';
-								break;
-							}
-							results.value.hasElse = true;
-							results.value.else = {};
-							results.value.else.scope = [];
-							s = results.value.else.scope;
-							gotoSize += size;
+					if(instr.name === 'GOTO' && i == end) {
+						let size = script.iValues[i];
+						if(size < 0) {
+							results.value.type = 'while';
+							break;
+						}
+						results.value.hasElse = true;
+						results.value.else = {};
+						results.value.else.scope = [];
+						s = results.value.else.scope;
+						end += size;
 					}
 					let result;
 					[i, result] = processInstruction(instr, i);
