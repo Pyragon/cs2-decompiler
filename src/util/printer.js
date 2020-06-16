@@ -46,6 +46,8 @@ class Printer {
 				this.print(':', false);
 				this.tab();
 				this.newLine();
+				for(let scope of results.value.scope)
+					this.printInstruction(scope);
 				this.print('break');
 				this.untab();
 				this.newLine();

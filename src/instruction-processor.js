@@ -29,6 +29,8 @@ const process = function(script) {
         let variable;
         let variableIndex;
         let goto;
+		let gotoSize;
+		let scope;
         switch(instruction.name) {
             case 'PUSH_INT':
             case 'PUSH_STRING':
@@ -110,7 +112,7 @@ const process = function(script) {
 					type: 'if'
 				});
                 console.log('Next Instr:', script.instructions[++i]);
-                let gotoSize = script.iValues[i];
+               	gotoSize = script.iValues[i];
                 let s = results.value.scope;
                 let end = i+gotoSize;
 				while(i < end) {
@@ -154,12 +156,26 @@ const process = function(script) {
 				let switchMap = script.switchMap[switchIndex];
 				let cases = [];
 				variable = iStack.pop();
-				for(let casee of Object.keys(switchMap)) {
-					let gotoIndex = switchMap[casee];
-					cases.push(this.asType('CASE')({
-						value: casee
-					}));
-					console.log('GOTOINDEX:', casee, gotoIndex);
+				gotoSize = script.iValues[++i];
+				let sscope;
+				for(let k = 1; k < gotoSize+2; k++) {
+					nextInstr = script.instructions[i++];
+					console.log('NEXT:', nextInstr);
+					if(nextInstr.name === 'GOTO') {
+						let value = switchMap[k];
+						cases.push(this.asType('CASE')({
+							value,
+							scope: []
+						}));
+						sscope = cases[cases.length-1].value.scope;
+					} else {
+						let result;
+						[ i, result ] = processInstruction(nextInstr, i);
+						if(result) {
+							console.log('scope:', result);
+							sscope.push(result);
+						}
+					}
 				}
 				results = this.asType('SWITCH_STATEMENT')({
 					variable,

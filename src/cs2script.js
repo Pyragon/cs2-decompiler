@@ -93,7 +93,7 @@ class CS2Script {
 				while(size-- > 0) {
 					let casee = stream.readInt();
 					let addr = stream.readInt();
-					this.switchMap[i][casee] = addr;
+					this.switchMap[i][addr] = casee;
 				}
 			}
 		}
