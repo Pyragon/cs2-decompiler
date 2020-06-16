@@ -28,6 +28,28 @@ class Printer {
 
     printInstruction(results) {
         switch(results.type) {
+			case 'SWITCH_STATEMENT':
+				this.print('switch(');
+				this.printInstruction(results.value.variable);
+				this.print(') {', false);
+				this.tab();
+				this.newLine();
+				for(let casee of results.value.cases)
+					this.printInstruction(casee);
+				this.untab();
+				this.newLine();
+				this.print('}', false);
+				break;
+			case 'CASE':
+				this.print('case ');
+				this.print(results.value.value, false);
+				this.print(':', false);
+				this.tab();
+				this.newLine();
+				this.print('break');
+				this.untab();
+				this.newLine();
+				break;
 			case 'STATEMENT':
 				this.print(results.value.type+'(');
 				let expr = results.value.expr;

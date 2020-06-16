@@ -150,9 +150,21 @@ const process = function(script) {
                 });
                 break;
             case 'SWITCH':
-                //TODO
-                //get case addresses from switchMap
-                //count down, include all instructions in scope
+            	let switchIndex = script.iValues[i];
+				let switchMap = script.switchMap[switchIndex];
+				let cases = [];
+				variable = iStack.pop();
+				for(let casee of Object.keys(switchMap)) {
+					let gotoIndex = switchMap[casee];
+					cases.push(this.asType('CASE')({
+						value: casee
+					}));
+					console.log('GOTOINDEX:', casee, gotoIndex);
+				}
+				results = this.asType('SWITCH_STATEMENT')({
+					variable,
+					cases
+				});
                 break;
 			case 'ADD':
 			case 'DIVIDE':
