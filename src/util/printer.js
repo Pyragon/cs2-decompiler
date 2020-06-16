@@ -31,6 +31,7 @@ class Printer {
 			case 'STATEMENT':
 				this.print(results.value.type+'(');
 				let expr = results.value.expr;
+				console.log('Expressions:', expr);
 				for(let i = 0; i < expr.length; i++) {
 					this.printInstruction(expr[i]);
 					if(i != expr.length-1)

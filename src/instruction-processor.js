@@ -91,6 +91,19 @@ const process = function(script) {
 					left: iStack.pop(),
 					type: instruction.name
 				}));
+                let tillGoto = script.iValues[i];
+                for(let k = 0; k < tillGoto-1; k++) {
+                    let instr = script.instructions[++i];
+                   	console.log('TILLGOTO:', instr);
+					if(instr.name === 'INT_LT') {
+						expr.push(this.asType('EXPRESSION')({
+                    		right: iStack.pop(),
+                    		left: iStack.pop(),
+                    		type: instruction.name
+                		}));
+                    }
+                    [ i ] = processInstruction(script.instructions[++i], i);
+                }
                 results = this.asType('STATEMENT')({
 					expr,
 					scope: [],
