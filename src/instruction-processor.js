@@ -38,7 +38,7 @@ const process = function(script) {
                 name = instruction.name;
                 type = name.split('_')[1].toLowerCase();
                 if(type === 'int') value = script.iValues[i];
-                else if(type === 'string') value = script.sValues[i];
+                else if(type === 'string') value = script.sValues[i-1]; //i have no idea why...
                 else if(type === 'long') value = script.lValues[i];
                 results = this.asType('LITERAL')({
                     name,
