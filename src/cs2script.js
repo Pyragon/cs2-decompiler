@@ -56,15 +56,15 @@ class CS2Script {
 
 		for(let i = 0; i < intArgs; i++) {
 			let index = vIndex++;
-			this.variables.push({ type: 'int', vType: 'arg', name: argNames[index], index })
+			this.variables.push({ type: 'int', vType: 'arg', name: this.args[index].name, index })
 		}
 		for(let i = 0; i < stringArgs; i++) {
 			let index = vIndex++;
-			this.variables.push({ type: 'string', vType: 'arg', name: argNames[index], index })
+			this.variables.push({ type: 'string', vType: 'arg', name: this.args[index].name, index })
 		}
 		for(let i = 0; i < longArgs; i++) {
 			let index = vIndex++;
-			this.variables.push({ type: 'long', vType: 'arg', name: argNames[index], index })
+			this.variables.push({ type: 'long', vType: 'arg', name: this.args[index].name, index })
 		}
 		for(let i = 0; i < intLocalsCount; i++) {
 			let index = vIndex++;
