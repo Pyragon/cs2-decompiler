@@ -123,11 +123,11 @@ class Printer {
                 this.newLine();
                 break;
             case 'FUNCTION_CALL':
-                this.print(results.value.name+'(', results.value.returnType === 'void');
-                for(let i = 0; i < results.value.params.length; i++) {
+                this.print(results.value.name.toLowerCase()+'(', results.value.returnType === 'void');
+                for(let i = results.value.params.length-1; i >= 0; i--) {
                     let param = results.value.params[i];
                     this.printInstruction(param);
-                    if(i != results.value.params.length-1)
+                    if(i != 0)
                         this.print(', ', false);
                 }
                 this.print(')', false);
