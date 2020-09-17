@@ -211,6 +211,15 @@ const process = function(script) {
                     if(s == 's') result = sStack.pop();
                     else if(s == 'i') result = iStack.pop();
                     else if(s == 'l') result = lStack.pop();
+                    else if(s == 'ic') {
+                        let interfaceHash = iStack.pop().value.value;
+                        let interfaceId = interfaceHash >> 16;
+                        let componentId = interfaceHash - (interfaceId << 16);
+                        result = this.asType('LITERAL')({
+                            type: 'int',
+                            value: `if_gethash(${interfaceId}, ${componentId})`
+                        });
+                    }
                     params.push(result);
                 }
                 results = this.asType('FUNCTION_CALL')({
