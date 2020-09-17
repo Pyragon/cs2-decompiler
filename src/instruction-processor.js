@@ -67,6 +67,11 @@ const process = function(script) {
                 else if(type === 'string') sStack.push(results);
                 else if(type === 'long') lStack.push(results);
                 break;
+            case 'LOAD_VARC':
+                iStack.push(this.asType('LOAD_VARC')({
+                    value: script.iValues[i]
+                }));
+                break;
             case 'STORE_INT':
             case 'STORE_STRING':
             case 'STORE_LONG':

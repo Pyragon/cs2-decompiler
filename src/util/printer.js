@@ -100,6 +100,9 @@ class Printer {
             case 'VARIABLE_LOAD':
                 this.print(results.value.variable.name, false);
                 break;
+            case 'LOAD_VARC':
+                this.print('load_varc('+results.value.value+')', false);
+                break;
             case 'LITERAL':
                 let value = results.value.value;
                 switch(results.value.type) {
