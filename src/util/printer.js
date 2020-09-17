@@ -146,7 +146,7 @@ class Printer {
 
     printScriptData(script) {
         this.print('//');
-        this.print(script.name);
+        this.print(script.name == null ? 'script'+script.id : script.name);
         this.print(`(${script.id})`);
         this.print('(');
         this.print(script.variables.filter(e => e.vType === 'arg').join(','));
