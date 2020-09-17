@@ -1,146 +1,1595 @@
 [
-	{
-		"name": "PUSH_INT",
-		"opcode": 79,
-		"hasExtra": true
-	},
-	{
-		"name": "PUSH_STRING",
-		"opcode": 57,
-		"hasExtra": true
-	},
-	{
-		"name": "PUSH_LONG",
-		"opcode": 633,
-		"hasExtra": true
-	},
-	{
-		"name": "STORE_INT",
-		"opcode": 168,
-		"hasExtra": true
-	},
-	{
-		"name": "STORE_STRING",
-		"opcode": 356,
-		"hasExtra": true
-	},
-	{
-		"name": "STORE_LONG",
-		"opcode": 987,
-		"hasExtra": true
-	},
-	{
-		"name": "LOAD_INT",
-		"opcode": 500,
-		"hasExtra": true
-	},
-	{
-		"name": "LOAD_STRING",
-		"opcode": 799,
-		"hasExtra": true
-	},
-	{
-		"name": "LOAD_LONG",
-		"opcode": 473,
-		"hasExtra": true
-	},
-	{
-		"name": "ADD",
-		"opcode": 279,
-		"hasExtra": false
-	},
-	{
-		"name": "SUBTRACT",
-		"opcode": 130,
-		"hasExtra": true
-	},
-	{
-		"name": "DIVIDE",
-		"opcode": 56,
-		"hasExtra": false
-	},
-	{
-		"name": "MULTIPLY",
-		"opcode": 367,
-		"hasExtra": false
-	},
-	{
-		"name": "RETURN",
-		"opcode": 184,
-		"hasExtra": false
-	},
-	{
-		"name": "load_varc",
-		"opcode": 311,
-		"hasExtra": true
-	},
-	{
-		"name": "store_varc",
-		"opcode": 510,
-		"hasExtra": true
-	},
-	{
-		"name": "CALL_CS2",
-		"opcode": 902,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_LT",
-		"opcode": 566,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_GT",
-		"opcode": 939,
-		"hasExtra": true
-	},
-	{
-		"name": "GOTO",
-		"opcode": 123,
-		"hasExtra": true
-	},
-	{
-		"name": "if_isopen",
-		"opcode": 888,
-		"hasExtra": false
-	},
-	{
-		"name": "INT_EQ",
-		"opcode": 933,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_GE",
-		"opcode": 319,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_LE",
-		"opcode": 670,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_NE",
-		"opcode": 693,
-		"hasExtra": true
-	},
-	{
-		"name": "SWITCH",
-		"opcode": 377,
-		"hasExtra": true
-	},
-	{
-		"name": "send_message",
-		"popOrder": [ "s" ],
-		"returnType": "void",
-		"opcode": 471,
-		"hasExtra": false
-	},
-	{
-		"name": "to_string",
-		"popOrder": [ "i" ],
-		"returnType": "string",
-		"opcode": 688,
-		"hasExtra": false
-	}
+ {
+  "name": "PUSH_INT",
+  "opcode": 79,
+  "hasExtra": true
+ },
+ {
+  "name": "PUSH_STRING",
+  "opcode": 57,
+  "hasExtra": true
+ },
+ {
+  "name": "PUSH_LONG",
+  "opcode": 633,
+  "hasExtra": true
+ },
+ {
+  "name": "STORE_INT",
+  "opcode": 168,
+  "hasExtra": true
+ },
+ {
+  "name": "STORE_STRING",
+  "opcode": 356,
+  "hasExtra": true
+ },
+ {
+  "name": "STORE_LONG",
+  "opcode": 987,
+  "hasExtra": true
+ },
+ {
+  "name": "LOAD_INT",
+  "opcode": 500,
+  "hasExtra": true
+ },
+ {
+  "name": "LOAD_STRING",
+  "opcode": 799,
+  "hasExtra": true
+ },
+ {
+  "name": "LOAD_LONG",
+  "opcode": 473,
+  "hasExtra": true
+ },
+ {
+  "name": "ADD",
+  "opcode": 279,
+  "hasExtra": false
+ },
+ {
+  "name": "SUBTRACT",
+  "opcode": 130,
+  "hasExtra": true
+ },
+ {
+  "name": "DIVIDE",
+  "opcode": 56,
+  "hasExtra": false
+ },
+ {
+  "name": "MULTIPLY",
+  "opcode": 367,
+  "hasExtra": false
+ },
+ {
+  "name": "RETURN",
+  "opcode": 184,
+  "hasExtra": false
+ },
+ {
+  "name": "LOAD_VARC",
+  "opcode": 311,
+  "hasExtra": true
+ },
+ {
+  "name": "STORE_VARC",
+  "opcode": 510,
+  "hasExtra": true
+ },
+ {
+  "name": "CALL_CS2",
+  "opcode": 902,
+  "hasExtra": true
+ },
+ {
+  "name": "INT_LT",
+  "opcode": 566,
+  "hasExtra": true
+ },
+ {
+  "name": "INT_GT",
+  "opcode": 939,
+  "hasExtra": true
+ },
+ {
+  "name": "GOTO",
+  "opcode": 123,
+  "hasExtra": true
+ },
+ {
+  "name": "if_isopen",
+  "opcode": 888,
+  "hasExtra": false
+ },
+ {
+  "name": "INT_EQ",
+  "opcode": 933,
+  "hasExtra": true
+ },
+ {
+  "name": "INT_GE",
+  "opcode": 319,
+  "hasExtra": true
+ },
+ {
+  "name": "INT_LE",
+  "opcode": 670,
+  "hasExtra": true
+ },
+ {
+  "name": "INT_NE",
+  "opcode": 693,
+  "hasExtra": true
+ },
+ {
+  "name": "SWITCH",
+  "opcode": 377,
+  "hasExtra": true
+ },
+ {
+  "name": "send_message",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 471,
+  "hasExtra": false
+ },
+ {
+  "name": "to_string",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 688,
+  "hasExtra": false
+ },
+ {
+  "name": "SOUND_SYNTH",
+  "popOrder": [
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 2,
+  "hasExtra": false
+ },
+ {
+  "name": "RESUME_STRINGDIALOG",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 4,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6657",
+  "popOrder": [
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 6,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6823",
+  "popOrder": [],
+  "returnType": "void",
+  "opcode": 8,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setitem",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 13,
+  "hasExtra": false
+ },
+ {
+  "name": "container_free_space",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 20,
+  "hasExtra": false
+ },
+ {
+  "name": "item_wearpos",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 22,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6277",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 38,
+  "hasExtra": false
+ },
+ {
+  "name": "escape",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "string",
+  "opcode": 49,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6661",
+  "popOrder": [
+   "i",
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 61,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6676",
+  "popOrder": [
+   "i",
+   "ic"
+  ],
+  "returnType": "void",
+  "opcode": 68,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6879",
+  "popOrder": [
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 72,
+  "hasExtra": false
+ },
+ {
+  "name": "clientclock",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 80,
+  "hasExtra": false
+ },
+ {
+  "name": "ITEM_CERT",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 94,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6279",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 96,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_settextshadow",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 103,
+  "hasExtra": false
+ },
+ {
+  "name": "SUBSTRING",
+  "popOrder": [
+   "s",
+   "i",
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 108,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_sethide",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 112,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_create",
+  "popOrder": [
+   "i",
+   "i",
+   "ic"
+  ],
+  "returnType": "void",
+  "opcode": 113,
+  "hasExtra": false
+ },
+ {
+  "name": "RESUME_COUNTDIALOG",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 117,
+  "hasExtra": false
+ },
+ {
+  "name": "set_chat_type",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 118,
+  "hasExtra": false
+ },
+ {
+  "name": "set_bit",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 119,
+  "hasExtra": false
+ },
+ {
+  "name": "if_getlayer",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 135,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6148",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 137,
+  "hasExtra": false
+ },
+ {
+  "name": "inv_getnum",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 138,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setsize",
+  "popOrder": [
+   "i",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 140,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6704",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 141,
+  "hasExtra": false
+ },
+ {
+  "name": "enum_getreversecount",
+  "popOrder": [
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 149,
+  "hasExtra": false
+ },
+ {
+  "name": "CHAR_ISALPHANUMERIC",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 150,
+  "hasExtra": false
+ },
+ {
+  "name": "ACTIVECLANSETTINGS_GETAFFINEDRANK",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 166,
+  "hasExtra": false
+ },
+ {
+  "name": "if_gety",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 170,
+  "hasExtra": false
+ },
+ {
+  "name": "ignore_add",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 177,
+  "hasExtra": false
+ },
+ {
+  "name": "modulo",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 178,
+  "hasExtra": false
+ },
+ {
+  "name": "inv_getitem",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 180,
+  "hasExtra": false
+ },
+ {
+  "name": "FRIEND_COUNT",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 183,
+  "hasExtra": false
+ },
+ {
+  "name": "bit_and",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 199,
+  "hasExtra": false
+ },
+ {
+  "name": "userdetail_quickchat",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 201,
+  "hasExtra": false
+ },
+ {
+  "name": "WORLD_LANGUAGE",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 202,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_getparent",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 204,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SET2DANGLE",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 205,
+  "hasExtra": false
+ },
+ {
+  "name": "RESUME_NAMEDIALOG",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 216,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6075",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 223,
+  "hasExtra": false
+ },
+ {
+  "name": "if_setclickmask",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 224,
+  "hasExtra": false
+ },
+ {
+  "name": "chat_getmessage",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 231,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6213",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 255,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_dragpickup",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 259,
+  "hasExtra": false
+ },
+ {
+  "name": "if_getwidth",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 263,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setcolor",
+  "popOrder": [
+   "ico"
+  ],
+  "returnType": "void",
+  "opcode": 274,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setopbase",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 275,
+  "hasExtra": false
+ },
+ {
+  "name": "bit_flagged",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 278,
+  "hasExtra": false
+ },
+ {
+  "name": "TOSTRING_LOCALIZED",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 280,
+  "hasExtra": false
+ },
+ {
+  "name": "append",
+  "popOrder": [
+   "s",
+   "s"
+  ],
+  "returnType": "string",
+  "opcode": 286,
+  "hasExtra": false
+ },
+ {
+  "name": "item_useonname",
+  "popOrder": [
+   "i",
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 289,
+  "hasExtra": false
+ },
+ {
+  "name": "chat_playername",
+  "popOrder": [],
+  "returnType": "string",
+  "opcode": 292,
+  "hasExtra": false
+ },
+ {
+  "name": "fc_joinchat",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 293,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6644",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 297,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6342",
+  "popOrder": [
+   "f",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 300,
+  "hasExtra": false
+ },
+ {
+  "name": "stat",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 301,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6574",
+  "popOrder": [],
+  "returnType": "string",
+  "opcode": 309,
+  "hasExtra": false
+ },
+ {
+  "name": "item_uncert",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 313,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setoutline",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 317,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6004",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 333,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6606",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 334,
+  "hasExtra": false
+ },
+ {
+  "name": "chat_quickchatid",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 335,
+  "hasExtra": false
+ },
+ {
+  "name": "world_members",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 336,
+  "hasExtra": false
+ },
+ {
+  "name": "stat_base",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 340,
+  "hasExtra": false
+ },
+ {
+  "name": "if_setborderthickness",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 344,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6073",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 345,
+  "hasExtra": false
+ },
+ {
+  "name": "ACTIVECLANCHANNEL_FIND_AFFINED",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 347,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_settextfont",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 351,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SETPARAM_INT",
+  "popOrder": [
+   "ic",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 369,
+  "hasExtra": false
+ },
+ {
+  "name": "item_name",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 385,
+  "hasExtra": false
+ },
+ {
+  "name": "SOUND_VORBIS_RATE",
+  "popOrder": [
+   "i",
+   "i",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 395,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setfill",
+  "popOrder": [
+   "ib"
+  ],
+  "returnType": "void",
+  "opcode": 402,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_settiling",
+  "popOrder": [
+   "ib"
+  ],
+  "returnType": "void",
+  "opcode": 406,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setitem_nonum",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 412,
+  "hasExtra": false
+ },
+ {
+  "name": "world_isquickchat",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 427,
+  "hasExtra": false
+ },
+ {
+  "name": "if_getscrolly",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 428,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6280",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 436,
+  "hasExtra": false
+ },
+ {
+  "name": "ACTIVECLANSETTINGS_FIND_AFFINED",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 452,
+  "hasExtra": false
+ },
+ {
+  "name": "stringwidth",
+  "popOrder": [
+   "i",
+   "s"
+  ],
+  "returnType": "int",
+  "opcode": 459,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6292",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 461,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6573",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 462,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SETMODEL",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 488,
+  "hasExtra": false
+ },
+ {
+  "name": "CC_SETPARAM_INT",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 497,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6220",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "void",
+  "opcode": 512,
+  "hasExtra": false
+ },
+ {
+  "name": "friend_getslotfromname",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "int",
+  "opcode": 520,
+  "hasExtra": false
+ },
+ {
+  "name": "USERDETAIL_LOBBY_GRACEEXPIRY",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 522,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_gety",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 523,
+  "hasExtra": false
+ },
+ {
+  "name": "enum_getoutputcount",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 533,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6289",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 543,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_getwidth",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 545,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_settextalign",
+  "popOrder": [
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 546,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6129",
+  "popOrder": [
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 552,
+  "hasExtra": false
+ },
+ {
+  "name": "lower_string",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "string",
+  "opcode": 556,
+  "hasExtra": false
+ },
+ {
+  "name": "ACTIVECLANSETTINGS_GETAFFINEDSLOT",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "int",
+  "opcode": 557,
+  "hasExtra": false
+ },
+ {
+  "name": "CLAN_VARS_ENABLED",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 559,
+  "hasExtra": false
+ },
+ {
+  "name": "if_gethide",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 578,
+  "hasExtra": false
+ },
+ {
+  "name": "STRING_INDEXOF_CHAR",
+  "popOrder": [
+   "s",
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 593,
+  "hasExtra": false
+ },
+ {
+  "name": "CC_SETVFLIP",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 599,
+  "hasExtra": false
+ },
+ {
+  "name": "HOOK_MOUSE_EXIT",
+  "popOrder": [
+   "ic",
+   "f"
+  ],
+  "returnType": "void",
+  "opcode": 600,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SETMODELANGLE",
+  "popOrder": [
+   "ic",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 605,
+  "hasExtra": false
+ },
+ {
+  "name": "friend_add",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 609,
+  "hasExtra": false
+ },
+ {
+  "name": "invother_getitem",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 612,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6151",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 620,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6072",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 624,
+  "hasExtra": false
+ },
+ {
+  "name": "CHAR_ISPRINTABLE",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 638,
+  "hasExtra": false
+ },
+ {
+  "name": "CC_SETPARAM_STRING",
+  "popOrder": [
+   "i",
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 639,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6180",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 651,
+  "hasExtra": false
+ },
+ {
+  "name": "GENDER",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 657,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setop",
+  "popOrder": [
+   "s",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 671,
+  "hasExtra": false
+ },
+ {
+  "name": "ACTIVECLANCHANNEL_GETUSERRANK",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 673,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_find",
+  "popOrder": [
+   "i",
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 677,
+  "hasExtra": false
+ },
+ {
+  "name": "chatline_gettype",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 681,
+  "hasExtra": false
+ },
+ {
+  "name": "if_settextshadow",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 689,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SETMODELANIM",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 690,
+  "hasExtra": false
+ },
+ {
+  "name": "APPEND_CHAR",
+  "popOrder": [
+   "s",
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 701,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6296",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 704,
+  "hasExtra": false
+ },
+ {
+  "name": "if_getx",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 710,
+  "hasExtra": false
+ },
+ {
+  "name": "get_system_update_timer",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 715,
+  "hasExtra": false
+ },
+ {
+  "name": "invother_getnum",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 720,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SETTEXT",
+  "popOrder": [
+   "s",
+   "ic"
+  ],
+  "returnType": "void",
+  "opcode": 724,
+  "hasExtra": false
+ },
+ {
+  "name": "staffmodlevel",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 727,
+  "hasExtra": false
+ },
+ {
+  "name": "IGNORE_COUNT",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 735,
+  "hasExtra": false
+ },
+ {
+  "name": "if_gettext",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "string",
+  "opcode": 748,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setgraphicshadow",
+  "popOrder": [
+   "ihsv"
+  ],
+  "returnType": "void",
+  "opcode": 751,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SETTRANS",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 763,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6443",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 764,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_SETHFLIP",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 774,
+  "hasExtra": false
+ },
+ {
+  "name": "chat_getcrownedname",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 789,
+  "hasExtra": false
+ },
+ {
+  "name": "chat_getfilter_private",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 792,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_getheight",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 796,
+  "hasExtra": false
+ },
+ {
+  "name": "CC_GETX",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 797,
+  "hasExtra": false
+ },
+ {
+  "name": "compare",
+  "popOrder": [
+   "s",
+   "s"
+  ],
+  "returnType": "int",
+  "opcode": 810,
+  "hasExtra": false
+ },
+ {
+  "name": "if_setcolor",
+  "popOrder": [
+   "ic",
+   "ico"
+  ],
+  "returnType": "void",
+  "opcode": 816,
+  "hasExtra": false
+ },
+ {
+  "name": "ENUM_STRING",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 820,
+  "hasExtra": false
+ },
+ {
+  "name": "item_members",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 822,
+  "hasExtra": false
+ },
+ {
+  "name": "if_setscrollpos",
+  "popOrder": [
+   "ic",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 825,
+  "hasExtra": false
+ },
+ {
+  "name": "STRING_INDEXOF_STRING",
+  "popOrder": [
+   "s",
+   "s",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 844,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_setposition",
+  "popOrder": [
+   "i",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 847,
+  "hasExtra": false
+ },
+ {
+  "name": "IGNORE_DEL",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 871,
+  "hasExtra": false
+ },
+ {
+  "name": "friend_test",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "int",
+  "opcode": 879,
+  "hasExtra": false
+ },
+ {
+  "name": "friend_platform",
+  "popOrder": [],
+  "returnType": "int",
+  "opcode": 880,
+  "hasExtra": false
+ },
+ {
+  "name": "ACTIVECLANCHANNEL_GETUSERSLOT",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "int",
+  "opcode": 897,
+  "hasExtra": false
+ },
+ {
+  "name": "enum_getreverseindex",
+  "popOrder": [
+   "i",
+   "i",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 904,
+  "hasExtra": false
+ },
+ {
+  "name": "IF_GETTRANS",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 912,
+  "hasExtra": false
+ },
+ {
+  "name": "FRIEND_DEL",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 914,
+  "hasExtra": false
+ },
+ {
+  "name": "CHAR_ISNUMERIC",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 934,
+  "hasExtra": false
+ },
+ {
+  "name": "ITEM_IOP",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "string",
+  "opcode": 949,
+  "hasExtra": false
+ },
+ {
+  "name": "if_getheight",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 953,
+  "hasExtra": false
+ },
+ {
+  "name": "instr6584",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 958,
+  "hasExtra": false
+ },
+ {
+  "name": "IGNORE_TEST",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "int",
+  "opcode": 966,
+  "hasExtra": false
+ },
+ {
+  "name": "HOOK_MOUSE_ENTER",
+  "popOrder": [
+   "ic",
+   "f"
+  ],
+  "returnType": "void",
+  "opcode": 968,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_settext",
+  "popOrder": [
+   "s"
+  ],
+  "returnType": "void",
+  "opcode": 972,
+  "hasExtra": false
+ },
+ {
+  "name": "if_getscrollheight",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 978,
+  "hasExtra": false
+ },
+ {
+  "name": "CC_GETTEXT",
+  "popOrder": [],
+  "returnType": "string",
+  "opcode": 979,
+  "hasExtra": false
+ },
+ {
+  "name": "if_getnextsubid",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "int",
+  "opcode": 1000,
+  "hasExtra": false
+ }
 ]
