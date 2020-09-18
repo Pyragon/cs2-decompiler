@@ -33,7 +33,6 @@ for(let old of Object.values(oldInstructions)) {
 }
 
 fs.writeFileSync('./data/instructions.json', JSON.stringify(newInstructions, null, 1));
-console.log('done');
 
 
 
