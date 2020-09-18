@@ -38,8 +38,10 @@ const process = function(script) {
                 name = instruction.name;
                 type = name.split('_')[1].toLowerCase();
                 if(type === 'int') value = script.iValues[i];
-                else if(type === 'string') value = script.sValues[i-1]; //i have no idea why...
-                else if(type === 'long') value = script.lValues[i];
+                else if(type === 'string') {
+                    value = script.sValues[i-1]; //i have no idea why...
+                    if(!value) value = '';
+                } else if(type === 'long') value = script.lValues[i];
                 results = this.asType('LITERAL')({
                     name,
                     type,
@@ -101,7 +103,6 @@ const process = function(script) {
                 let tillGoto = script.iValues[i];
                 for(let k = 0; k < tillGoto-1; k++) {
                     let instr = script.instructions[++i];
-                   	console.log('TILLGOTO:', instr);
 					if(instr.name === 'INT_LT') {
 						expr.push(this.asType('EXPRESSION')({
                     		right: iStack.pop(),
@@ -116,7 +117,6 @@ const process = function(script) {
 					scope: [],
 					type: 'if'
 				});
-                console.log('Next Instr:', script.instructions[++i]);
                	gotoSize = script.iValues[i];
                 let s = results.value.scope;
                 let end = i+gotoSize;
@@ -165,7 +165,6 @@ const process = function(script) {
 				let sscope;
 				for(let k = 1; k < gotoSize+2; k++) {
 					nextInstr = script.instructions[i++];
-					console.log('NEXT:', nextInstr);
 					if(nextInstr.name === 'GOTO') {
 						let value = switchMap[k];
 						cases.push(this.asType('CASE')({
@@ -176,12 +175,10 @@ const process = function(script) {
 					} else {
 						let result;
 						[ i, result ] = processInstruction(nextInstr, i);
-						if(result) {
-							console.log('scope:', result);
+						if(result)
 							sscope.push(result);
 						}
 					}
-				}
 				results = this.asType('SWITCH_STATEMENT')({
 					variable,
 					cases
@@ -251,7 +248,7 @@ const process = function(script) {
     for(let result of scope)
 		printer.printInstruction(result);
 
-	console.log(printer.getData());
+	return printer.getData();
 }
 
 asType = (type) => (value) => ({

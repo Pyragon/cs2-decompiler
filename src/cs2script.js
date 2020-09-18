@@ -110,7 +110,10 @@ class CS2Script {
 			let opcode = stream.readUnsignedShort();
 			if(opcode < 0) throw new Error('Invalid instruction opcode: '+opcode);
 			let instruction = _instByOpcode[opcode];
-			if(!instruction) throw new Error('Missing instruction: '+opcode);
+			if(!instruction) {
+				console.log('Missing instruction: '+opcode+' for script: '+id);
+				return null;
+			}
 			let opIndex = opCount++;
 			if(instruction == _instByName['PUSH_STRING'])
 				sValues[opIndex] = stream.readString();
@@ -132,7 +135,7 @@ class CS2Script {
 		this.sValues = sValues;
 		this.lValues = lValues;
 
-		processor(this);
+		return processor(this);
 		
 	}
 
