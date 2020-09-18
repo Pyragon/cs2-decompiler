@@ -1,0 +1,4 @@
+Keep track of boolean inside variable called 'used'
+Upon first assignation, see if it's been used before, if not, just move to beginning and assign it
+(How to move to beginning and assign? Maybe run through first, see when it's used, and save that data, then look at that data
+when you're printing out, and see if it's been used by the time you assign it first, or assign it a second time.
