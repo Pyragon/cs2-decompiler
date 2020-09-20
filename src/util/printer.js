@@ -39,6 +39,7 @@ class Printer {
 				this.untab();
 				this.newLine();
 				this.print('}', false);
+                this.newLine();
 				break;
 			case 'CASE':
 				this.print('case ');
