@@ -60,22 +60,26 @@ class Printer {
 					if(i != expr.length-1)
 						this.print(' || ', false);
 				}
-				this.print(') {', false);
+                this.print(')', false);
+                if(results.value.scope > 1)
+                    this.print(' {', false);
 				this.newLine();
 				this.tab();
 				for(let scope of results.value.scope)
 					this.printInstruction(scope);
 				this.untab();
 				if(results.value.hasElse && results.value.type !== 'while') {
-					this.print('} else {', false);
+					this.print('} else {');
 					this.tab();
 					this.newLine();
 					for(let scope of results.value.else.scope)
 						this.printInstruction(scope, false);
-				}
 				this.untab();
+                }
+                if(results.value.scope.length > 1) {
 				this.print('}');
 				this.newLine();
+                }
 				break;
 			case 'EXPRESSION':
 				let left = results.value.left;
