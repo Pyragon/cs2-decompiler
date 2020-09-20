@@ -69,10 +69,50 @@ const process = function(script) {
                 else if(type === 'string') sStack.push(results);
                 else if(type === 'long') lStack.push(results);
                 break;
+            case 'MERGE_STRINGS':
+                let strings = [];
+                for(let i = 0; i < instruction.iValue; i++)
+                    strings.push(sStack.pop());
+                results = this.asType('MERGE_STRINGS')({
+                    strings
+                });
+                sStack.push(results);
+                break;
+            case 'ARRAY_LOAD':
+                let values = [ instruction.iValue, iStack.pop() ];
+                results = this.asType('ARRAY_LOAD')({
+                    values
+                });
+                iStack.push(results);
+                break;
+            case 'ARRAY_STORE':
+                let globalIndex = instruction.iValue;
+                value = iStack.pop();
+                let arrayIndex = iStack.pop();
+                results = this.asType('ARRAY_STORE')({
+                    globalIndex,
+                    arrayIndex,
+                    value
+                });
+                break;
+            case 'POP_STRING':
+                sStack.pop();
+                break;
+            case 'POP_INT':
+                iStack.pop();
+                break;
+            case 'LOAD_VARP':
+            case 'LOAD_VARPBIT':
             case 'LOAD_VARC':
-                iStack.push(this.asType('LOAD_VARC')({
-                    value: script.iValues[i]
+                iStack.push(this.asType(instruction.name)({
+                    value: instruction.iValue
                 }));
+                break;
+            case 'STORE_VARC':
+                results = this.asType('STORE_VARC')({
+                    id: script.iValues[i],
+                    value: iStack.pop()
+                });
                 break;
             case 'STORE_INT':
             case 'STORE_STRING':

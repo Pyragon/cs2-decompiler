@@ -106,7 +106,40 @@ class Printer {
                 this.print(results.value.variable.name, false);
                 break;
             case 'LOAD_VARC':
-                this.print('load_varc('+results.value.value+')', false);
+            case 'LOAD_VARP':
+            case 'LOAD_VARPBIT':
+                this.print(results.type.toLowerCase()+'('+results.value.value+')', false);
+                break;
+            case 'STORE_VARC':
+                this.print('store_varc('+results.value.id+', ', true);
+                this.printInstruction(results.value.value);
+                this.print(')', false);
+                this.newLine();
+                break;
+            case 'MERGE_STRINGS':
+                this.print('merge_strings(', false);
+                for(let i = 0; i < results.value.strings.length; i++) {
+                    this.printInstruction(results.value.strings[i]);
+                    if(i != results.value.strings.length-1)
+                        this.print(', ', false);
+                }
+                this.print('(', false);
+                break;
+            case 'ARRAY_LOAD':
+                this.print('globalArrays[', false);
+                this.print(results.value.values[0], false);
+                this.print('][', false);
+                this.printInstruction(results.value.values[1]);
+                this.print(']', false);
+                break;
+            case 'ARRAY_STORE':
+                this.print('globalArrays[', true);
+                this.print(results.value.globalIndex, false);
+                this.print('][', false);
+                this.printInstruction(results.value.arrayIndex);
+                this.print('] = ', false);
+                this.printInstruction(results.value.value);
+                this.newLine();
                 break;
             case 'LITERAL':
                 let value = results.value.value;
