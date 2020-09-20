@@ -37,11 +37,11 @@ const process = function(script) {
             case 'PUSH_LONG':
                 name = instruction.name;
                 type = name.split('_')[1].toLowerCase();
-                if(type === 'int') value = script.iValues[i];
+                if(type === 'int') value = instruction.iValue;
                 else if(type === 'string') {
-                    value = script.sValues[i-1]; //i have no idea why...
+                    value = instruction.sValue;
                     if(!value) value = '';
-                } else if(type === 'long') value = script.lValues[i];
+                } else if(type === 'long') value = instruction.lValue;
                 results = this.asType('LITERAL')({
                     name,
                     type,
@@ -201,12 +201,25 @@ const process = function(script) {
 				let switchMap = script.switchMap[switchIndex];
 				let cases = [];
 				variable = iStack.pop();
-				gotoSize = script.iValues[++i];
+				gotoSize = script.iValues[++i]+1;
 				let sscope;
-				for(let k = 1; k < gotoSize+2; k++) {
-					nextInstr = script.instructions[i++];
+				cases.push(this.asType('CASE')({
+					value: switchMap[1],
+					scope: []
+				}));
+                sscope = cases[cases.length-1].value.scope;
+				for(let k = 1; k < gotoSize; k++) {
+                    nextInstr = script.instructions[++i];
+                    if(!nextInstr) {
+                        console.log('next instr is null... '+(gotoSize-k));
+                        break typeS;
+                    }
 					if(nextInstr.name === 'GOTO') {
-						let value = switchMap[k];
+                        let value = switchMap[k+1];
+                        if(!value) {
+                            value = 'default';
+                            gotoSize += nextInstr.iValue;
+                        }
 						cases.push(this.asType('CASE')({
 							value,
 							scope: []
@@ -214,7 +227,9 @@ const process = function(script) {
 						sscope = cases[cases.length-1].value.scope;
 					} else {
 						let result;
+                        let startI = i;
 						[ i, result ] = processInstruction(nextInstr, i);
+                        k += (i-startI);
 						if(result)
 							sscope.push(result);
 						}
