@@ -48,6 +48,7 @@ class Printer {
 				this.newLine();
 				for(let scope of results.value.scope)
 					this.printInstruction(scope);
+                if(results.value.scope[results.value.scope.length-1].type != 'RETURN_STATEMENT')
 				this.print('break');
 				this.untab();
 				this.newLine();
