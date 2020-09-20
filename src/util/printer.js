@@ -163,6 +163,15 @@ class Printer {
                 }
                 this.newLine();
                 break;
+            case 'STRUCT':
+                let values = results.value.params;
+                let id = results.value.id;
+                for(let i = 0; i < values.length; i++) {
+                    this.printInstruction(values[i]);
+                    if(i != values.length-1)
+                        this.print(', ', false);
+                }
+                break;
             case 'FUNCTION_CALL':
                 this.print(results.value.name.toLowerCase()+'(', results.value.returnType === 'void');
                 for(let i = results.value.params.length-1; i >= 0; i--) {

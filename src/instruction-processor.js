@@ -181,9 +181,47 @@ const process = function(script) {
                 break;
             case 'RETURN':
                 let size = iStack.length + sStack.length + lStack.length;
-                if(size > 1) {
-                    console.log(printer.getData());
+                if(!script.returnType) {
+                    if(size == 1)
+                        script.returnType = iStack.length > 0 ? 'int' : sStack.length > 0 ? 'string': 'long';
+                    else {
+                        let returnTypes = [];
+                        for(let i = 0; i < iStack.length; i++)
+                            returnTypes.push('int');
+                        for(let i = 0; i < sStack.length; i++)
+                            returnTypes.push('string');
+                        for(let i = 0; i < lStack.length; i++)
+                            returnTypes.push('long');
+                        script.returnType = 'script_'+script.id+'_struct('+returnTypes.join(', ')+')';
+                    }    
+                }
+                if(size > 1 && !script.returnType.includes('struct')) {
+                    console.log('Printing remaining info');
+                    while(iStack.length > 0)
+                        console.log(iStack.pop());
+                    while(sStack.length > 0)
+                        console.log(sStack.pop());
+                    while(lStack.length > 0)
+                        console.log(lStack.pop());
                     throw new Error('Only 1 value can be returned');
+                }
+                if(script.returnType.includes('struct')) {
+                    let returnTypes = script.returnType.substring(script.returnType.indexOf('(') + 1, script.returnType.indexOf(')')).split(';');
+                    params = [];
+                    for(let i = 0; i < returnTypes.length; i++) {
+                        let type = returnTypes[i];
+                        if(type === 'int') params.push(iStack.pop());
+                        else if(type === 'string') params.push(sStack.pop());
+                        else if(type === 'long') params.push(lStack.pop());
+                    }
+                    value = this.asType('STRUCT')({
+                        id: script.id,
+                        params
+                    });
+                    results = this.asType('RETURN_STATEMENT')({
+                        value
+                    });
+                    break;
                 }
                 if(iStack.length > 0)
                     value = iStack.pop();
