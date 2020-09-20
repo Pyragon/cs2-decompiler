@@ -1,5 +1,6 @@
 const Printer = require('./util/printer');
 const _instructions = require('./util/instructions');
+const _scripts = require('./util/scripts.js');
 
 const process = function(script) {
 
@@ -30,8 +31,9 @@ const process = function(script) {
         let variableIndex;
         let goto;
 		let gotoSize;
-		let scope;
-        switch(instruction.name) {
+        let scope;
+        let params;
+        typeS: switch(instruction.name) {
             case 'PUSH_INT':
             case 'PUSH_STRING':
             case 'PUSH_LONG':
@@ -134,16 +136,20 @@ const process = function(script) {
                 });
                 break;
             case 'INT_LT':
+            case 'INT_GE':
+            case 'INT_EQ':
+            case 'INT_NE':
 				let expr = [];
 				expr.push(this.asType('EXPRESSION')({
 					right: iStack.pop(),
 					left: iStack.pop(),
 					type: instruction.name
-				}));
+                }));
                 let tillGoto = script.iValues[i];
-                for(let k = 0; k < tillGoto-1; k++) {
+                for(let k = 0; k < tillGoto; k++) {
                     let instr = script.instructions[++i];
-					if(instr.name === 'INT_LT') {
+                    if(instr.name === 'INT_LT' || instr.name === 'INT_GE' || instr.name === 'INT_EQ'
+                        || instr.name === 'INT_NE') {
 						expr.push(this.asType('EXPRESSION')({
                     		right: iStack.pop(),
                     		left: iStack.pop(),
@@ -156,7 +162,7 @@ const process = function(script) {
 					expr,
 					scope: [],
 					type: 'if'
-				});
+                });
                	gotoSize = script.iValues[i];
                 let s = results.value.scope;
                 let end = i+gotoSize;
@@ -240,7 +246,7 @@ const process = function(script) {
 				let cases = [];
 				variable = iStack.pop();
 				gotoSize = script.iValues[++i]+1;
-				let sscope;
+                let sscope;
 				cases.push(this.asType('CASE')({
 					value: switchMap[1],
 					scope: []
@@ -264,14 +270,14 @@ const process = function(script) {
 						}));
 						sscope = cases[cases.length-1].value.scope;
 					} else {
-						let result;
+                        let result;
                         let startI = i;
-						[ i, result ] = processInstruction(nextInstr, i);
+                        [ i, result ] = processInstruction(nextInstr, i);
                         k += (i-startI);
-						if(result)
+						if(result) 
 							sscope.push(result);
-						}
 					}
+                }
 				results = this.asType('SWITCH_STATEMENT')({
 					variable,
 					cases
@@ -297,9 +303,81 @@ const process = function(script) {
 					operator = '*';
 				results.value.operator = operator;
 				iStack.push(results);
-				break;
+                break;
+            case 'CALL_CS2':
+                let scriptId = script.iValues[i];
+                if(!_scripts[scriptId]) {
+                    console.error('Missing information for script: '+scriptId);
+                    break typeS;
+                }
+                let callScript = _scripts[scriptId];
+                let argTypes = callScript.argTypes.split(',');
+                if(argTypes.length == 1 && !argTypes[0])
+                    argTypes = [];
+                params = [];
+                if(argTypes.length > 0) {
+                    for(let i = argTypes.length-1; i >= 0; i--) {
+                        let value;
+                        if(argTypes[i] == 'int')
+                            value = iStack.pop();
+                        else if(argTypes[i] == 'string')
+                            value = sStack.pop();
+                        else if(argTypes[i] == 'long')
+                            value = lStack.pop();
+                        params[i] = value;
+                    }
+                }
+                results = this.asType('CALL_CS2')({
+                    name: callScript.name == null ? 'script'+callScript.id : callScript.name,
+                    params,
+                    returnType: callScript.returnType
+                });
+                if(callScript.returnType == 'int') iStack.push(results);
+                else if(callScript.returnType == 'string') sStack.push(results);
+                else if(callScript.returnType == 'long') lStack.push(results);
+                break;
+            case 'HOOK_MOUSE_PRESS':
+            case 'instr6248':
+                let component;
+                if(instruction.hasExtraHook)
+                    component = iStack.pop();
+                let paramTypes = sStack.pop();
+                if(paramTypes.type != 'LITERAL')
+                    throw new Error('Expected param types to be a literal string');
+                let paramTypesE = JSON.parse(JSON.stringify(paramTypes));
+                paramTypes = paramTypes.value.value;
+                let intArr;
+                if(paramTypes.length > 0 && paramTypes[paramTypes.length-1] == 'Y') {
+                    let size = iStack.pop().value.value;
+                    if(size > 0) {
+                        intArr = [];
+                        while(size-- > 0)
+                            intArr[size] = iStack.pop();
+                        paramTypes = paramTypes.substring(0, paramTypes.length-1);
+                    }
+                }
+                params = [];
+                for(let i = paramTypes.length; i >= 1; --i) {
+                    if(paramTypes[i-1] == 'i')
+                        params[i] = iStack.pop();
+                    else if(paramTypes[i-1] == 's')
+                        params[i] = sStack.pop();
+                    else if(paramTypes[i-1] == 'l')
+                        params[i] = lStack.pop();
+                    else
+                        params[i] = iStack.pop();
+                }
+                params[0] = iStack.pop();
+                results = this.asType('HOOK')({
+                    name: instruction.name,
+                    paramTypes: paramTypesE,
+                    intArr,
+                    params,
+                    component
+                });
+                break;
             default:
-                let params = [];
+                params = [];
                 if(!instruction.popOrder) break;
                 for(let s of instruction.popOrder) {
                     let result;
@@ -333,9 +411,12 @@ const process = function(script) {
         }
         return [i, undefined];
     }
+    if(!script.instructions) {
+        console.log(script);
+    }
     for(let i = 0; i < script.instructions.length; i++) {
         [i, results] = processInstruction(script.instructions[i], i);
-    	if(results) scope.push(results);
+        if(results) scope.push(results);
 	}
 
     for(let result of scope)
@@ -343,6 +424,16 @@ const process = function(script) {
 
 	return printer.getData();
 }
+
+toString = (instruction) => {
+    if(!instruction.iValue)
+        delete instruction['iValue'];
+    if(!instruction.sValue)
+        delete instruction['sValue'];
+    if(!instruction.lValue)
+        delete instruction['lValue'];
+    return instruction;
+};
 
 asType = (type) => (value) => ({
     type,

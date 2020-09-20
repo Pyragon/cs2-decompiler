@@ -18,15 +18,17 @@ class CS2Script {
 
 	decode(id, data) {
 		let script = _scripts[id];
-		if(!script)
-			throw new Error('Currently not auto getting script data. Please add manually');
-		this.returnType = script.returnType;
-		this.args = [];
-		for(let i = 0; i < script.argTypes.length; i++) {
-			this.args.push({
-				name: script.argNames[i],
-				type: script.argTypes[i]
-			});
+		this.args;
+		if(script) {
+			this.args = [];
+			let splitTypes = script.argTypes.split(',');
+			let splitNames = script.argNames.split(',');
+			for(let i = 0; i < splitTypes.length; i++) {
+				this.args.push({
+					name: splitNames[i],
+					type: splitTypes[i]
+				});
+			}
 		}
 
 		let stream = new InStream(data);
@@ -52,6 +54,29 @@ class CS2Script {
 		let stringArgs = stream.readUnsignedShort();
 		let longArgs = stream.readUnsignedShort();
 
+		if(!this.args) {
+			this.args = [];
+			let argIndex = 0;
+			for(let i = 0; i < intArgs.length; i++) {
+				this.args.push({
+					type: 'int',
+					name: 'arg'+argIndex++
+				});
+			}
+			for(let i = 0; i < stringArgs.length; i++) {
+				this.args.push({
+					type: 'string',
+					name: 'arg'+argIndex++
+				});
+			}
+			for(let i = 0; i < longArgs.length; i++) {
+				this.args.push({
+					type: 'long',
+					name: 'arg'+argIndex++
+				});
+			}
+		}
+
 		this.variables = [];
 
 		for(let i = 0; i < intArgs; i++) {
@@ -66,15 +91,15 @@ class CS2Script {
 			let index = vIndex++;
 			this.variables.push({ type: 'long', vType: 'arg', name: this.args[index].name, index })
 		}
-		for(let i = 0; i < intLocalsCount; i++) {
+		for(let i = 0; i < intLocalsCount-intArgs; i++) {
 			let index = vIndex++;
 			this.variables.push({ type: 'int', vType: 'var', name: 'var'+index, index })
 		}
-		for(let i = 0; i < stringLocalsCount; i++) {
+		for(let i = 0; i < stringLocalsCount-stringArgs; i++) {
 			let index = vIndex++;
 			this.variables.push({ type: 'string', vType: 'var', name: 'var'+index, index })
 		}
-		for(let i = 0; i < longLocalsCount; i++) {
+		for(let i = 0; i < longLocalsCount-longArgs; i++) {
 			let index = vIndex++;
 			this.variables.push({ type: 'long', vType: 'var', name: 'var'+index, index })
 		}
@@ -114,6 +139,7 @@ class CS2Script {
 				console.log('Missing instruction: '+opcode+' for script: '+id);
 				return null;
 			}
+			// console.log(instruction);
 			let opIndex = opCount++;
 			if(instruction == _instByName['PUSH_STRING'])
 				sValues[opIndex] = stream.readString();
@@ -125,6 +151,11 @@ class CS2Script {
 				else
 					iValues[opIndex] = stream.readUnsignedByte();
 			}
+			instruction = JSON.parse(JSON.stringify(instruction));
+			instruction.index = opIndex;
+			instruction.iValue = iValues[opIndex];
+			instruction.sValue = sValues[opIndex];
+			instruction.lValue = lValues[opIndex];
 			instructions[opIndex] = instruction;
 		}
 

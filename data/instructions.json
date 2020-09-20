@@ -20,6 +20,18 @@
   "hasExtra": true
  },
  {
+  "name": "HOOK_MOUSE_PRESS",
+  "opcode": 881,
+  "hasExtra": false,
+  "hasExtraHook": true
+ },
+ {
+  "name": "instr6248",
+  "opcode": 730,
+  "hasExtra": false,
+  "hasExtraHook": true
+ },
+ {
   "name": "STORE_STRING",
   "opcode": 356,
   "hasExtra": true
@@ -40,6 +52,26 @@
   "hasExtra": true
  },
  {
+  "name": "LOAD_VARP",
+  "opcode": 154,
+  "hasExtra": true
+ },
+ {
+  "name": "LOAD_VARPBIT",
+  "opcode": 408,
+  "hasExtra": true
+ },
+ {
+  "name": "POP_STRING",
+  "opcode": 354,
+  "hasExtra": false
+ },
+ {
+  "name": "POP_INT",
+  "opcode": 492,
+  "hasExtra": false
+ },
+ {
   "name": "LOAD_LONG",
   "opcode": 473,
   "hasExtra": true
@@ -52,7 +84,7 @@
  {
   "name": "SUBTRACT",
   "opcode": 130,
-  "hasExtra": true
+  "hasExtra": false
  },
  {
   "name": "DIVIDE",
@@ -69,6 +101,21 @@
   "opcode": 184,
   "hasExtra": false
  },
+	{
+		"name": "ARRAY_LOAD",
+		"opcode": 859,
+		"hasExtra": true
+	},
+	{
+		"name": "ARRAY_STORE",
+		"opcode": 116,
+		"hasExtra": true
+	},
+	{
+		"name": "MERGE_STRINGS",
+		"opcode": 531,
+		"hasExtra": true
+	},
  {
   "name": "LOAD_VARC",
   "opcode": 311,
@@ -185,6 +232,89 @@
   ],
   "returnType": "void",
   "opcode": 6,
+  "hasExtra": false
+ },
+ {
+  "name": "if_setposition",
+  "popOrder": [
+   "ic",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 937,
+  "hasExtra": false
+ },
+ {
+  "name": "if_setsize",
+  "popOrder": [
+   "ic",
+   "i",
+   "i",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 982,
+  "hasExtra": false
+ },
+ {
+  "name": "if_settextfont",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 85,
+  "hasExtra": false
+ },
+ {
+  "name": "if_sethide",
+  "popOrder": [
+   "ic",
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 590,
+  "hasExtra": false
+ },
+ {
+  "name": "inv_total",
+  "popOrder": [
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 485,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_deleteall",
+  "popOrder": [
+   "ic"
+  ],
+  "returnType": "void",
+  "opcode": 572,
+  "hasExtra": false
+ },
+ {
+  "name": "paramheight",
+  "popOrder": [
+   "s",
+   "i",
+   "i"
+  ],
+  "returnType": "int",
+  "opcode": 469,
+  "hasExtra": false
+ },
+ {
+  "name": "cc_settrans",
+  "popOrder": [
+   "i"
+  ],
+  "returnType": "void",
+  "opcode": 320,
   "hasExtra": false
  },
  {
@@ -593,7 +723,7 @@
  {
   "name": "cc_setcolor",
   "popOrder": [
-   "ico"
+   "ic"
   ],
   "returnType": "void",
   "opcode": 274,
@@ -827,7 +957,7 @@
  {
   "name": "cc_setfill",
   "popOrder": [
-   "ib"
+   "i"
   ],
   "returnType": "void",
   "opcode": 402,
@@ -836,7 +966,7 @@
  {
   "name": "cc_settiling",
   "popOrder": [
-   "ib"
+   "i"
   ],
   "returnType": "void",
   "opcode": 406,
@@ -1299,7 +1429,7 @@
  {
   "name": "cc_setgraphicshadow",
   "popOrder": [
-   "ihsv"
+   "i"
   ],
   "returnType": "void",
   "opcode": 751,
@@ -1378,7 +1508,7 @@
   "name": "if_setcolor",
   "popOrder": [
    "ic",
-   "ico"
+   "i"
   ],
   "returnType": "void",
   "opcode": 816,

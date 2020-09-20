@@ -1,3 +1,4 @@
+const _scripts = require('./scripts.js');
 class Printer {
 
     constructor() {
@@ -27,6 +28,7 @@ class Printer {
     }
 
     printInstruction(results) {
+        // console.log('print: ', results);
         switch(results.type) {
 			case 'SWITCH_STATEMENT':
 				this.print('switch(');
@@ -38,7 +40,7 @@ class Printer {
 					this.printInstruction(casee);
 				this.untab();
 				this.newLine();
-				this.print('}', false);
+                this.print('}', false);
                 this.newLine();
 				break;
 			case 'CASE':
@@ -48,9 +50,9 @@ class Printer {
 				this.tab();
 				this.newLine();
 				for(let scope of results.value.scope)
-					this.printInstruction(scope);
+                    this.printInstruction(scope);
                 if(results.value.scope[results.value.scope.length-1].type != 'RETURN_STATEMENT')
-				this.print('break');
+				    this.print('break');
 				this.untab();
 				this.newLine();
 				break;
@@ -75,12 +77,12 @@ class Printer {
 					this.tab();
 					this.newLine();
 					for(let scope of results.value.else.scope)
-						this.printInstruction(scope, false);
-				this.untab();
+                        this.printInstruction(scope, false);
+                    this.untab();
                 }
                 if(results.value.scope.length > 1) {
-				this.print('}');
-				this.newLine();
+				    this.print('}');
+                    this.newLine();
                 }
 				break;
 			case 'EXPRESSION':
@@ -92,7 +94,16 @@ class Printer {
 				switch(type) {
 					case 'INT_LT':
 						this.print('<', false);
-						break;
+                        break;
+                    case 'INT_GE':
+                        this.print('>=', false);
+                        break;
+                    case 'INT_EQ':
+                        this.print('==', false);
+                        break;
+                    case 'INT_NE':
+                        this.print('!=', false);
+                        break;
 				}
 				this.print(' ', false);
 				this.printInstruction(right);
@@ -172,6 +183,17 @@ class Printer {
                         this.print(', ', false);
                 }
                 break;
+            case 'CALL_CS2':
+                this.print(results.value.name+'(', results.value.returnType === 'void');
+                for(let i = 0; i < results.value.params.length; i++) {
+                    this.printInstruction(results.value.params[i]);
+                    if(i != results.value.params.length-1)
+                        this.print(', ', false);
+                }
+                this.print(')', false);
+                if(results.value.returnType === 'void')
+                    this.newLine();
+                break;
             case 'FUNCTION_CALL':
                 this.print(results.value.name.toLowerCase()+'(', results.value.returnType === 'void');
                 for(let i = results.value.params.length-1; i >= 0; i--) {
@@ -189,19 +211,62 @@ class Printer {
 				this.print(' '+results.value.operator+' ', false);
 				this.printInstruction(results.value.right);
 				this.print(')', false);
-				break;
+                break;
+            case 'HOOK':
+                let hookScriptId = results.value.params[0].value.value;
+                this.print(results.value.name.toLowerCase()+'(');
+                if(results.value.component) {
+                    this.printInstruction(results.value.component);
+                    this.print(', ', false);
+                }
+                if(hookScriptId == -1)
+                    this.print('None, ', false);
+                else {
+                    let script = _scripts[hookScriptId];
+                    this.print(script.name, false);
+                    this.print(', ', false);
+                }
+                this.printInstruction(results.value.paramTypes);
+                let intArr = results.value.intArr;
+                if(intArr && intArr.length > 0) {
+                    this.print(`, ${intArr.length}, `, false);
+                    for(let i = 0; i < intArr.length; i++) {
+                        this.printInstruction(intArr[i]);
+                        if(i != intArr.length-1)
+                            this.print(', ', false);
+                    }
+                }
+                let params = results.value.params;
+                if(params && params.length > 1) {
+                    this.print(', ');
+                    for(let i = 1; i < params.length; i++) {
+                        this.printInstruction(params[i]);
+                        if(i != params.length-1)
+                            this.print(', ', false);
+                    }
+                }
+                this.print(')', false);
+                this.newLine();
+                break;
 			default: throw new Error('Missing instructions to print '+results.type);
         }
     }
 
     printScriptData(script) {
+        let args = [];
+        script.args.forEach(e => {
+            args.push(e.type+' '+e.name);
+        });
         this.print('//');
         this.print(script.name == null ? 'script'+script.id : script.name);
         this.print(`(${script.id})`);
         this.print('(');
-        this.print(script.variables.filter(e => e.vType === 'arg').map(e => e.type+' '+e.name).join(','));
+        this.print(args.join(', '));
         this.print(')');
-        this.print(`(${script.returnType})`);
+        let returnType = script.returnType || 'tba';
+        if(returnType.includes('struct'))
+            returnType = returnType.substring(returnType.indexOf('(') + 1, returnType.indexOf(')')).split(';').join(', ');
+        this.print(`(${returnType})`);
     }
 
     getData() {
