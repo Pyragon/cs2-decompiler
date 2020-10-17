@@ -66,8 +66,8 @@ class InStream {
     }
 
     readLong() {
-        let l = readInt() & 0xffffffff;
-		let l1 = readInt() & 0xffffffff;
+        let l = this.readInt() & 0xffffffff;
+		let l1 = this.readInt() & 0xffffffff;
 		return (l << 32) + l1;
     }
 

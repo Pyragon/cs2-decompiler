@@ -2,7 +2,7 @@
   "name": "cs2-decompiler",
   "version": "1.0.0",
   "description": "A decompiler for CS2 data",
-  "main": "src/index.js",
+  "main": "src/standalone.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

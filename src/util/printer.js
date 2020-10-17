@@ -1,9 +1,10 @@
 const _scripts = require('./scripts.js');
 class Printer {
 
-    constructor() {
+    constructor(id) {
         this.data = '';
         this.tabIndex = 0;
+        this.id = id;
     }
 
     newLine() {
@@ -28,7 +29,8 @@ class Printer {
     }
 
     printInstruction(results) {
-        // console.log('print: ', results);
+        if(!results) 
+            throw new Error('Error in script: '+this.id);
         switch(results.type) {
 			case 'SWITCH_STATEMENT':
 				this.print('switch(');
@@ -40,7 +42,7 @@ class Printer {
 					this.printInstruction(casee);
 				this.untab();
 				this.newLine();
-                this.print('}', false);
+                this.print('}');
                 this.newLine();
 				break;
 			case 'CASE':
@@ -51,7 +53,7 @@ class Printer {
 				this.newLine();
 				for(let scope of results.value.scope)
                     this.printInstruction(scope);
-                if(results.value.scope[results.value.scope.length-1].type != 'RETURN_STATEMENT')
+                if(results.value.scope.length == 0 || results.value.scope[results.value.scope.length-1].type != 'RETURN_STATEMENT')
 				    this.print('break');
 				this.untab();
 				this.newLine();
@@ -65,7 +67,7 @@ class Printer {
 						this.print(' || ', false);
 				}
                 this.print(')', false);
-                if(results.value.scope > 1)
+                if(results.value.scope.length > 1)
                     this.print(' {', false);
 				this.newLine();
 				this.tab();
@@ -73,14 +75,23 @@ class Printer {
 					this.printInstruction(scope);
 				this.untab();
 				if(results.value.hasElse && results.value.type !== 'while') {
-					this.print('} else {');
+                    if(results.value.scope.length > 1)
+                        this.print('} else ');
+                    else
+                        this.print('else');
+                    if(results.value.else.scope.length > 1)
+					    this.print(' {', false);
 					this.tab();
 					this.newLine();
 					for(let scope of results.value.else.scope)
                         this.printInstruction(scope, false);
                     this.untab();
+                    if(results.value.else.scope.length > 1) {
+                        this.print('}');
+                        this.newLine();
+                    }
                 }
-                if(results.value.scope.length > 1) {
+                if(!results.value.hasElse && results.value.scope.length > 1) {
 				    this.print('}');
                     this.newLine();
                 }
@@ -88,21 +99,33 @@ class Printer {
 			case 'EXPRESSION':
 				let left = results.value.left;
 				let right = results.value.right;
-				let type = results.value.type;
+                let type = results.value.type;
 				this.printInstruction(left);
 				this.print(' ', false);
 				switch(type) {
 					case 'INT_LT':
+                    case 'LONG_LT':
 						this.print('<', false);
                         break;
                     case 'INT_GE':
+                    case 'LONG_GE':
                         this.print('>=', false);
                         break;
                     case 'INT_EQ':
+                    case 'LONG_EQ':
                         this.print('==', false);
                         break;
                     case 'INT_NE':
+                    case 'LONG_NE':
                         this.print('!=', false);
+                        break;
+                    case 'INT_GT':
+                    case 'LONG_GT':
+                        this.print('>', false);
+                        break;
+                    case 'INT_LE':
+                    case 'LONG_LE':
+                        this.print('<=', false);
                         break;
 				}
 				this.print(' ', false);
@@ -110,31 +133,39 @@ class Printer {
 				break;
             case 'VARIABLE_ASSIGNATION':
                 this.print(results.value.variable.name+' = ');
+                // console.log(results);
                 this.printInstruction(results.value.value);
                 this.newLine();
                 break;
             case 'VARIABLE_LOAD':
                 this.print(results.value.variable.name, false);
                 break;
-            case 'LOAD_VARC':
-            case 'LOAD_VARP':
-            case 'LOAD_VARPBIT':
+            case 'LOAD_VAR':
                 this.print(results.type.toLowerCase()+'('+results.value.value+')', false);
                 break;
-            case 'STORE_VARC':
-                this.print('store_varc('+results.value.id+', ', true);
+            case 'STORE_VAR':
+                this.print(results.value.name+'('+results.value.id+', ', true);
                 this.printInstruction(results.value.value);
                 this.print(')', false);
                 this.newLine();
                 break;
+            case 'PARAM':
+                this.print(results.value.name.toLowerCase()+'(', false);
+                this.print(results.value.paramId, false);
+                if(typeof results.value.struct !== 'undefined') {
+                    this.print(', ', false);
+                    this.printInstruction(results.value.struct);
+                }
+                this.print(')', false);
+                break;
             case 'MERGE_STRINGS':
                 this.print('merge_strings(', false);
-                for(let i = 0; i < results.value.strings.length; i++) {
+                for(let i = results.value.strings.length-1; i >= 0; i--) {
                     this.printInstruction(results.value.strings[i]);
-                    if(i != results.value.strings.length-1)
+                    if(i != 0)
                         this.print(', ', false);
                 }
-                this.print('(', false);
+                this.print(')', false);
                 break;
             case 'ARRAY_LOAD':
                 this.print('globalArrays[', false);
@@ -150,6 +181,14 @@ class Printer {
                 this.printInstruction(results.value.arrayIndex);
                 this.print('] = ', false);
                 this.printInstruction(results.value.value);
+                this.newLine();
+                break;
+            case 'ARRAY_NEW':
+                this.print('globalArrays[', true);
+                this.print(results.value.arrayIndex, false);
+                this.print('] = [', false);
+                this.printInstruction(results.value.size);
+                this.print(`, ${results.value.valueIsZero}]`);
                 this.newLine();
                 break;
             case 'LITERAL':
@@ -185,24 +224,34 @@ class Printer {
                 break;
             case 'CALL_CS2':
                 this.print(results.value.name+'(', results.value.returnType === 'void');
+                // console.log(results);
                 for(let i = 0; i < results.value.params.length; i++) {
                     this.printInstruction(results.value.params[i]);
                     if(i != results.value.params.length-1)
                         this.print(', ', false);
                 }
                 this.print(')', false);
+                if(typeof results.value.valIndex !== 'undefined')
+                    this.print(`.get(${results.value.valIndex})`, false);
                 if(results.value.returnType === 'void')
                     this.newLine();
                 break;
+            case 'POP':
+                this.print(results.value.name.toLowerCase()+'()', true);
+                this.newLine();
+                break;
             case 'FUNCTION_CALL':
+                // console.log(results);
                 this.print(results.value.name.toLowerCase()+'(', results.value.returnType === 'void');
-                for(let i = results.value.params.length-1; i >= 0; i--) {
+                for(let i = 0; i < results.value.params.length; i++) {
                     let param = results.value.params[i];
                     this.printInstruction(param);
-                    if(i != 0)
+                    if(i != results.value.params.length-1)
                         this.print(', ', false);
                 }
                 this.print(')', false);
+                if(typeof results.value.valIndex !== 'undefined')
+                    this.print(`.get(${results.value.valIndex})`, false);
                 if(results.value.returnType === 'void') this.newLine();
                 break;
 			case 'CALC_FUNCTION':
@@ -211,6 +260,17 @@ class Printer {
 				this.print(' '+results.value.operator+' ', false);
 				this.printInstruction(results.value.right);
 				this.print(')', false);
+                break;
+            case 'ENUM':
+                this.print('enum(', false);
+                this.printInstruction(results.value.enumId);
+                this.print(', ', false);
+                this.printInstruction(results.value.valueId);
+                this.print(', ', false);
+                this.print('\''+String.fromCharCode(results.value.keyType.value.value)+'\'', false);
+                this.print(', ', false);
+                this.print('\''+String.fromCharCode(results.value.valueType.value.value)+'\'', false);
+                this.print(')', false);
                 break;
             case 'HOOK':
                 let hookScriptId = results.value.params[0].value.value;
@@ -223,7 +283,10 @@ class Printer {
                     this.print('None, ', false);
                 else {
                     let script = _scripts[hookScriptId];
-                    this.print(script.name, false);
+                    if(!script)
+                        this.print('script_'+hookScriptId, false);
+                    else
+                        this.print(script.name, false);
                     this.print(', ', false);
                 }
                 this.printInstruction(results.value.paramTypes);
@@ -238,7 +301,7 @@ class Printer {
                 }
                 let params = results.value.params;
                 if(params && params.length > 1) {
-                    this.print(', ');
+                    this.print(', ', false);
                     for(let i = 1; i < params.length; i++) {
                         this.printInstruction(params[i]);
                         if(i != params.length-1)

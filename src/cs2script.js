@@ -3,7 +3,7 @@ const _instByOpcode = require('./util/instructions').byOpcode;
 const _scripts = require('./util/scripts.js');
 const _ = require('underscore');
 const InStream = require('./io/instream.js');
-const processor = require('./instruction-processor');
+const InstructionProcessor = require('./instruction-processor');
 
 class CS2Script {
 
@@ -17,19 +17,8 @@ class CS2Script {
 	}
 
 	decode(id, data) {
-		let script = _scripts[id];
-		this.args;
-		if(script) {
-			this.args = [];
-			let splitTypes = script.argTypes.split(',');
-			let splitNames = script.argNames.split(',');
-			for(let i = 0; i < splitTypes.length; i++) {
-				this.args.push({
-					name: splitNames[i],
-					type: splitTypes[i]
-				});
-			}
-		}
+
+		let processor = new InstructionProcessor(this);
 
 		let stream = new InStream(data);
 
@@ -54,27 +43,25 @@ class CS2Script {
 		let stringArgs = stream.readUnsignedShort();
 		let longArgs = stream.readUnsignedShort();
 
-		if(!this.args) {
-			this.args = [];
-			let argIndex = 0;
-			for(let i = 0; i < intArgs.length; i++) {
-				this.args.push({
-					type: 'int',
-					name: 'arg'+argIndex++
-				});
+		this.args = [];
+		let argIndex = 0;
+		for(let i = 0; i < intArgs; i++) {
+			this.args[argIndex++] = {
+				type: 'int',
+				name: 'arg'+(argIndex-1)
 			}
-			for(let i = 0; i < stringArgs.length; i++) {
-				this.args.push({
-					type: 'string',
-					name: 'arg'+argIndex++
-				});
-			}
-			for(let i = 0; i < longArgs.length; i++) {
-				this.args.push({
-					type: 'long',
-					name: 'arg'+argIndex++
-				});
-			}
+		}
+		for(let i = 0; i < stringArgs; i++) {
+			this.args[argIndex++] = {
+				type: 'string',
+				name: 'arg'+(argIndex-1)
+			};
+		}
+		for(let i = 0; i < longArgs; i++) {
+			this.args[argIndex++] = {
+				type: 'long',
+				name: 'arg'+(argIndex-1)
+			};
 		}
 
 		this.variables = [];
@@ -166,7 +153,7 @@ class CS2Script {
 		this.sValues = sValues;
 		this.lValues = lValues;
 
-		return processor(this);
+		return processor.process();
 		
 	}
 
