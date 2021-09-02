@@ -3425,6 +3425,7 @@
     {
         "name": "CC_SETOPCURSOR",
         "popOrder": [
+            "i",
             "i"
         ],
         "returnType": "void",
