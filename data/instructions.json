@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "PUSH_INT",
         "opcode": 79,
         "hasExtra": true
@@ -323,14 +322,14 @@
     },
     {
         "name": "ACTIVECLANSETTINGS_GETAFFINEDCOUNT",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 706,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_GETCLANNAME",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "string",
         "opcode": 815,
         "hasExtra": false
@@ -342,1379 +341,1379 @@
     },
     {
         "name": "ACTIVECLANSETTINGS_GETSORTEDAFFINEDSLOT",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 956,
         "hasExtra": false
     },
     {
         "name": "SET_GENDER",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 325,
         "hasExtra": false
     },
     {
         "name": "SET_ITEM",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 925,
         "hasExtra": false
     },
     {
         "name": "CC_SETMAXLINES",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 77,
         "hasExtra": false
     },
     {
         "name": "FC_GETCHATUSERWORLD",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 587,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_CURRENTTOOLKIT",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 725,
         "hasExtra": false
     },
     {
         "name": "instr6305",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 422,
         "hasExtra": false
     },
     {
         "name": "instr6632",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 288,
         "hasExtra": false
     },
     {
         "name": "instr6803",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 233,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_CCEXPIRY",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 679,
         "hasExtra": false
     },
     {
         "name": "FRIEND_GETNAMES",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string,string",
         "opcode": 252,
         "hasExtra": false
     },
     {
         "name": "instr6663",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 893,
         "hasExtra": false
     },
     {
         "name": "instr6108",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 868,
         "hasExtra": false
     },
     {
         "name": "instr6684",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 483,
         "hasExtra": false
     },
     {
         "name": "instr6631",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 662,
         "hasExtra": false
     },
     {
         "name": "instr6308",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 84,
         "hasExtra": false
     },
     {
         "name": "CHECK_JAVA_VERSION",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 826,
         "hasExtra": false
     },
     {
         "name": "CC_SETCLICKMASK",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 924,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_STEREO",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 383,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_CHARACTER_SHADOWS",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 226,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_CPU",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 90,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_MAXSCREENSIZE",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 568,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_SKYBOX",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 332,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_PARTICLES",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 703,
         "hasExtra": false
     },
     {
         "name": "DETAILCANSET_SKYBOXES",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 53,
         "hasExtra": false
     },
     {
         "name": "DETAILCANSET_MAXSCREENSIZE",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 921,
         "hasExtra": false
     },
     {
         "name": "DETAILCANMOD_MAXSCREENSIZE",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 446,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_BLOOM",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 752,
         "hasExtra": false
     },
     {
         "name": "DETAILCANMOD_SKYBOXES",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 821,
         "hasExtra": false
     },
     {
         "name": "DETAILCANSET_PARTICLES",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 876,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_SKYBOXES",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 581,
         "hasExtra": false
     },
     {
         "name": "DETAILCANMOD_PARTICLES",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 803,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_GROUND_BLENDING",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 464,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_CPU",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 804,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_LIGHTDETAIL_HIGH",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 281,
         "hasExtra": false
     },
     {
         "name": "instr5975",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 712,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_BLOOM",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 564,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_SCENERY_SHADOWS",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 270,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_WATERDETAIL_HIGH",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 487,
         "hasExtra": false
     },
     {
         "name": "FRIEND_GETWORLDFLAGS",
-        "popOrder": ["i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 562,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_LIGHT_DETAIL",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 891,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_TEXTURES",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 418,
         "hasExtra": false
     },
     {
         "name": "instr6617",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int,int",
         "opcode": 674,
         "hasExtra": false
     },
     {
         "name": "instr6674",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 269,
         "hasExtra": false
     },
     {
         "name": "instr6065",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 878,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_BRIGHTNESS",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 848,
         "hasExtra": false
     },
     {
         "name": "FRIEND_IS_REFERRER",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 656,
         "hasExtra": false
     },
     {
         "name": "IGNORE_GETNAME_UNFILTERED",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 37,
         "hasExtra": false
     },
     {
         "name": "MEC_TEXT",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 985,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_MONO_STEREO",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 26,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_SCENERY_SHADOWS",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 390,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_FOG",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 193,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_DEFAULT_ANTIALIASING",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 458,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_TOOLKIT",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 734,
         "hasExtra": false
     },
     {
         "name": "IF_GETMODELTYPE",
-        "popOrder": [ "ic" ],
+        "popOrder": ["ic"],
         "returnType": "int",
         "opcode": 864,
         "hasExtra": false
     },
     {
         "name": "instr6074",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 975,
         "hasExtra": false
     },
     {
         "name": "instr6607",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 386,
         "hasExtra": false
     },
     {
         "name": "instr6616",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int,int",
         "opcode": 788,
         "hasExtra": false
     },
     {
         "name": "instr6613",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 830,
         "hasExtra": false
     },
     {
         "name": "instr6849",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int,int",
         "opcode": 560,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_CHARACTER_SHADOWS",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 646,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_FLICKERING_EFFECTS",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 71,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_TEXTURES",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 218,
         "hasExtra": false
     },
     {
         "name": "instr6204",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 273,
         "hasExtra": false
     },
     {
         "name": "instr6712",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 569,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_RECOVERYDAY",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 379,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_LASTLOGINDAY",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 236,
         "hasExtra": false
     },
     {
         "name": "instr6628",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 641,
         "hasExtra": false
     },
     {
         "name": "instr6838",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 766,
         "hasExtra": false
     },
     {
         "name": "instr6620",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 923,
         "hasExtra": false
     },
     {
         "name": "SETUP_MESSAGEBOX",
-        "popOrder": [ "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i" ],
+        "popOrder": ["i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i"],
         "returnType": "void",
         "opcode": 211,
         "hasExtra": false
     },
     {
         "name": "INV_TOTALCAT",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 192,
         "hasExtra": false
     },
     {
         "name": "instr6097",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 423,
         "hasExtra": false
     },
     {
         "name": "instr6150",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 3,
         "hasExtra": false
     },
     {
         "name": "FC_KICKUSER",
-        "popOrder": [ "s" ],
+        "popOrder": ["s"],
         "returnType": "void",
         "opcode": 421,
         "hasExtra": false
     },
     {
         "name": "FRIEND_GETRANK",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 732,
         "hasExtra": false
     },
     {
         "name": "instr6599",
-        "popOrder": [ "s", "i" ],
+        "popOrder": ["s", "i"],
         "returnType": "int",
         "opcode": 711,
         "hasExtra": false
     },
     {
         "name": "FRIEND_SETRANK",
-        "popOrder": [ "s", "i" ],
+        "popOrder": ["s", "i"],
         "returnType": "void",
         "opcode": 647,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_BRIGHTNESS",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 849,
         "hasExtra": false
     },
     {
         "name": "instr6612",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int,int",
         "opcode": 16,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_IDLE_ANIMATIONS",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 794,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_IDLE_ANIMATIONS",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 553,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_FOG",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 685,
         "hasExtra": false
     },
     {
         "name": "instr6858",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 773,
         "hasExtra": false
     },
     {
         "name": "FROMBILLING",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 655,
         "hasExtra": false
     },
     {
         "name": "CC_SETALPHA",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 209,
         "hasExtra": false
     },
     {
         "name": "instr6410",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 672,
         "hasExtra": false
     },
     {
         "name": "instr6207",
-        "popOrder": [ "ic", "i", "i" ],
+        "popOrder": ["ic", "i", "i"],
         "returnType": "void",
         "opcode": 518,
         "hasExtra": false
     },
     {
         "name": "SEND_VERIFY_EMAIL_PACKET",
-        "popOrder": [ "s" ],
+        "popOrder": ["s"],
         "returnType": "void",
         "opcode": 654,
         "hasExtra": false
     },
     {
         "name": "instr6737",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 659,
         "hasExtra": false
     },
     {
         "name": "IF_SETLINEDIRECTION",
-        "popOrder": [ "ic", "i" ],
+        "popOrder": ["ic", "i"],
         "returnType": "void",
         "opcode": 760,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_FLICKERING_EFFECTS",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 585,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_GROUND_DECOR",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 268,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_GROUND_DECOR",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 372,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_WATERDETAIL_HIGH",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 232,
         "hasExtra": false
     },
     {
         "name": "instr6639",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 785,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_ANTIALIASING_DEFAULT",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 380,
         "hasExtra": false
     },
     {
         "name": "instr6680",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 507,
         "hasExtra": false
     },
     {
         "name": "CC_SETALPHA",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 209,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_REMOVE_ROOFS",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 983,
         "hasExtra": false
     },
     {
         "name": "instr6609",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 484,
         "hasExtra": false
     },
     {
         "name": "instr5954",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 419,
         "hasExtra": false
     },
     {
         "name": "instr6643",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 691,
         "hasExtra": false
     },
     {
         "name": "instr6225",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 961,
         "hasExtra": false
     },
     {
         "name": "CONTAINER_TOTAL_PARAM",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 696,
         "hasExtra": false
     },
     {
         "name": "IF_SETUSEOPTIONSTRING",
-        "popOrder": [ "ic", "s" ],
+        "popOrder": ["ic", "s"],
         "returnType": "void",
         "opcode": 583,
         "hasExtra": false
     },
     {
         "name": "instr6404",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int,int",
         "opcode": 596,
         "hasExtra": false
     },
     {
         "name": "instr6745",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 348,
         "hasExtra": false
     },
     {
         "name": "instr6645",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 818,
         "hasExtra": false
     },
     {
         "name": "instr6406",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 617,
         "hasExtra": false
     },
     {
         "name": "instr6938",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 782,
         "hasExtra": false
     },
     {
         "name": "instr6752",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 817,
         "hasExtra": false
     },
     {
         "name": "PROFILE_CPU",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 930,
         "hasExtra": false
     },
     {
         "name": "instr6476",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 576,
         "hasExtra": false
     },
     {
         "name": "instr6647",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 649,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_DOB",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 407,
         "hasExtra": false
     },
     {
         "name": "SEND_SIGNUP_FORM_PACKET",
-        "popOrder": [ "s", "s", "i", "i" ],
+        "popOrder": ["s", "s", "i", "i"],
         "returnType": "void",
         "opcode": 686,
         "hasExtra": false
     },
     {
         "name": "DETAILSET_REMOVEROOFS_OPTION_OVERRIDE",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 992,
         "hasExtra": false
     },
     {
         "name": "instr6589",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 303,
         "hasExtra": false
     },
     {
         "name": "instr6720",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 917,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_UNREADMESSAGES",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 241,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_LASTLOGINADDRESS",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "string",
         "opcode": 78,
         "hasExtra": false
     },
     {
         "name": "instr6867",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 106,
         "hasExtra": false
     },
     {
         "name": "instr6829",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int,int,string,int,string,int,int,string",
         "opcode": 915,
         "hasExtra": false
     },
     {
         "name": "instr6227",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int,int,string,int,string,int,int,string",
         "opcode": 212,
         "hasExtra": false
     },
     {
         "name": "instr6671",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 775,
         "hasExtra": false
     },
     {
         "name": "instr6101",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 44,
         "hasExtra": false
     },
     {
         "name": "instr6709",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 945,
         "hasExtra": false
     },
     {
         "name": "instr6630",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 969,
         "hasExtra": false
     },
     {
         "name": "instr6642",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 885,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_EMAILSTATUS",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 54,
         "hasExtra": false
     },
     {
         "name": "FORMAT_DATETIME_FROM_MINUTES",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 339,
         "hasExtra": false
     },
     {
         "name": "FRIEND_GETWORLDNAME",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 767,
         "hasExtra": false
     },
     {
         "name": "instr6439",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 410,
         "hasExtra": false
     },
     {
         "name": "instr6611",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 726,
         "hasExtra": false
     },
     {
         "name": "instr6700",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 9,
         "hasExtra": false
     },
     {
         "name": "instr6857",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 312,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_MEMBERSHIP",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int,int,int",
         "opcode": 148,
         "hasExtra": false
     },
     {
         "name": "instr6090",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 441,
         "hasExtra": false
     },
     {
         "name": "IGNORE_GETNAMES",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string,string",
         "opcode": 284,
         "hasExtra": false
     },
     {
         "name": "WORLDLIST_PINGWORLDS",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 678,
         "hasExtra": false
     },
     {
         "name": "instr6610",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 397,
         "hasExtra": false
     },
     {
         "name": "USERDETAIL_LOBBY_PLAYAGE",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 393,
         "hasExtra": false
     },
     {
         "name": "instr6803",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 233,
         "hasExtra": false
     },
     {
         "name": "AUTOSETUP_SETHIGH",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 398,
         "hasExtra": false
     },
     {
         "name": "instr6210",
-        "popOrder": [ "ic" ],
+        "popOrder": ["ic"],
         "returnType": "void",
         "opcode": 499,
         "hasExtra": false
     },
     {
         "name": "instr6808",
-        "popOrder": [ "i", "i", "i", "i" ],
+        "popOrder": ["i", "i", "i", "i"],
         "returnType": "void",
         "opcode": 296,
         "hasExtra": false
     },
     {
         "name": "PLAYERMOD",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 81,
         "hasExtra": false
     },
     {
         "name": "instr6702",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 742,
         "hasExtra": false
     },
     {
         "name": "instr6416",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 477,
         "hasExtra": false
     },
     {
         "name": "instr6922",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 261,
         "hasExtra": false
     },
     {
         "name": "DETAILCANSET_RENDERER",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 616,
         "hasExtra": false
     },
     {
         "name": "AUTOSETUP_SETMEDIUM",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 837,
         "hasExtra": false
     },
     {
         "name": "FC_GETCHATUSERWORLDNAME",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 943,
         "hasExtra": false
     },
     {
         "name": "IGNORE_ADD_TEMP",
-        "popOrder": [ "s" ],
+        "popOrder": ["s"],
         "returnType": "void",
         "opcode": 954,
         "hasExtra": false
     },
     {
         "name": "CHAT_SENDABUSEREPORT",
-        "popOrder": [ "s", "s", "i", "i" ],
+        "popOrder": ["s", "s", "i", "i"],
         "returnType": "void",
         "opcode": 257,
         "hasExtra": false
     },
     {
         "name": "instr6323",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 92,
         "hasExtra": false
     },
     {
         "name": "DETAILCANMOD_TOOLKIT",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 850,
         "hasExtra": false
     },
     {
         "name": "instr6653",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 716,
         "hasExtra": false
     },
     {
         "name": "instr6852",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int,int",
         "opcode": 1005,
         "hasExtra": false
     },
     {
         "name": "instr6784",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 42,
         "hasExtra": false
     },
     {
         "name": "instr6775",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 737,
         "hasExtra": false
     },
     {
         "name": "AUTOSETUP_SETLOW",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 225,
         "hasExtra": false
     },
     {
         "name": "AUTOSETUP_SETMIN",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 955,
         "hasExtra": false
     },
     {
         "name": "CC_GETUSEONNAME",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "string",
         "opcode": 125,
         "hasExtra": false
     },
     {
         "name": "IF_SETSPRITESCALE",
-        "popOrder": [ "ic","i" ],
+        "popOrder": ["ic", "i"],
         "returnType": "void",
         "opcode": 527,
         "hasExtra": false
     },
     {
         "name": "instr6162",
-        "popOrder": [ "i","i","i","i" ],
+        "popOrder": ["i", "i", "i", "i"],
         "returnType": "void",
         "opcode": 99,
         "hasExtra": false
     },
     {
         "name": "instr6675",
-        "popOrder": [ "i","i","i","i" ],
+        "popOrder": ["i", "i", "i", "i"],
         "returnType": "void",
         "opcode": 570,
         "hasExtra": false
     },
     {
         "name": "RANDOM_INCLUSIVE",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 851,
         "hasExtra": false
     },
     {
         "name": "instr6711",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int,int",
         "opcode": 391,
         "hasExtra": false
     },
     {
         "name": "BASE_COLOR",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 156,
         "hasExtra": false
     },
     {
         "name": "BASE_IDKIT",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 613,
         "hasExtra": false
     },
     {
         "name": "GET_COL_TAG",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 874,
         "hasExtra": false
     },
     {
         "name": "FC_GETCHATMINKICK",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 346,
         "hasExtra": false
     },
     {
         "name": "IF_OPENSUBCLIENT",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 360,
         "hasExtra": false
     },
     {
         "name": "IF_GETOPTIONNAME",
-        "popOrder": [ "ic", "i" ],
+        "popOrder": ["ic", "i"],
         "returnType": "string",
         "opcode": 164,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_GRAPHICS",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 952,
         "hasExtra": false
     },
     {
         "name": "IF_SETMAXTEXTLINES",
-        "popOrder": [ "ic", "i" ],
+        "popOrder": ["ic", "i"],
         "returnType": "void",
         "opcode": 432,
         "hasExtra": false
     },
     {
         "name": "instr6212",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int,int",
         "opcode": 603,
         "hasExtra": false
     },
     {
         "name": "instr6697",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 362,
         "hasExtra": false
     },
     {
         "name": "ITEM_MINIMENU_COLOUR",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 213,
         "hasExtra": false
     },
     {
         "name": "DETAILGET_MAXSCREENSIZE",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 714,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_GETRANKTALK",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 91,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_GETAFFINEDDISPLAYNAME",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 541,
         "hasExtra": false
     },
     {
         "name": "FC_GETCHATRANK",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 854,
         "hasExtra": false
     },
     {
         "name": "instr6627",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 722,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_GETALLOWUNAFFINED",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 843,
         "hasExtra": false
     },
     {
         "name": "IF_SETTARGETCURSOR",
-        "popOrder": [ "ic", "i", "i" ],
+        "popOrder": ["ic", "i", "i"],
         "returnType": "void",
         "opcode": 896,
         "hasExtra": false
     },
     {
         "name": "IF_SETVFLIP",
-        "popOrder": [ "ic", "i" ],
+        "popOrder": ["ic", "i"],
         "returnType": "void",
         "opcode": 503,
         "hasExtra": false
     },
     {
         "name": "CLANFORUMQFC_TOSTRING",
-        "popOrder": [ "l" ],
+        "popOrder": ["l"],
         "returnType": "string",
         "opcode": 454,
         "hasExtra": false
     },
     {
         "name": "APPEND_NUM",
-        "popOrder": [ "s", "i" ],
+        "popOrder": ["s", "i"],
         "returnType": "string",
         "opcode": 310,
         "hasExtra": false
     },
     {
         "name": "instr6821",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int,int,int",
         "opcode": 17,
         "hasExtra": false
     },
     {
         "name": "GETCLIPBOARD",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "string",
         "opcode": 853,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_GETCURRENTOWNER_SLOT",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 962,
         "hasExtra": false
     },
     {
         "name": "FC_ISSELF",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 802,
         "hasExtra": false
     },
     {
         "name": "instr6716",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 759,
         "hasExtra": false
     },
     {
         "name": "RESUME_CLANFORUMQFCDIALOG",
-        "popOrder": [ "s" ],
+        "popOrder": ["s"],
         "returnType": "void",
         "opcode": 101,
         "hasExtra": false
@@ -1893,7 +1892,7 @@
     },
     {
         "name": "instr6764",
-        "popOrder": ["i","i"],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 745,
         "hasExtra": false
@@ -1954,21 +1953,21 @@
     },
     {
         "name": "instr6214",
-        "popOrder": ["ic","i","i"],
+        "popOrder": ["ic", "i", "i"],
         "returnType": "int",
         "opcode": 899,
         "hasExtra": false
     },
     {
         "name": "instr6030",
-        "popOrder": ["i","i"],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 988,
         "hasExtra": false
     },
     {
         "name": "QC_GETMESSAGE",
-        "popOrder": ["i","i"],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 604,
         "hasExtra": false
@@ -2024,28 +2023,28 @@
     },
     {
         "name": "instr6596",
-        "popOrder": ["i","i"],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 109,
         "hasExtra": false
     },
     {
         "name": "instr6597",
-        "popOrder": ["i","i"],
+        "popOrder": ["i", "i"],
         "returnType": "void",
         "opcode": 217,
         "hasExtra": false
     },
     {
         "name": "QC_GETSUBHOTKEY",
-        "popOrder": ["i","i"],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 713,
         "hasExtra": false
     },
     {
         "name": "instr6595",
-        "popOrder": ["i","i"],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 324,
         "hasExtra": false
@@ -2284,7 +2283,7 @@
     {
         "name": "instr6879",
         "popOrder": [
-            "i",
+            "ic",
             "i",
             "i"
         ],
@@ -2474,8 +2473,7 @@
     },
     {
         "name": "instr6621",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 676,
         "hasExtra": false
@@ -2837,16 +2835,14 @@
     },
     {
         "name": "COMLEVEL_ACTIVE",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 139,
         "hasExtra": false
     },
     {
         "name": "COORD",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 389,
         "hasExtra": false
@@ -2970,8 +2966,7 @@
     },
     {
         "name": "instr6236",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 396,
         "hasExtra": false
@@ -3020,7 +3015,8 @@
         ],
         "returnType": "void",
         "opcode": 274,
-        "hasExtra": false
+        "hasExtra": false,
+        "isColour": true
     },
     {
         "name": "cc_setopbase",
@@ -3156,21 +3152,21 @@
     },
     {
         "name": "PLAYERMEMBER",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 262,
         "hasExtra": false
     },
     {
         "name": "CC_SETMODELANIM",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 32,
         "hasExtra": false
     },
     {
         "name": "instr6714",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int,int,int",
         "opcode": 666,
         "hasExtra": false
@@ -3183,57 +3179,56 @@
     },
     {
         "name": "instr6802",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 256,
         "hasExtra": false
     },
     {
         "name": "CC_SETSCROLLPOS",
-        "popOrder": [ "i", "i" ],
+        "popOrder": ["i", "i"],
         "returnType": "int",
         "opcode": 126,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANCHANNEL_GETRANKTALK",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 489,
         "hasExtra": false
     },
     {
         "name": "instr6710",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 447,
         "hasExtra": false
     },
     {
         "name": "WORLD_ID",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 601,
         "hasExtra": false
     },
     {
         "name": "instr6717",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 509,
         "hasExtra": false
     },
     {
         "name": "instr6694",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 171,
         "hasExtra": false
     },
     {
         "name": "GET_MOUSEBUTTONS",
-        "popOrder": [
-         ],
+        "popOrder": [],
         "returnType": "int,int,int",
         "opcode": 453,
         "hasExtra": false
@@ -3243,7 +3238,7 @@
         "popOrder": [
             "i",
             "i"
-         ],
+        ],
         "returnType": "void",
         "opcode": 28,
         "hasExtra": false
@@ -3253,49 +3248,49 @@
         "popOrder": [
             "i",
             "i"
-         ],
+        ],
         "returnType": "void",
         "opcode": 341,
         "hasExtra": false
     },
     {
         "name": "PLAYERMODLEVEL",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 718,
         "hasExtra": false
     },
     {
         "name": "CC_GETTRANSPARENCY",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 34,
         "hasExtra": false
     },
     {
         "name": "CC_GETSPRITEYAW",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 648,
         "hasExtra": false
     },
     {
         "name": "RUNENERGY_VISIBLE",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 944,
         "hasExtra": false
     },
     {
         "name": "RUNWEIGHT_VISIBLE",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 866,
         "hasExtra": false
     },
     {
         "name": "CC_GETOPTIONFLAGS",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 467,
         "hasExtra": false
@@ -3332,8 +3327,7 @@
     },
     {
         "name": "CC_SENDTOFRONT",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 993,
         "hasExtra": false
@@ -3407,8 +3401,7 @@
     },
     {
         "name": "DETAILGET_SOUNDEFFECT_VOLUME",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 828,
         "hasExtra": false
@@ -3455,24 +3448,21 @@
     },
     {
         "name": "GET_ENTITY_BOUNDING_BOX",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int,int,int,int,int",
         "opcode": 95,
         "hasExtra": false
     },
     {
         "name": "GET_OBJECT_BOUNDING_BOX",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int,int,int,int,int",
         "opcode": 69,
         "hasExtra": false
     },
     {
         "name": "GET_ITEM_BOUNDING_BOX",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int,int,int,int,int",
         "opcode": 517,
         "hasExtra": false
@@ -3508,8 +3498,7 @@
     },
     {
         "name": "GET_ACTIVE_MINIMENU_ENTRY",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int,string,string,string",
         "opcode": 115,
         "hasExtra": false
@@ -3528,7 +3517,7 @@
         "name": "instr6260",
         "opcode": 401,
         "hasExtra": false,
-        "hasExtraHook": false
+        "hasExtraHook": true
     },
     {
         "name": "IF_GETCOLOR",
@@ -3541,8 +3530,7 @@
     },
     {
         "name": "GET_MINIMENU_TARGET",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int,string,string",
         "opcode": 814,
         "hasExtra": false
@@ -3567,16 +3555,14 @@
     },
     {
         "name": "CC_CLEARSCRIPTS",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 702,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_FIND_LISTENED",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 833,
         "hasExtra": false
@@ -3613,24 +3599,21 @@
     },
     {
         "name": "GET_MINIMENU_LENGTH",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int,int",
         "opcode": 50,
         "hasExtra": false
     },
     {
         "name": "GET_MOUSE_X",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 243,
         "hasExtra": false
     },
     {
         "name": "GET_MOUSE_Y",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 308,
         "hasExtra": false
@@ -3683,8 +3666,7 @@
     },
     {
         "name": "instr6623",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 242,
         "hasExtra": false
@@ -3700,40 +3682,35 @@
     },
     {
         "name": "GET_CURRENTCURSOR",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 980,
         "hasExtra": false
     },
     {
         "name": "instr6721",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "string",
         "opcode": 357,
         "hasExtra": false
     },
     {
         "name": "instr6911",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 669,
         "hasExtra": false
     },
     {
         "name": "GET_OBJECT_OVERLAY_HEIGHT",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 433,
         "hasExtra": false
     },
     {
         "name": "GET_ITEM_OVERLAY_HEIGHT",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 295,
         "hasExtra": false
@@ -3758,8 +3735,7 @@
     },
     {
         "name": "instr6703",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 498,
         "hasExtra": false
@@ -3775,16 +3751,14 @@
     },
     {
         "name": "instr6365",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 55,
         "hasExtra": false
     },
     {
         "name": "CC_GETSCROLLY",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 755,
         "hasExtra": false
@@ -3818,16 +3792,14 @@
     },
     {
         "name": "CC_GETOFFSETX",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 97,
         "hasExtra": false
     },
     {
         "name": "CC_GETOFFSETY",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 728,
         "hasExtra": false
@@ -3843,8 +3815,7 @@
     },
     {
         "name": "CC_GETSPRITEROLL",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 555,
         "hasExtra": false
@@ -3878,8 +3849,7 @@
     },
     {
         "name": "CC_GETPARENTLAYER",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 626,
         "hasExtra": false
@@ -4003,8 +3973,7 @@
     },
     {
         "name": "CC_SENDTOBACK",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 584,
         "hasExtra": false
@@ -4029,15 +3998,14 @@
     },
     {
         "name": "DETAILGET_AMBIENTSOUND_VOLUME",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 919,
         "hasExtra": false
     },
     {
         "name": "CC_SETPLAYERMODEL_SELF",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 443,
         "hasExtra": false
@@ -4164,8 +4132,7 @@
     },
     {
         "name": "instr6641",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 182,
         "hasExtra": false
@@ -4210,8 +4177,7 @@
     },
     {
         "name": "instr6783",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 353,
         "hasExtra": false
@@ -4245,126 +4211,126 @@
     },
     {
         "name": "ACTIVECLANCHANNEL_GETUSERWORLD",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 23,
         "hasExtra": false
     },
     {
         "name": "FC_GETCHATUSERNAME_UNFILTERED",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 580,
         "hasExtra": false
     },
     {
         "name": "instr6122",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 151,
         "hasExtra": false
     },
     {
         "name": "FROMDATE",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 618,
         "hasExtra": false
     },
     {
         "name": "IF_SETMOUSEOVERCURSOR",
-        "popOrder": [ "ic", "i" ],
+        "popOrder": ["ic", "i"],
         "returnType": "int",
         "opcode": 786,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANCHANNEL_GETUSERCOUNT",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 399,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_GETBANNEDCOUNT",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 411,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANCHANNEL_GETUSERDISPLAYNAME",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 444,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANSETTINGS_GETRANKKICK",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 894,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANCHANNEL_KICKUSER",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 350,
         "hasExtra": false
     },
     {
         "name": "CC_GET2DANGLE",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 723,
         "hasExtra": false
     },
     {
         "name": "FC_GETCHATUSERRANK",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "int",
         "opcode": 394,
         "hasExtra": false
     },
     {
         "name": "CAM_GETANGLEX",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 493,
         "hasExtra": false
     },
     {
         "name": "ACTIVECLANCHANNEL_GETRANKKICK",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 907,
         "hasExtra": false
     },
     {
         "name": "instr6719",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 506,
         "hasExtra": false
     },
     {
         "name": "FC_LEAVECHAT",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 682,
         "hasExtra": false
     },
     {
         "name": "FC_GETCHATOWNERNAME",
-        "popOrder": [  ],
+        "popOrder": [],
         "returnType": "string",
         "opcode": 338,
         "hasExtra": false
     },
     {
         "name": "IF_CLOSESUBCLIENT",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "void",
         "opcode": 291,
         "hasExtra": false
@@ -4373,34 +4339,32 @@
         "name": "instr6708",
         "opcode": 76,
         "hasExtra": false,
-        "hasExtraHook": false
+        "hasExtraHook": true
     },
     {
         "name": "ACTIVECLANSETTINGS_GETBANNEDDISPLAYNAME",
-        "popOrder": [ "i" ],
+        "popOrder": ["i"],
         "returnType": "string",
         "opcode": 746,
         "hasExtra": false
     },
     {
         "name": "instr6576",
-        "popOrder": [ ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 875,
         "hasExtra": false
     },
     {
         "name": "instr6774",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 551,
         "hasExtra": false
     },
     {
         "name": "CAM_GETANGLEY",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 161,
         "hasExtra": false
@@ -4428,8 +4392,7 @@
     },
     {
         "name": "DETAILGET_VOICEOVER_VOLUME",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 971,
         "hasExtra": false
@@ -4496,8 +4459,7 @@
     },
     {
         "name": "CC_GETSPRITEID",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 449,
         "hasExtra": false
@@ -4535,8 +4497,7 @@
     },
     {
         "name": "APPLET_HASFOCUS",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 781,
         "hasExtra": false
@@ -4555,16 +4516,14 @@
     },
     {
         "name": "DETAILGET_MUSIC_VOLUME",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 942,
         "hasExtra": false
     },
     {
         "name": "instr6678",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 940,
         "hasExtra": false
@@ -4586,16 +4545,14 @@
     },
     {
         "name": "CC_SETPLAYERHEAD_SELF",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 186,
         "hasExtra": false
     },
     {
         "name": "CC_RESETOPNAME",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 611,
         "hasExtra": false
@@ -4644,8 +4601,7 @@
     },
     {
         "name": "instr6797",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 519,
         "hasExtra": false
@@ -4661,8 +4617,7 @@
     },
     {
         "name": "CC_GETSPRITEPITCH",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 491,
         "hasExtra": false
@@ -4684,16 +4639,14 @@
     },
     {
         "name": "IF_CLOSE",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "void",
         "opcode": 574,
         "hasExtra": false
     },
     {
         "name": "PLAYERCOUNTRY",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 667,
         "hasExtra": false
@@ -4724,8 +4677,7 @@
     },
     {
         "name": "CC_CONTAINERITEMID",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 36,
         "hasExtra": false
@@ -4933,7 +4885,7 @@
             "i",
             "i"
         ],
-        "returnType": "int",
+        "returnType": "void",
         "opcode": 412,
         "hasExtra": false
     },
@@ -5554,8 +5506,7 @@
     },
     {
         "name": "CC_GETSPRITESCALE",
-        "popOrder": [
-        ],
+        "popOrder": [],
         "returnType": "int",
         "opcode": 0,
         "hasExtra": false

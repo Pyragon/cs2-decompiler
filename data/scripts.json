@@ -22956,7 +22956,7 @@
         "name": "script_3279",
         "id": 3279,
         "argTypes": "int,int,int,int,string",
-        "argNames": "arg0,arg1,arg2,arg3,arg4",
+        "argNames": "arg0,arg1,arg2,arg3,width",
         "returnType": "void"
     },
     "3280": {
@@ -45952,6 +45952,20 @@
         "id": 6564,
         "argTypes": "",
         "argNames": "",
+        "returnType": "void"
+    },
+    "6565": {
+        "name": "script_6565",
+        "id": 6565,
+        "argTypes": "int",
+        "argNames": "arg0",
+        "returnType": "void"
+    },
+    "6566": {
+        "name": "script_6566",
+        "id": 6566,
+        "argTypes": "int,int,string",
+        "argNames": "arg0,arg1,arg2",
         "returnType": "void"
     }
 }

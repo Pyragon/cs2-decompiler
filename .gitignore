@@ -9,6 +9,7 @@ lerna-debug.log*
 #Custom
 data/compiled
 data/compiled-test
+data/decompiled
 data/667-scripts
 data/887-scripts
 *.cs2
