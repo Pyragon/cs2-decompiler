@@ -524,9 +524,6 @@ class InstructionProcessor {
                         }
                     }
                     let paramTypes = this.sStack.pop();
-                    if (instruction.opcode == 76) {
-                        console.log('instr6708 paramTypes:', paramTypes);
-                    }
                     if (paramTypes.type != 'LITERAL')
                         throw new Error('Expected param types to be a literal string');
                     let paramTypesE = JSON.parse(JSON.stringify(paramTypes));
@@ -574,8 +571,6 @@ class InstructionProcessor {
                         params,
                         component
                     });
-                    if (instruction.opcode == 76)
-                        console.log(results);
                     break;
                 }
                 //Regular instruction calls
