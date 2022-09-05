@@ -544,7 +544,7 @@ class InstructionProcessor {
                             params[i] = this.iStack.pop();
                         else if (paramTypes[i - 1] == 's')
                             params[i] = this.sStack.pop();
-                        else if (paramTypes[i - 1] == 'l')
+                        else if (paramTypes[i - 1] == '§')
                             params[i] = this.lStack.pop();
                         else if (paramTypes[i - 1] == 'I') {
                             value = this.iStack.pop();
@@ -587,7 +587,7 @@ class InstructionProcessor {
                             let g = (result.value.value >> 8) & 0xFF;
                             let b = result.value.value & 0xFF;
                             //convert rgb to hex
-                            let hex = '0x' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase();
+                            let hex = ((r << 16) | (g << 8) | b).toString(16);
                             result = this.asType('LITERAL')({
                                 type: 'int',
                                 value: hex
@@ -639,12 +639,6 @@ class InstructionProcessor {
         }
         if (results && this.iStack.length == 0 && this.sStack.length == 0 && this.lStack.length == 0)
             return [i, results];
-        // if (this.iStack.length > 0 || this.sStack.length > 0 || this.lStack.length > 0) {
-        //     console.log('Values remaining in stacks.');
-        //     console.log('iStack:', this.iStack);
-        //     console.log('sStack:', this.sStack);
-        //     console.log('lStack:', this.lStack);
-        // }
         // if((typeof instruction.returnType === 'undefined' || instruction.returnType === 'void') 
         //     && !instruction.name.includes('PUSH') && !instruction.name.includes('LOAD'))
         //         return [i, results];
