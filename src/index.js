@@ -18,14 +18,15 @@ let scripts = require('../data/scripts.json');
 //             let text = script.decode(id, data);
 //             fs.writeFileSync('./data/decompiled/' + file.replace('.cs2', '.txt'), text);
 
-//             let returnType = script.returnType;
-//             if (!scripts[id]) return;
+//             if (script.hasSwitch == true && !text.includes('switch')) {
+//                 console.log('should have switch', id);
+//             }
 //             scripts[id].returnType = script.returnType;
+
 //         } catch (e) {
 //             console.error(e);
 //         }
 //     });
-
 //     fs.writeFileSync('./data/scripts.json', JSON.stringify(scripts, null, 4));
 // });
 
@@ -44,6 +45,6 @@ const loadScript = id => {
     let text = script.decode(id, data);
     if (text != '')
         console.log(text);
-    // console.log(script.instructions);
+    script.instructions.map((inst, i) => console.log(i + ':', inst.name, inst.iValue));
 };
-loadScript(3171);
+loadScript(1398);

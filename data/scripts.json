@@ -207,7 +207,7 @@
         "id": 29,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_29_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "30": {
         "name": "script_30",
@@ -396,7 +396,7 @@
         "id": 56,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "57": {
         "name": "script_57",
@@ -410,7 +410,7 @@
         "id": 58,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "59": {
         "name": "script_59",
@@ -571,7 +571,7 @@
         "id": 81,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_81_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "82": {
         "name": "script_82",
@@ -592,7 +592,7 @@
         "id": 84,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_84_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "85": {
         "name": "script_85",
@@ -606,21 +606,21 @@
         "id": 86,
         "argTypes": "int,int,string",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_86_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "87": {
         "name": "script_87",
         "id": 87,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "88": {
         "name": "script_88",
         "id": 88,
         "argTypes": "int,int,string",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_88_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "89": {
         "name": "script_89",
@@ -711,35 +711,35 @@
         "id": 101,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_101_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "102": {
         "name": "script_102",
         "id": 102,
         "argTypes": "string",
         "argNames": "arg0",
-        "returnType": "script_102_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "103": {
         "name": "script_103",
         "id": 103,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_103_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "104": {
         "name": "script_104",
         "id": 104,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_104_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "105": {
         "name": "script_105",
         "id": 105,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_105_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "106": {
         "name": "script_106",
@@ -753,35 +753,35 @@
         "id": 107,
         "argTypes": "string",
         "argNames": "arg0",
-        "returnType": "script_107_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "108": {
         "name": "script_108",
         "id": 108,
         "argTypes": "string",
         "argNames": "arg0",
-        "returnType": "script_108_struct(int;int;int;int;int)"
+        "returnType": "int"
     },
     "109": {
         "name": "script_109",
         "id": 109,
         "argTypes": "string",
         "argNames": "arg0",
-        "returnType": "script_109_struct(int;int;int;int;int)"
+        "returnType": "int"
     },
     "110": {
         "name": "script_110",
         "id": 110,
         "argTypes": "string",
         "argNames": "arg0",
-        "returnType": "script_110_struct(int;int;int;int;int)"
+        "returnType": "int"
     },
     "111": {
         "name": "script_111",
         "id": 111,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_111_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "112": {
         "name": "script_112",
@@ -872,7 +872,7 @@
         "id": 124,
         "argTypes": "",
         "argNames": "",
-        "returnType": "void"
+        "returnType": "int"
     },
     "125": {
         "name": "script_125",
@@ -886,14 +886,14 @@
         "id": 126,
         "argTypes": "int,int,string",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_126_struct(int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "127": {
         "name": "script_127",
         "id": 127,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "128": {
         "name": "script_128",
@@ -949,7 +949,7 @@
         "id": 135,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_135_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "136": {
         "name": "script_136",
@@ -970,21 +970,21 @@
         "id": 138,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_138_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "139": {
         "name": "script_139",
         "id": 139,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_139_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "140": {
         "name": "script_140",
         "id": 140,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_140_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "141": {
         "name": "script_141",
@@ -1047,21 +1047,21 @@
         "id": 149,
         "argTypes": "int,int,int,int,int,int,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "int"
+        "returnType": "void"
     },
     "150": {
         "name": "script_150",
         "id": 150,
         "argTypes": "int,int,int,int,int,int,string,string,string,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12,arg13,arg14",
-        "returnType": "int"
+        "returnType": "void"
     },
     "151": {
         "name": "script_151",
         "id": 151,
         "argTypes": "int,int,int,int,int,int,string,string,string,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12,arg13,arg14",
-        "returnType": "int"
+        "returnType": "void"
     },
     "152": {
         "name": "script_152",
@@ -1075,7 +1075,7 @@
         "id": 153,
         "argTypes": "int,int,int,int,int,int,string,string,string,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12,arg13,arg14",
-        "returnType": "int"
+        "returnType": "void"
     },
     "154": {
         "name": "script_154",
@@ -1229,7 +1229,7 @@
         "id": 175,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_175_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "176": {
         "name": "script_176",
@@ -1362,7 +1362,7 @@
         "id": 194,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_194_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "195": {
         "name": "script_195",
@@ -1558,14 +1558,14 @@
         "id": 222,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_222_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "223": {
         "name": "script_223",
         "id": 223,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_223_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "224": {
         "name": "script_224",
@@ -1691,21 +1691,21 @@
         "id": 241,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_241_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "242": {
         "name": "script_242",
         "id": 242,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_242_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "243": {
         "name": "script_243",
         "id": 243,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_243_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "244": {
         "name": "script_244",
@@ -1740,7 +1740,7 @@
         "id": 248,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_248_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "249": {
         "name": "script_249",
@@ -2223,14 +2223,14 @@
         "id": 317,
         "argTypes": "int,int,int,int,int,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "int"
+        "returnType": "void"
     },
     "318": {
         "name": "script_318",
         "id": 318,
         "argTypes": "int,int,int,int,int,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "int"
+        "returnType": "void"
     },
     "319": {
         "name": "script_319",
@@ -2244,14 +2244,14 @@
         "id": 320,
         "argTypes": "int,int,int,int,int,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "int"
+        "returnType": "void"
     },
     "321": {
         "name": "script_321",
         "id": 321,
         "argTypes": "int,int,int,int,int,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "int"
+        "returnType": "void"
     },
     "322": {
         "name": "script_322",
@@ -3952,7 +3952,7 @@
         "id": 564,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_564_struct(int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "int"
     },
     "565": {
         "name": "script_565",
@@ -3994,28 +3994,28 @@
         "id": 570,
         "argTypes": "string",
         "argNames": "arg0",
-        "returnType": "script_570_struct(int;int;int;int;int)"
+        "returnType": "int"
     },
     "571": {
         "name": "script_571",
         "id": 571,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_571_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "int"
     },
     "572": {
         "name": "script_572",
         "id": 572,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_572_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "int"
     },
     "573": {
         "name": "script_573",
         "id": 573,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_573_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "int"
     },
     "574": {
         "name": "script_574",
@@ -4064,7 +4064,7 @@
         "id": 580,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_580_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "int"
     },
     "581": {
         "name": "script_581",
@@ -4729,7 +4729,7 @@
         "id": 675,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_675_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "676": {
         "name": "script_676",
@@ -4876,7 +4876,7 @@
         "id": 696,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_696_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "697": {
         "name": "script_697",
@@ -4974,7 +4974,7 @@
         "id": 710,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_710_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "711": {
         "name": "script_711",
@@ -5051,14 +5051,14 @@
         "id": 721,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_721_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "722": {
         "name": "script_722",
         "id": 722,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_722_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "723": {
         "name": "script_723",
@@ -5191,7 +5191,7 @@
         "id": 741,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_741_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "742": {
         "name": "script_742",
@@ -5303,14 +5303,14 @@
         "id": 757,
         "argTypes": "int,int,int,int,int,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "int"
+        "returnType": "void"
     },
     "758": {
         "name": "script_758",
         "id": 758,
         "argTypes": "int,int,int,int,int,string,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "int"
+        "returnType": "void"
     },
     "759": {
         "name": "script_759",
@@ -5345,14 +5345,14 @@
         "id": 763,
         "argTypes": "int,int,int,int,int,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9",
-        "returnType": "int"
+        "returnType": "void"
     },
     "764": {
         "name": "script_764",
         "id": 764,
         "argTypes": "int,int,int,int,int,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9",
-        "returnType": "int"
+        "returnType": "void"
     },
     "765": {
         "name": "script_765",
@@ -5541,14 +5541,14 @@
         "id": 791,
         "argTypes": "int,int,int,int,int,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9",
-        "returnType": "int"
+        "returnType": "void"
     },
     "792": {
         "name": "script_792",
         "id": 792,
         "argTypes": "int,int,int,int,int,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9",
-        "returnType": "int"
+        "returnType": "void"
     },
     "793": {
         "name": "script_793",
@@ -5576,14 +5576,14 @@
         "id": 796,
         "argTypes": "int,int,int,int,int,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9",
-        "returnType": "int"
+        "returnType": "void"
     },
     "797": {
         "name": "script_797",
         "id": 797,
         "argTypes": "int,int,int,int,int,string,string,string,string,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9",
-        "returnType": "int"
+        "returnType": "void"
     },
     "798": {
         "name": "script_798",
@@ -5800,7 +5800,7 @@
         "id": 828,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_828_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "829": {
         "name": "script_829",
@@ -5849,7 +5849,7 @@
         "id": 835,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_835_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "836": {
         "name": "script_836",
@@ -7354,35 +7354,35 @@
         "id": 1050,
         "argTypes": "int,string",
         "argNames": "arg0,arg1",
-        "returnType": "script_1050_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1051": {
         "name": "script_1051",
         "id": 1051,
         "argTypes": "int,string",
         "argNames": "arg0,arg1",
-        "returnType": "script_1051_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1052": {
         "name": "script_1052",
         "id": 1052,
         "argTypes": "int,int,string",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_1052_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1053": {
         "name": "script_1053",
         "id": 1053,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1053_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1054": {
         "name": "script_1054",
         "id": 1054,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1054_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1055": {
         "name": "script_1055",
@@ -7417,7 +7417,7 @@
         "id": 1059,
         "argTypes": "int,int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6",
-        "returnType": "script_1059_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1060": {
         "name": "script_1060",
@@ -7487,28 +7487,28 @@
         "id": 1069,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1069_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1070": {
         "name": "script_1070",
         "id": 1070,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_1070_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1071": {
         "name": "script_1071",
         "id": 1071,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_1071_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1072": {
         "name": "script_1072",
         "id": 1072,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_1072_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1073": {
         "name": "script_1073",
@@ -7522,7 +7522,7 @@
         "id": 1074,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_1074_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1075": {
         "name": "script_1075",
@@ -7536,14 +7536,14 @@
         "id": 1076,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_1076_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1077": {
         "name": "script_1077",
         "id": 1077,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1077_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1078": {
         "name": "script_1078",
@@ -7627,7 +7627,7 @@
         "id": 1089,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1089_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1090": {
         "name": "script_1090",
@@ -8103,7 +8103,7 @@
         "id": 1157,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1157_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1158": {
         "name": "script_1158",
@@ -8208,7 +8208,7 @@
         "id": 1172,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_1172_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1173": {
         "name": "script_1173",
@@ -8320,7 +8320,7 @@
         "id": 1188,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1188_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1189": {
         "name": "script_1189",
@@ -8467,7 +8467,7 @@
         "id": 1209,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_1209_struct(int;int;int)"
+        "returnType": "void"
     },
     "1210": {
         "name": "script_1210",
@@ -8509,28 +8509,28 @@
         "id": 1215,
         "argTypes": "int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3",
-        "returnType": "script_1215_struct(int;int;int;int;int)"
+        "returnType": "void"
     },
     "1216": {
         "name": "script_1216",
         "id": 1216,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "1217": {
         "name": "script_1217",
         "id": 1217,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "1218": {
         "name": "script_1218",
         "id": 1218,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "1219": {
         "name": "script_1219",
@@ -8915,7 +8915,7 @@
         "id": 1273,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1273_struct(int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1274": {
         "name": "script_1274",
@@ -9083,7 +9083,7 @@
         "id": 1297,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1297_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1298": {
         "name": "script_1298",
@@ -9097,7 +9097,7 @@
         "id": 1299,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_1299_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1300": {
         "name": "script_1300",
@@ -9552,7 +9552,7 @@
         "id": 1364,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1364_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1365": {
         "name": "script_1365",
@@ -9937,7 +9937,7 @@
         "id": 1419,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1419_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1420": {
         "name": "script_1420",
@@ -10140,7 +10140,7 @@
         "id": 1448,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1448_struct(int;int;int)"
+        "returnType": "void"
     },
     "1449": {
         "name": "script_1449",
@@ -10301,7 +10301,7 @@
         "id": 1471,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1471_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1472": {
         "name": "script_1472",
@@ -10315,14 +10315,14 @@
         "id": 1473,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1473_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1474": {
         "name": "script_1474",
         "id": 1474,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1474_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1475": {
         "name": "script_1475",
@@ -10392,7 +10392,7 @@
         "id": 1484,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1484_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1485": {
         "name": "script_1485",
@@ -10441,70 +10441,70 @@
         "id": 1491,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1491_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1492": {
         "name": "script_1492",
         "id": 1492,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1492_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1493": {
         "name": "script_1493",
         "id": 1493,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1493_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1494": {
         "name": "script_1494",
         "id": 1494,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1494_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1495": {
         "name": "script_1495",
         "id": 1495,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1495_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1496": {
         "name": "script_1496",
         "id": 1496,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1496_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1497": {
         "name": "script_1497",
         "id": 1497,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1497_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1498": {
         "name": "script_1498",
         "id": 1498,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1498_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1499": {
         "name": "script_1499",
         "id": 1499,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1499_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1500": {
         "name": "script_1500",
         "id": 1500,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_1500_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1501": {
         "name": "script_1501",
@@ -10833,21 +10833,21 @@
         "id": 1547,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1547_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1548": {
         "name": "script_1548",
         "id": 1548,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1548_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1549": {
         "name": "script_1549",
         "id": 1549,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1549_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1550": {
         "name": "script_1550",
@@ -10917,21 +10917,21 @@
         "id": 1559,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1559_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1560": {
         "name": "script_1560",
         "id": 1560,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1560_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1561": {
         "name": "script_1561",
         "id": 1561,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1561_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1562": {
         "name": "script_1562",
@@ -11295,7 +11295,7 @@
         "id": 1613,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_1613_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1614": {
         "name": "script_1614",
@@ -11316,7 +11316,7 @@
         "id": 1616,
         "argTypes": "int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3",
-        "returnType": "script_1616_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1617": {
         "name": "script_1617",
@@ -11547,28 +11547,28 @@
         "id": 1649,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_1649_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1650": {
         "name": "script_1650",
         "id": 1650,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1650_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1651": {
         "name": "script_1651",
         "id": 1651,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_1651_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1652": {
         "name": "script_1652",
         "id": 1652,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1652_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "1653": {
         "name": "script_1653",
@@ -11652,7 +11652,7 @@
         "id": 1664,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_1664_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1665": {
         "name": "script_1665",
@@ -11687,7 +11687,7 @@
         "id": 1669,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "1670": {
         "name": "script_1670",
@@ -11841,7 +11841,7 @@
         "id": 1691,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "1692": {
         "name": "script_1692",
@@ -12051,7 +12051,7 @@
         "id": 1721,
         "argTypes": "",
         "argNames": "",
-        "returnType": "void"
+        "returnType": "int"
     },
     "1722": {
         "name": "script_1722",
@@ -12639,7 +12639,7 @@
         "id": 1805,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_1805_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1806": {
         "name": "script_1806",
@@ -12660,7 +12660,7 @@
         "id": 1808,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_1808_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "1809": {
         "name": "script_1809",
@@ -13192,7 +13192,7 @@
         "id": 1884,
         "argTypes": "int,int,int,int,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4",
-        "returnType": "int"
+        "returnType": "void"
     },
     "1885": {
         "name": "script_1885",
@@ -14032,14 +14032,14 @@
         "id": 2004,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "2005": {
         "name": "script_2005",
         "id": 2005,
         "argTypes": "int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3",
-        "returnType": "script_2005_struct(int;int;int;int;int)"
+        "returnType": "void"
     },
     "2006": {
         "name": "script_2006",
@@ -14053,7 +14053,7 @@
         "id": 2007,
         "argTypes": "int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3",
-        "returnType": "int"
+        "returnType": "void"
     },
     "2008": {
         "name": "script_2008",
@@ -14417,7 +14417,7 @@
         "id": 2059,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "2060": {
         "name": "script_2060",
@@ -14753,7 +14753,7 @@
         "id": 2107,
         "argTypes": "int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3",
-        "returnType": "script_2107_struct(int;int)"
+        "returnType": "void"
     },
     "2108": {
         "name": "script_2108",
@@ -15229,7 +15229,7 @@
         "id": 2175,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "2176": {
         "name": "script_2176",
@@ -16223,21 +16223,21 @@
         "id": 2317,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_2317_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2318": {
         "name": "script_2318",
         "id": 2318,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_2318_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2319": {
         "name": "script_2319",
         "id": 2319,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_2319_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2320": {
         "name": "script_2320",
@@ -17245,7 +17245,7 @@
         "id": 2463,
         "argTypes": "string,string",
         "argNames": "arg0,arg1",
-        "returnType": "script_2463_struct(int;int;int;int;int)"
+        "returnType": "int"
     },
     "2464": {
         "name": "script_2464",
@@ -18162,21 +18162,21 @@
         "id": 2594,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_2594_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2595": {
         "name": "script_2595",
         "id": 2595,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_2595_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2596": {
         "name": "script_2596",
         "id": 2596,
         "argTypes": "int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4",
-        "returnType": "script_2596_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2597": {
         "name": "script_2597",
@@ -18820,7 +18820,7 @@
         "id": 2688,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_2688_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "2689": {
         "name": "script_2689",
@@ -18883,21 +18883,21 @@
         "id": 2697,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_2697_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2698": {
         "name": "script_2698",
         "id": 2698,
         "argTypes": "int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4",
-        "returnType": "script_2698_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2699": {
         "name": "script_2699",
         "id": 2699,
         "argTypes": "int,int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6",
-        "returnType": "script_2699_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "2700": {
         "name": "script_2700",
@@ -18939,7 +18939,7 @@
         "id": 2705,
         "argTypes": "int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5",
-        "returnType": "script_2705_struct(int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "2706": {
         "name": "script_2706",
@@ -18960,7 +18960,7 @@
         "id": 2708,
         "argTypes": "int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5",
-        "returnType": "int"
+        "returnType": "void"
     },
     "2709": {
         "name": "script_2709",
@@ -19135,21 +19135,21 @@
         "id": 2733,
         "argTypes": "int,int,int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7",
-        "returnType": "script_2733_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2734": {
         "name": "script_2734",
         "id": 2734,
         "argTypes": "int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5",
-        "returnType": "script_2734_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2735": {
         "name": "script_2735",
         "id": 2735,
         "argTypes": "int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5",
-        "returnType": "script_2735_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "2736": {
         "name": "script_2736",
@@ -19275,7 +19275,7 @@
         "id": 2753,
         "argTypes": "int,int,int,int,string",
         "argNames": "arg0,arg1,arg2,arg3,arg4",
-        "returnType": "script_2753_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "2754": {
         "name": "script_2754",
@@ -19310,21 +19310,21 @@
         "id": 2758,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_2758_struct(int;int)"
+        "returnType": "void"
     },
     "2759": {
         "name": "script_2759",
         "id": 2759,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_2759_struct(int;int)"
+        "returnType": "void"
     },
     "2760": {
         "name": "script_2760",
         "id": 2760,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_2760_struct(int;int)"
+        "returnType": "void"
     },
     "2761": {
         "name": "script_2761",
@@ -20101,14 +20101,14 @@
         "id": 2871,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_2871_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "2872": {
         "name": "script_2872",
         "id": 2872,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_2872_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "2873": {
         "name": "script_2873",
@@ -20437,7 +20437,7 @@
         "id": 2919,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_2919_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "2920": {
         "name": "script_2920",
@@ -21165,7 +21165,7 @@
         "id": 3023,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "3024": {
         "name": "script_3024",
@@ -21410,7 +21410,7 @@
         "id": 3058,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_3058_struct(int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3059": {
         "name": "script_3059",
@@ -22110,7 +22110,7 @@
         "id": 3158,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_3158_struct(int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3159": {
         "name": "script_3159",
@@ -22677,7 +22677,7 @@
         "id": 3239,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_3239_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3240": {
         "name": "script_3240",
@@ -23706,21 +23706,21 @@
         "id": 3386,
         "argTypes": "int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4",
-        "returnType": "script_3386_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "3387": {
         "name": "script_3387",
         "id": 3387,
         "argTypes": "int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4",
-        "returnType": "script_3387_struct(int;int)"
+        "returnType": "void"
     },
     "3388": {
         "name": "script_3388",
         "id": 3388,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_3388_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3389": {
         "name": "script_3389",
@@ -23811,7 +23811,7 @@
         "id": 3401,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "3402": {
         "name": "script_3402",
@@ -23923,7 +23923,7 @@
         "id": 3417,
         "argTypes": "int,int,int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7",
-        "returnType": "script_3417_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "3418": {
         "name": "script_3418",
@@ -24154,7 +24154,7 @@
         "id": 3450,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_3450_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3451": {
         "name": "script_3451",
@@ -24168,7 +24168,7 @@
         "id": 3452,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_3452_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3453": {
         "name": "script_3453",
@@ -24329,14 +24329,14 @@
         "id": 3475,
         "argTypes": "int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5",
-        "returnType": "script_3475_struct(int;int)"
+        "returnType": "void"
     },
     "3476": {
         "name": "script_3476",
         "id": 3476,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_3476_struct(int;int)"
+        "returnType": "void"
     },
     "3477": {
         "name": "script_3477",
@@ -25778,14 +25778,14 @@
         "id": 3682,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_3682_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3683": {
         "name": "script_3683",
         "id": 3683,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_3683_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "3684": {
         "name": "script_3684",
@@ -25799,7 +25799,7 @@
         "id": 3685,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_3685_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "3686": {
         "name": "script_3686",
@@ -27696,7 +27696,7 @@
         "id": 3956,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "3957": {
         "name": "script_3957",
@@ -27885,7 +27885,7 @@
         "id": 3983,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "int"
+        "returnType": "void"
     },
     "3984": {
         "name": "script_3984",
@@ -27899,14 +27899,14 @@
         "id": 3985,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "3986": {
         "name": "script_3986",
         "id": 3986,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "3987": {
         "name": "script_3987",
@@ -28060,7 +28060,7 @@
         "id": 4008,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_4008_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4009": {
         "name": "script_4009",
@@ -28697,14 +28697,14 @@
         "id": 4099,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4099_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4100": {
         "name": "script_4100",
         "id": 4100,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4100_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4101": {
         "name": "script_4101",
@@ -28956,14 +28956,14 @@
         "id": 4136,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4136_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4137": {
         "name": "script_4137",
         "id": 4137,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4137_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4138": {
         "name": "script_4138",
@@ -29411,7 +29411,7 @@
         "id": 4201,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "void"
+        "returnType": "int"
     },
     "4202": {
         "name": "script_4202",
@@ -29425,7 +29425,7 @@
         "id": 4203,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "void"
+        "returnType": "int"
     },
     "4204": {
         "name": "script_4204",
@@ -29439,7 +29439,7 @@
         "id": 4205,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "void"
+        "returnType": "int"
     },
     "4206": {
         "name": "script_4206",
@@ -29971,21 +29971,21 @@
         "id": 4281,
         "argTypes": "",
         "argNames": "",
-        "returnType": "long"
+        "returnType": "int"
     },
     "4282": {
         "name": "script_4282",
         "id": 4282,
         "argTypes": "",
         "argNames": "",
-        "returnType": "long"
+        "returnType": "int"
     },
     "4283": {
         "name": "script_4283",
         "id": 4283,
         "argTypes": "",
         "argNames": "",
-        "returnType": "long"
+        "returnType": "int"
     },
     "4284": {
         "name": "script_4284",
@@ -30034,7 +30034,7 @@
         "id": 4290,
         "argTypes": "",
         "argNames": "",
-        "returnType": "long"
+        "returnType": "int"
     },
     "4291": {
         "name": "script_4291",
@@ -30062,14 +30062,14 @@
         "id": 4294,
         "argTypes": "",
         "argNames": "",
-        "returnType": "long"
+        "returnType": "int"
     },
     "4295": {
         "name": "script_4295",
         "id": 4295,
         "argTypes": "",
         "argNames": "",
-        "returnType": "long"
+        "returnType": "int"
     },
     "4296": {
         "name": "script_4296",
@@ -30307,7 +30307,7 @@
         "id": 4329,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "long"
+        "returnType": "int"
     },
     "4330": {
         "name": "script_4330",
@@ -30538,14 +30538,14 @@
         "id": 4362,
         "argTypes": "int,int,int,int,int,int,int,int,int,int,int,int,long",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12",
-        "returnType": "long"
+        "returnType": "void"
     },
     "4363": {
         "name": "script_4363",
         "id": 4363,
         "argTypes": "int,int,int,int,int,int,int,string,long",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8",
-        "returnType": "long"
+        "returnType": "void"
     },
     "4364": {
         "name": "script_4364",
@@ -30699,7 +30699,7 @@
         "id": 4385,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4385_struct(int;int;int;int;int;int)"
+        "returnType": "script_4385_struct(int;int;int;int)"
     },
     "4386": {
         "name": "script_4386",
@@ -30734,14 +30734,14 @@
         "id": 4390,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4390_struct(int;int;int;int;int;int)"
+        "returnType": "script_4390_struct(int;int;int;int)"
     },
     "4391": {
         "name": "script_4391",
         "id": 4391,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4391_struct(int;int)"
+        "returnType": "void"
     },
     "4392": {
         "name": "script_4392",
@@ -30895,21 +30895,21 @@
         "id": 4413,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4413_struct(int;int;int;int;int;int;int;int;long;long)"
+        "returnType": "int"
     },
     "4414": {
         "name": "script_4414",
         "id": 4414,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4414_struct(int;int;int;int;int;int;int;int;long;long)"
+        "returnType": "int"
     },
     "4415": {
         "name": "script_4415",
         "id": 4415,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4415_struct(int;int;int;int;int;int;int;int;long;long)"
+        "returnType": "int"
     },
     "4416": {
         "name": "script_4416",
@@ -30937,21 +30937,21 @@
         "id": 4419,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4419_struct(int;int)"
+        "returnType": "void"
     },
     "4420": {
         "name": "script_4420",
         "id": 4420,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4420_struct(long;long;long;long;long;long;long;long)"
+        "returnType": "void"
     },
     "4421": {
         "name": "script_4421",
         "id": 4421,
         "argTypes": "int,int,int,int,int,int,int,int,int,int,long",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10",
-        "returnType": "long"
+        "returnType": "void"
     },
     "4422": {
         "name": "script_4422",
@@ -30993,14 +30993,14 @@
         "id": 4427,
         "argTypes": "int,int,int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7",
-        "returnType": "script_4427_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4428": {
         "name": "script_4428",
         "id": 4428,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4428_struct(int;int)"
+        "returnType": "int"
     },
     "4429": {
         "name": "script_4429",
@@ -31021,7 +31021,7 @@
         "id": 4431,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4432": {
         "name": "script_4432",
@@ -31035,21 +31035,21 @@
         "id": 4433,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4434": {
         "name": "script_4434",
         "id": 4434,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4435": {
         "name": "script_4435",
         "id": 4435,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4436": {
         "name": "script_4436",
@@ -31105,7 +31105,7 @@
         "id": 4443,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4443_struct(int;int)"
+        "returnType": "int"
     },
     "4444": {
         "name": "script_4444",
@@ -31147,14 +31147,14 @@
         "id": 4449,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4450": {
         "name": "script_4450",
         "id": 4450,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4451": {
         "name": "script_4451",
@@ -31546,7 +31546,7 @@
         "id": 4506,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4507": {
         "name": "script_4507",
@@ -31658,28 +31658,28 @@
         "id": 4522,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4523": {
         "name": "script_4523",
         "id": 4523,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4524": {
         "name": "script_4524",
         "id": 4524,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4525": {
         "name": "script_4525",
         "id": 4525,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "void"
+        "returnType": "int"
     },
     "4526": {
         "name": "script_4526",
@@ -31700,7 +31700,7 @@
         "id": 4528,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "void"
+        "returnType": "int"
     },
     "4529": {
         "name": "script_4529",
@@ -31847,7 +31847,7 @@
         "id": 4549,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4549_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4550": {
         "name": "script_4550",
@@ -32099,7 +32099,7 @@
         "id": 4585,
         "argTypes": "int,int,int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6,arg7",
-        "returnType": "script_4585_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4586": {
         "name": "script_4586",
@@ -32148,7 +32148,7 @@
         "id": 4592,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4592_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4593": {
         "name": "script_4593",
@@ -32281,14 +32281,14 @@
         "id": 4611,
         "argTypes": "",
         "argNames": "",
-        "returnType": "void"
+        "returnType": "script_4611_struct(int;int;int;int)"
     },
     "4612": {
         "name": "script_4612",
         "id": 4612,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "void"
+        "returnType": "script_4612_struct(int;int;int;int)"
     },
     "4613": {
         "name": "script_4613",
@@ -32792,7 +32792,7 @@
         "id": 4684,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "4685": {
         "name": "script_4685",
@@ -33618,21 +33618,21 @@
         "id": 4802,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4802_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4803": {
         "name": "script_4803",
         "id": 4803,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4803_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4804": {
         "name": "script_4804",
         "id": 4804,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4804_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4805": {
         "name": "script_4805",
@@ -33821,21 +33821,21 @@
         "id": 4831,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4831_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4832": {
         "name": "script_4832",
         "id": 4832,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_4832_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4833": {
         "name": "script_4833",
         "id": 4833,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4833_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4834": {
         "name": "script_4834",
@@ -33870,14 +33870,14 @@
         "id": 4838,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4838_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4839": {
         "name": "script_4839",
         "id": 4839,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_4839_struct(int;int)"
+        "returnType": "void"
     },
     "4840": {
         "name": "script_4840",
@@ -33912,42 +33912,42 @@
         "id": 4844,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4844_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4845": {
         "name": "script_4845",
         "id": 4845,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4845_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4846": {
         "name": "script_4846",
         "id": 4846,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4846_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4847": {
         "name": "script_4847",
         "id": 4847,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4847_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4848": {
         "name": "script_4848",
         "id": 4848,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4848_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4849": {
         "name": "script_4849",
         "id": 4849,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4849_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4850": {
         "name": "script_4850",
@@ -34213,14 +34213,14 @@
         "id": 4887,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4887_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4888": {
         "name": "script_4888",
         "id": 4888,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4888_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4889": {
         "name": "script_4889",
@@ -34430,7 +34430,7 @@
         "id": 4918,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4918_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4919": {
         "name": "script_4919",
@@ -34507,14 +34507,14 @@
         "id": 4929,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4929_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4930": {
         "name": "script_4930",
         "id": 4930,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4930_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "4931": {
         "name": "script_4931",
@@ -36383,7 +36383,7 @@
         "id": 5197,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_5197_struct(int;int;int;int;int;int;int;int;int)"
+        "returnType": "script_5197_struct(int;int;int;int)"
     },
     "5198": {
         "name": "script_5198",
@@ -36411,14 +36411,14 @@
         "id": 5201,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5201_struct(int;int;int;int;int;int;int;int;int)"
+        "returnType": "script_5201_struct(int;int;int;int)"
     },
     "5202": {
         "name": "script_5202",
         "id": 5202,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_5202_struct(int;int;int;int;int;int;int;int;int)"
+        "returnType": "script_5202_struct(int;int;int;int)"
     },
     "5203": {
         "name": "script_5203",
@@ -36453,7 +36453,7 @@
         "id": 5207,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_5207_struct(int;int;int;int;int;int;int;int;int)"
+        "returnType": "script_5207_struct(int;int;int;int)"
     },
     "5208": {
         "name": "script_5208",
@@ -37027,7 +37027,7 @@
         "id": 5289,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5289_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "5290": {
         "name": "script_5290",
@@ -37629,7 +37629,7 @@
         "id": 5375,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5376": {
         "name": "script_5376",
@@ -37713,7 +37713,7 @@
         "id": 5387,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "void"
+        "returnType": "int"
     },
     "5388": {
         "name": "script_5388",
@@ -37888,21 +37888,21 @@
         "id": 5412,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5412_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "5413": {
         "name": "script_5413",
         "id": 5413,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5413_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "5414": {
         "name": "script_5414",
         "id": 5414,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5414_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "5415": {
         "name": "script_5415",
@@ -38686,7 +38686,7 @@
         "id": 5526,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5526_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "5527": {
         "name": "script_5527",
@@ -38707,7 +38707,7 @@
         "id": 5529,
         "argTypes": "int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5530": {
         "name": "script_5530",
@@ -39295,7 +39295,7 @@
         "id": 5613,
         "argTypes": "int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5614": {
         "name": "script_5614",
@@ -39414,7 +39414,7 @@
         "id": 5630,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "void"
+        "returnType": "int"
     },
     "5631": {
         "name": "script_5631",
@@ -39428,7 +39428,7 @@
         "id": 5632,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_5632_struct(int;int)"
+        "returnType": "int"
     },
     "5633": {
         "name": "script_5633",
@@ -39995,14 +39995,14 @@
         "id": 5713,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5714": {
         "name": "script_5714",
         "id": 5714,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5715": {
         "name": "script_5715",
@@ -40030,28 +40030,28 @@
         "id": 5718,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5719": {
         "name": "script_5719",
         "id": 5719,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5720": {
         "name": "script_5720",
         "id": 5720,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5721": {
         "name": "script_5721",
         "id": 5721,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "void"
+        "returnType": "int"
     },
     "5722": {
         "name": "script_5722",
@@ -40723,7 +40723,7 @@
         "id": 5817,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5817_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "5818": {
         "name": "script_5818",
@@ -41066,7 +41066,7 @@
         "id": 5866,
         "argTypes": "",
         "argNames": "",
-        "returnType": "void"
+        "returnType": "script_5866_struct(int;int;int)"
     },
     "5867": {
         "name": "script_5867",
@@ -41080,7 +41080,7 @@
         "id": 5868,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "5869": {
         "name": "script_5869",
@@ -42613,7 +42613,7 @@
         "id": 6087,
         "argTypes": "int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3",
-        "returnType": "script_6087_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "6088": {
         "name": "script_6088",
@@ -42641,14 +42641,14 @@
         "id": 6091,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "void"
     },
     "6092": {
         "name": "script_6092",
         "id": 6092,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "6093": {
         "name": "script_6093",
@@ -43145,21 +43145,21 @@
         "id": 6163,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_6163_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "6164": {
         "name": "script_6164",
         "id": 6164,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_6164_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "6165": {
         "name": "script_6165",
         "id": 6165,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_6165_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "6166": {
         "name": "script_6166",
@@ -43187,7 +43187,7 @@
         "id": 6169,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_6169_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "6170": {
         "name": "script_6170",
@@ -43257,7 +43257,7 @@
         "id": 6179,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_6179_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "6180": {
         "name": "script_6180",
@@ -44188,7 +44188,7 @@
         "id": 6312,
         "argTypes": "int,int,int,int,int,int,int",
         "argNames": "arg0,arg1,arg2,arg3,arg4,arg5,arg6",
-        "returnType": "int"
+        "returnType": "void"
     },
     "6313": {
         "name": "script_6313",
@@ -44209,7 +44209,7 @@
         "id": 6315,
         "argTypes": "",
         "argNames": "",
-        "returnType": "int"
+        "returnType": "script_6315_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
     },
     "6316": {
         "name": "script_6316",
@@ -44251,14 +44251,14 @@
         "id": 6321,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "int"
+        "returnType": "void"
     },
     "6322": {
         "name": "script_6322",
         "id": 6322,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "int"
+        "returnType": "void"
     },
     "6323": {
         "name": "script_6323",
@@ -44433,7 +44433,7 @@
         "id": 6347,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_6347_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "6348": {
         "name": "script_6348",
@@ -44699,21 +44699,21 @@
         "id": 6385,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_6385_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "6386": {
         "name": "script_6386",
         "id": 6386,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_6386_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "6387": {
         "name": "script_6387",
         "id": 6387,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_6387_struct(int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "6388": {
         "name": "script_6388",
