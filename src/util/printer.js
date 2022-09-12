@@ -133,7 +133,6 @@ class Printer {
                 break;
             case 'VARIABLE_ASSIGNATION':
                 this.print(results.value.variable.name + ' = ');
-                // console.log(results);
                 this.printInstruction(results.value.value);
                 this.newLine();
                 break;
@@ -159,13 +158,11 @@ class Printer {
                 this.print(')', false);
                 break;
             case 'MERGE_STRINGS':
-                this.print('merge_strings(', false);
                 for (let i = results.value.strings.length - 1; i >= 0; i--) {
                     this.printInstruction(results.value.strings[i]);
                     if (i != 0)
-                        this.print(', ', false);
+                        this.print(' + ', false);
                 }
-                this.print(')', false);
                 break;
             case 'ARRAY_LOAD':
                 this.print('globalArrays[', false);
@@ -241,25 +238,38 @@ class Printer {
                 this.newLine();
                 break;
             case 'FUNCTION_CALL':
-                // console.log(results);
-                this.print(results.value.name.toLowerCase() + '(', results.value.returnType === 'void');
+                if (results.value.name !== 'lower_string')
+                    this.print(results.value.name.toLowerCase() + '(', results.value.returnType === 'void');
+                if (results.value.name === 'lower_string' && results.value.params.length > 1)
+                    this.print('(', false);
                 for (let i = 0; i < results.value.params.length; i++) {
                     let param = results.value.params[i];
                     this.printInstruction(param);
                     if (i != results.value.params.length - 1)
                         this.print(', ', false);
                 }
-                this.print(')', false);
+                if (results.value.name === 'lower_string') {
+                    if (results.value.params.length > 1)
+                        this.print(')', false);
+                    this.print('.toLowerCase()', false);
+                } else
+                    this.print(')', false);
                 if (typeof results.value.valIndex !== 'undefined')
                     this.print(`.get(${results.value.valIndex})`, false);
                 if (results.value.returnType === 'void') this.newLine();
                 break;
             case 'CALC_FUNCTION':
-                this.print('calc(', false);
+                if (results.value.left.type === 'CALC_FUNCTION')
+                    this.print('(', false);
                 this.printInstruction(results.value.left);
+                if (results.value.left.type === 'CALC_FUNCTION')
+                    this.print(')', false);
                 this.print(' ' + results.value.operator + ' ', false);
+                if (results.value.right.type === 'CALC_FUNCTION')
+                    this.print('(', false);
                 this.printInstruction(results.value.right);
-                this.print(')', false);
+                if (results.value.right.type === 'CALC_FUNCTION')
+                    this.print(')', false);
                 break;
             case 'ENUM':
                 this.print('enum(', false);

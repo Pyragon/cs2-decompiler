@@ -1,11 +1,13 @@
 ☐ Fix switch statement defaults (I think there's an issue)
 ☐ Get && and || working for if statements
-☐ Change calc methods to simply display the equations, instead of calc(x + y)
+✔ Change calc methods to simply display the equations, instead of calc(x + y) @done (2022-09-07, 11:46:23 a.m.)
 ☐ Get most component, or colour values changed to if_gethash for interfaces, and hex codes for colours
-☐ If people really want, can change if_xxxx(if_gethash(hash), value) to getComponent(inter, comp).xxxx (rather not)
+✘ If people really want, can change if_xxxx(if_gethash(hash), value) to getComponent(inter, comp).xxxx (rather not) @cancelled (2022-09-07, 12:03:33 p.m.)
+✔ Change merge strings methods to simply "" + "" + "" instead of merge_strings(x, y, z) @done (2022-09-07, 11:46:37 a.m.)
+✔ Change lower_string to string.toLowerCase(), same with char_lowercase @done (2022-09-07, 12:02:12 p.m.)
 
 Long term:
     ☐ Ensure all instructions are popping and returning what they should
-    ☐ Perhaps set switch statements to order there cases going from smallest to largest integer, most are but some arent
+    ☐ Perhaps set switch statements to order their cases going from smallest to largest integer, most are but some arent
     ☐ Clean up instruction-processor processInstruction method. Should not have to return the index, looks disgusting
     ☐ Identify most instructions

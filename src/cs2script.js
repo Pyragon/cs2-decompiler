@@ -65,30 +65,35 @@ class CS2Script {
         }
 
         this.variables = [];
+        let script = _scripts[id];
+
+        let iIndex = 0;
+        let sIndex = 0;
+        let lIndex = 0;
 
         for (let i = 0; i < intArgs; i++) {
-            let index = vIndex++;
+            let index = iIndex++;
             this.variables.push({ type: 'int', vType: 'arg', name: this.args[index].name, index })
         }
         for (let i = 0; i < stringArgs; i++) {
-            let index = vIndex++;
+            let index = sIndex++;
             this.variables.push({ type: 'string', vType: 'arg', name: this.args[index].name, index })
         }
         for (let i = 0; i < longArgs; i++) {
-            let index = vIndex++;
+            let index = lIndex++;
             this.variables.push({ type: 'long', vType: 'arg', name: this.args[index].name, index })
         }
         for (let i = 0; i < intLocalsCount - intArgs; i++) {
-            let index = vIndex++;
-            this.variables.push({ type: 'int', vType: 'var', name: 'var' + index, index })
+            let index = iIndex++;
+            this.variables.push({ type: 'int', vType: 'var', name: 'iVar' + index, index })
         }
         for (let i = 0; i < stringLocalsCount - stringArgs; i++) {
-            let index = vIndex++;
-            this.variables.push({ type: 'string', vType: 'var', name: 'var' + index, index })
+            let index = sIndex++;
+            this.variables.push({ type: 'string', vType: 'var', name: 'sVar' + i, index })
         }
         for (let i = 0; i < longLocalsCount - longArgs; i++) {
-            let index = vIndex++;
-            this.variables.push({ type: 'long', vType: 'var', name: 'var' + index, index })
+            let index = lIndex++;
+            this.variables.push({ type: 'long', vType: 'var', name: 'lVar' + i, index })
         }
 
         let iValues = [];

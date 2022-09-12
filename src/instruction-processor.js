@@ -79,7 +79,8 @@ class InstructionProcessor {
                 case 'LOAD_STRING':
                 case 'LOAD_LONG':
                     variableIndex = this.script.iValues[i];
-                    variable = this.script.variables.find(e => e.index === variableIndex);
+                    type = instruction.name.split('_')[1].toLowerCase();
+                    variable = this.script.variables.find(e => e.index === variableIndex && e.type === type);
                     if (!variable) throw new Error('Unable to find variable with index: ' + variableIndex);
                     name = instruction.name;
                     type = name.split('_')[1].toLowerCase();
@@ -192,13 +193,23 @@ class InstructionProcessor {
                 case 'STORE_STRING':
                 case 'STORE_LONG':
                     variableIndex = this.script.iValues[i];
-                    variable = this.script.variables.find(e => e.index === variableIndex);
+                    type = instruction.name.split('_')[1].toLowerCase();
+                    variable = this.script.variables.find(e => e.index === variableIndex && e.type === type);
                     if (!variable) throw new Error('Unable to find variable with index: ' + variableIndex);
                     name = instruction.name;
                     type = name.split('_')[1].toLowerCase();
                     if (type === 'int') value = this.iStack.pop();
                     else if (type === 'string') value = this.sStack.pop();
                     else if (type === 'long') value = this.lStack.pop();
+                    if (variable.type === 'IComponent' && type === 'int' && value.type === 'LITERAL' && value.value.value > 0) {
+                        let interfaceHash = value.value.value; //lol
+                        let interfaceId = interfaceHash >> 16;
+                        let componentId = interfaceHash - (interfaceId << 16);
+                        value = this.asType('LITERAL')({
+                            type: 'int',
+                            value: `if_gethash(${interfaceId}, ${componentId})`
+                        });
+                    }
                     results = this.asType('VARIABLE_ASSIGNATION')({
                         name,
                         type,
@@ -273,7 +284,7 @@ class InstructionProcessor {
                 case 'RETURN':
                     let size = this.iStack.length + this.sStack.length + this.lStack.length;
                     if (this.lastReturn && this.lastReturn.i == i - 1) {
-                        console.log('Duplicate return in script', this.script.id);
+                        console.log('Duplicate return in script', this.script.id, this.script.hasSwitch);
                     } else
                         this.lastReturn = {
                             i
@@ -411,8 +422,8 @@ class InstructionProcessor {
                 case 'POW':
                     //todo - add others like xor
                     results = this.asType('CALC_FUNCTION')({
+                        right: this.iStack.pop(),
                         left: this.iStack.pop(),
-                        right: this.iStack.pop()
                     });
                     let operator;
                     switch (instruction.name) {
@@ -587,11 +598,9 @@ class InstructionProcessor {
                         else if (s == 'i') {
                             result = this.iStack.pop();
                             if (instruction.isColour) {
-                                //convert to rgb then to hex
                                 let r = result.value.value >> 16;
                                 let g = (result.value.value >> 8) & 0xFF;
                                 let b = result.value.value & 0xFF;
-                                //convert rgb to hex
                                 let hex = ((r << 16) | (g << 8) | b).toString(16);
                                 result = this.asType('LITERAL')({
                                     type: 'int',
