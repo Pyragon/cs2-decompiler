@@ -47,4 +47,4 @@ const loadScript = id => {
         console.log(text);
     script.instructions.map((inst, i) => console.log(i + ':', inst.name, inst.iValue));
 };
-loadScript(5222);
+// loadScript(5202); //6559 is broken

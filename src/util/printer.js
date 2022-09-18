@@ -220,8 +220,8 @@ class Printer {
                 }
                 break;
             case 'CALL_CS2':
+                // console.log('printing cs2 call', results.value.name);
                 this.print(results.value.name + '(', results.value.returnType === 'void');
-                // console.log(results);
                 for (let i = 0; i < results.value.params.length; i++) {
                     this.printInstruction(results.value.params[i]);
                     if (i != results.value.params.length - 1)
@@ -242,10 +242,10 @@ class Printer {
                     this.print(results.value.name.toLowerCase() + '(', results.value.returnType === 'void');
                 if (results.value.name === 'lower_string' && results.value.params.length > 1)
                     this.print('(', false);
-                for (let i = 0; i < results.value.params.length; i++) {
+                for (let i = results.value.params.length - 1; i >= 0; i--) {
                     let param = results.value.params[i];
                     this.printInstruction(param);
-                    if (i != results.value.params.length - 1)
+                    if (i != 0)
                         this.print(', ', false);
                 }
                 if (results.value.name === 'lower_string') {
@@ -259,17 +259,11 @@ class Printer {
                 if (results.value.returnType === 'void') this.newLine();
                 break;
             case 'CALC_FUNCTION':
-                if (results.value.left.type === 'CALC_FUNCTION')
-                    this.print('(', false);
+                this.print('(', false);
                 this.printInstruction(results.value.left);
-                if (results.value.left.type === 'CALC_FUNCTION')
-                    this.print(')', false);
                 this.print(' ' + results.value.operator + ' ', false);
-                if (results.value.right.type === 'CALC_FUNCTION')
-                    this.print('(', false);
                 this.printInstruction(results.value.right);
-                if (results.value.right.type === 'CALC_FUNCTION')
-                    this.print(')', false);
+                this.print(')', false);
                 break;
             case 'ENUM':
                 this.print('enum(', false);

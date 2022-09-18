@@ -4442,7 +4442,7 @@
             "i",
             "i"
         ],
-        "returnType": "int",
+        "returnType": "void",
         "opcode": 194,
         "hasExtra": false
     },
@@ -4729,7 +4729,7 @@
         "hasExtra": false
     },
     {
-        "name": "instr6574",
+        "name": "GET_DISPLAYNAME",
         "popOrder": [],
         "returnType": "string",
         "opcode": 309,

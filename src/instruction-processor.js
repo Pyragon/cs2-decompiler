@@ -283,6 +283,7 @@ class InstructionProcessor {
                     break;
                 case 'RETURN':
                     let size = this.iStack.length + this.sStack.length + this.lStack.length;
+                    let isCallScriptWith1 = false;
                     if (this.lastReturn && this.lastReturn.i == i - 1) {
                         console.log('Duplicate return in script', this.script.id, this.script.hasSwitch);
                     } else
@@ -291,9 +292,29 @@ class InstructionProcessor {
                         };
                     if (size == 0)
                         this.script.returnType = 'void';
-                    else if (size == 1)
+                    else if (size == 1) {
+                        if (this.iStack.length > 0) {
+                            let value = this.iStack.pop();
+                            if (value.type === 'CALL_CS2') {
+                                this.script.returnType = value.value.returnTypes ? 'script_' + this.script.id + '_struct(' + value.value.returnTypes.join(';') + ')' : value.value.returnType;
+                                results = this.asType('RETURN_STATEMENT')({
+                                    value
+                                });
+                                let scriptInfo = {
+                                    name: 'script_' + this.script.id,
+                                    id: this.script.id,
+                                    argTypes: this.script.args.map(a => a.type).join(','),
+                                    argNames: this.script.args.map(a => a.name).join(','),
+                                    returnType: this.script.returnType
+                                };
+                                this.writeScript(scriptInfo);
+                                break;
+                            }
+                            this.returnType = 'int';
+                            this.iStack.push(value);
+                        }
                         this.script.returnType = this.iStack.length > 0 ? 'int' : this.sStack.length > 0 ? 'string' : 'long';
-                    else {
+                    } else {
                         let returnTypes = [];
                         for (let k = 0; k < this.iStack.length; k++)
                             returnTypes.push('int');
@@ -488,13 +509,29 @@ class InstructionProcessor {
                         returnType: callScript.returnType,
                         i
                     });
+                    // console.log(callScript.id, 'script has a return type of:', callScript.returnType);
                     if (callScript.returnType == 'int') this.iStack.push(results);
                     else if (callScript.returnType == 'string') this.sStack.push(results);
                     else if (callScript.returnType == 'long') this.lStack.push(results);
                     else if (callScript.returnType.includes('struct')) {
                         let returnTypes = callScript.returnType.substring(callScript.returnType.indexOf('(') + 1, callScript.returnType.indexOf(')')).split(';');
+                        //get next instruction
+                        let nextInstruction = this.script.instructions[i + 1];
+                        //if next instruction is a return, then we need to return the struct
+                        if (nextInstruction.name == 'RETURN') {
+                            this.iStack.push(this.asType('CALL_CS2')({
+                                name: callScript.name == null ? 'script' + callScript.id : callScript.name,
+                                params,
+                                returnTypes: returnTypes,
+                                i
+                            }));
+                            break;
+                        }
+                        // console.log('return types:', returnTypes);
                         for (let k = 0; k < returnTypes.length; k++) {
+                            //maybe, get the next k instructions, and if they are voids, then pop them off the stack and print them
                             let returnType = returnTypes[k];
+                            let instr = this.script.instructions[i + k + 1];
                             let res = this.asType('CALL_CS2')({
                                 name: callScript.name == null ? 'script' + callScript.id : callScript.name,
                                 params,
@@ -665,6 +702,8 @@ class InstructionProcessor {
                     break;
             }
             // console.log(i + ':', this.iStack.length, this.sStack.length, this.lStack.length);
+            // if (results && results.value.type == 'void')
+            //     return [i, results]
         if (results && this.iStack.length == 0 && this.sStack.length == 0 && this.lStack.length == 0)
             return [i, results];
         // if((typeof instruction.returnType === 'undefined' || instruction.returnType === 'void') 

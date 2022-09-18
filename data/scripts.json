@@ -30699,7 +30699,7 @@
         "id": 4385,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4385_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4386": {
         "name": "script_4386",
@@ -30734,7 +30734,7 @@
         "id": 4390,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4390_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4391": {
         "name": "script_4391",
@@ -30748,7 +30748,7 @@
         "id": 4392,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4392_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4393": {
         "name": "script_4393",
@@ -32281,21 +32281,21 @@
         "id": 4611,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_4611_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4612": {
         "name": "script_4612",
         "id": 4612,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4612_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4613": {
         "name": "script_4613",
         "id": 4613,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_4613_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "4614": {
         "name": "script_4614",
@@ -34721,7 +34721,7 @@
         "returnType": "script_4958_struct(int;int;int;int;int)"
     },
     "4959": {
-        "name": "script_4959",
+        "name": "get_clan_tier",
         "id": 4959,
         "argTypes": "int",
         "argNames": "arg0",
@@ -36023,7 +36023,7 @@
         "returnType": "int"
     },
     "5145": {
-        "name": "script_5145",
+        "name": "can_upgrade_citadel",
         "id": 5145,
         "argTypes": "int",
         "argNames": "arg0",
@@ -36037,7 +36037,7 @@
         "returnType": "int"
     },
     "5147": {
-        "name": "script_5147",
+        "name": "can_downgrade_citadel",
         "id": 5147,
         "argTypes": "int",
         "argNames": "arg0",
@@ -36391,7 +36391,7 @@
         "id": 5197,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_5197_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "5198": {
         "name": "script_5198",
@@ -36419,14 +36419,14 @@
         "id": 5201,
         "argTypes": "",
         "argNames": "",
-        "returnType": "script_5201_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "5202": {
         "name": "script_5202",
         "id": 5202,
         "argTypes": "int",
         "argNames": "arg0",
-        "returnType": "script_5202_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "5203": {
         "name": "script_5203",
@@ -36461,7 +36461,7 @@
         "id": 5207,
         "argTypes": "int,int,int",
         "argNames": "arg0,arg1,arg2",
-        "returnType": "script_5207_struct(int;int;int;int)"
+        "returnType": "void"
     },
     "5208": {
         "name": "script_5208",
@@ -43286,7 +43286,7 @@
         "id": 6182,
         "argTypes": "int,int",
         "argNames": "arg0,arg1",
-        "returnType": "script_6182_struct(int;int;int;int;int;int;int;int;int;int;int;int;int;int;int;int)"
+        "returnType": "void"
     },
     "6183": {
         "name": "script_6183",
