@@ -5,6 +5,7 @@ import com.cryo.cache.IndexType;
 import com.cryo.entities.*;
 import com.cryo.entities.instructions.Instruction;
 import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.io.InputStream;
 import com.cryo.utils.Logger;
 import com.cryo.utils.Printer;
@@ -18,10 +19,20 @@ public class CS2Script {
 	private HashMap<Integer, Variable> variables;
 	private HashMap<Integer, Variable> arguments;
 	private HashMap<Integer, ArrayList<SwitchCase>> switches;
-	private Stack<Instruction> instructions;
+	private ArrayList<Instruction> instructions;
+
+	private final Stack<ResultType> intStack;
+	private final Stack<ResultType> stringStack;
+	private final Stack<ResultType> longStack;
+
+	private final ArrayList<ResultType> results;
 
 	public CS2Script(int id) {
 		this.id = id;
+		this.intStack = new Stack<>();
+		this.stringStack = new Stack<>();
+		this.longStack = new Stack<>();
+		this.results = new ArrayList<>();
 		init();
 	}
 
@@ -100,7 +111,7 @@ public class CS2Script {
 
 		String name = stream.readNullString();
 
-		instructions = new Stack<>();
+		instructions = new ArrayList<>();
 
 		while(stream.getOffset() < instructionLength) {
 			int opcode = stream.readUnsignedShort();
@@ -119,13 +130,26 @@ public class CS2Script {
 				case PUSH_LONG -> value = stream.readLong();
 				default -> value = defs.hasExtra() ? stream.readInt() : stream.readUnsignedByte();
 			}
-			Instruction instruction = new Instruction(defs, value);
-			instructions.push(instruction);
+			if(defs.getClazz() == null) {
+				Logger.err(this.getClass(), "No class added yet for instruction: "+defs.name());
+				continue;
+			}
+			try {
+				Instruction instruction = defs.getClazz().getConstructor(InstructionDefinitions.class, CS2Script.class, Object.class)
+						.newInstance(defs, this, value);
+				instructions.add(instruction);
+			} catch (ReflectiveOperationException e) {
+				Logger.err(this.getClass(), "Failed to create instruction for: " + defs.name() + " in script id: " + id);
+			}
 		}
 	}
 
+	public void process() {
+		instructions.forEach(Instruction::process);
+	}
+
 	public void print() {
-		Printer printer = new Printer(1);
+		Printer printer = new Printer(id);
 		printer.print("function script_"+id+"(");
 		for (int i = 0; i < arguments.size(); i++) {
 			Variable arg = arguments.get(i);
@@ -139,10 +163,23 @@ public class CS2Script {
 		printer.indent();
 		printer.newLine();
 
-		printer.newLine();
+		results.forEach(result -> result.print(printer, true));
+
 		printer.outdent();
 		printer.print("}");
 		printer.save();
+	}
+
+	public Stack<ResultType> getStack(Type type) {
+		return switch(type) {
+			case INT -> intStack;
+			case STRING -> stringStack;
+			case LONG -> longStack;
+		};
+	}
+
+	public ArrayList<ResultType> getResults() {
+		return results;
 	}
 
 	public record Variable(int index, Type type, String name, boolean isArgument) {}
@@ -157,5 +194,9 @@ public class CS2Script {
 
 	public HashMap<Integer, Variable> getArguments() {
 		return arguments;
+	}
+
+	public ArrayList<Instruction> getInstructions() {
+		return instructions;
 	}
 }

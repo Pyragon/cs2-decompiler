@@ -1,13 +1,21 @@
 package com.cryo.entities.instructions;
 
+import com.cryo.CS2Script;
+
 public class Instruction {
 
-	private final InstructionDefinitions defs;
-	private final Object value;
+	protected final InstructionDefinitions defs;
+	protected final CS2Script script;
+	protected final Object value;
 
-	public Instruction(InstructionDefinitions defs, Object value) {
+	public Instruction(InstructionDefinitions defs, CS2Script script, Object value) {
 		this.defs = defs;
+		this.script = script;
 		this.value = value;
+	}
+
+	public void process() {
+
 	}
 
 	public InstructionDefinitions getDefinitions() {

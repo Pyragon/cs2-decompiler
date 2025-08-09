@@ -39,9 +39,17 @@ public class Printer {
 		}
 	}
 
-	public void print(String data) {
+	public void printIndent() {
 		try {
 			writer.write("\t".repeat(indents));
+		} catch (IOException e) {
+			Logger.err(this.getClass(), "Failed to write indent to printer for path: " + this.path);
+			Logger.err(this.getClass(), e.getMessage() + "\n" + e.getMessage());
+		}
+	}
+
+	public void print(String data) {
+		try {
 			writer.write(data);
 		} catch (IOException e) {
 			Logger.err(this.getClass(), "Failed to write to printer for path: " + this.path + ", data: " + data);

@@ -1,3 +1,3 @@
-function script_1(arg0: int, arg1: int): void {
+function script_42(arg0: int): void {
 
 }

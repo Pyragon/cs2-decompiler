@@ -1,23 +1,25 @@
 package com.cryo.entities.instructions;
 
+import com.cryo.entities.instructions.impl.*;
+
 import java.util.HashMap;
 
 public enum InstructionDefinitions {
-	PUSH_INT(79, true, false, false, null, null),
-	PUSH_STRING(57, true, false, false, null, null),
-	PUSH_LONG(633, true, false, false, null, null),
-	STORE_INT(168, true, false, false, null, null),
+	PUSH_INT(79, true, false, false, null, null, PushInstruction.class),
+	PUSH_STRING(57, true, false, false, null, null, PushInstruction.class),
+	PUSH_LONG(633, true, false, false, null, null, PushInstruction.class),
+	STORE_INT(168, true, false, false, null, null, StoreVariableInstruction.class),
 	STRUCT_PARAM(594, false, true, false, null, null),
 	HOOK_MOUSE_PRESS(881, false, false, true, null, null),
 	INSTR6393(486, false, false, true, null, null),
 	IF_SETONMOUSEOVER(753, false, false, true, null, null),
 	INSTR6253(532, false, false, true, null, null),
 	INSTR6248(730, false, false, true, null, null),
-	STORE_STRING(356, true, false, false, null, null),
+	STORE_STRING(356, true, false, false, null, null, StoreVariableInstruction.class),
 	STORE_VARC_STRING(21, true, false, false, null, null),
 	STORE_VARPBIT(371, true, false, false, null, null),
-	STORE_LONG(987, true, false, false, null, null),
-	LOAD_INT(500, true, false, false, null, null),
+	STORE_LONG(987, true, false, false, null, null, StoreVariableInstruction.class),
+	LOAD_INT(500, true, false, false, null, null, LoadVariableInstruction.class),
 	ARRAY_NEW(235, true, false, false, null, null),
 	LOAD_STRING(799, true, false, false, null, null),
 	LOAD_VARC_STRING(700, true, false, false, null, null),
@@ -30,7 +32,7 @@ public enum InstructionDefinitions {
 	SUBTRACT(130, false, false, false, null, null),
 	DIVIDE(56, false, false, false, null, null),
 	MULTIPLY(367, false, false, false, null, null),
-	RETURN(184, false, false, false, null, null),
+	RETURN(184, false, false, false, null, null, ReturnInstruction.class),
 	ARRAY_LOAD(859, true, false, false, null, null),
 	ARRAY_STORE(116, true, false, false, null, null),
 	MERGE_STRINGS(531, true, false, false, null, null),
@@ -311,7 +313,7 @@ public enum InstructionDefinitions {
 	IF_SETTEXTFONT(85, false, false, false, new String[]{"ic", "i"}, null),
 	IF_SETHIDE(590, false, false, false, new String[]{"ic", "i"}, null),
 	INV_TOTAL(485, false, false, false, new String[]{"i", "i"}, "int"),
-	CC_DELETEALL(572, false, false, false, new String[]{"ic"}, null),
+	CC_DELETEALL(572, false, false, false, new String[]{"ic"}, null, SimpleInstruction.class),
 	PARAMHEIGHT(469, false, false, false, new String[]{"s", "i", "i"}, "int"),
 	CC_SETTRANS(320, false, false, false, new String[]{"i"}, null),
 	INSTR6823(8, false, false, false, null, null),
@@ -736,6 +738,7 @@ public enum InstructionDefinitions {
 	private final boolean hasExtraHook;
 	private final String[] arguments;
 	private final String returnType;
+	private final Class<? extends Instruction> clazz;
 
 	private static HashMap<String, InstructionDefinitions> byNameMap = new HashMap<>();
 	private static HashMap<Integer, InstructionDefinitions> byOpcodeMap = new HashMap<>();
@@ -748,12 +751,17 @@ public enum InstructionDefinitions {
 	}
 
 	InstructionDefinitions(int opcode, boolean hasExtra, boolean hasExtraValue, boolean hasExtraHook, String[] arguments, String returnType) {
+		this(opcode, hasExtra, hasExtraValue, hasExtraHook, arguments, returnType, null);
+	}
+
+	InstructionDefinitions(int opcode, boolean hasExtra, boolean hasExtraValue, boolean hasExtraHook, String[] arguments, String returnType, Class<? extends Instruction> clazz) {
 		this.opcode = opcode;
 		this.hasExtra = hasExtra;
 		this.hasExtraValue = hasExtraValue;
 		this.hasExtraHook = hasExtraHook;
 		this.arguments = arguments;
 		this.returnType = returnType;
+		this.clazz = clazz;
 	}
 
 	public int getOpcode() {
@@ -778,6 +786,10 @@ public enum InstructionDefinitions {
 
 	public String getReturnType() {
 		return returnType;
+	}
+
+	public Class<? extends Instruction> getClazz() {
+		return clazz;
 	}
 
 	public static InstructionDefinitions getByOpcode(int opcode) {
