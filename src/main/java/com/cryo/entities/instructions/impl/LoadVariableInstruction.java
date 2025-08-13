@@ -4,7 +4,11 @@ import com.cryo.CS2Script;
 import com.cryo.entities.Type;
 import com.cryo.entities.instructions.Instruction;
 import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.LoadVariableResult;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class LoadVariableInstruction extends Instruction {
 
@@ -13,7 +17,7 @@ public class LoadVariableInstruction extends Instruction {
 	}
 
 	@Override
-	public void process() {
+	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
 		if (!(value instanceof Integer)) {
 			throw new IllegalArgumentException("LoadInstruction value must be an Integer representing the variable index.");
 		}

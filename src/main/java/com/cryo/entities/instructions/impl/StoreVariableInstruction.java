@@ -7,6 +7,9 @@ import com.cryo.entities.instructions.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.StoreVariableResult;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class StoreVariableInstruction extends Instruction {
 
 	public StoreVariableInstruction(InstructionDefinitions defs, CS2Script script, Object value) {
@@ -14,7 +17,7 @@ public class StoreVariableInstruction extends Instruction {
 	}
 
 	@Override
-	public void process() {
+	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
 		if(!(value instanceof Integer)) {
 			throw new IllegalArgumentException("StoreVariableInstruction value must be an Integer representing the variable index.");
 		}
@@ -37,6 +40,7 @@ public class StoreVariableInstruction extends Instruction {
 			throw new IllegalStateException("Stack is empty for type " + type + " when trying to store variable at index " + index);
 		}
 		ResultType resultType = script.getStack(type).pop();
-		script.getResults().add(new StoreVariableResult(variable.name(), resultType));
+		if(results == null) results = script.getResults();
+		results.add(new StoreVariableResult(variable.name(), resultType));
 	}
 }

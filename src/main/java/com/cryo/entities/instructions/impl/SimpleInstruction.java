@@ -8,6 +8,7 @@ import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.SimpleResult;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SimpleInstruction extends Instruction {
 
@@ -16,16 +17,19 @@ public class SimpleInstruction extends Instruction {
 	}
 
 	@Override
-	public void process() {
+	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
 		ArrayList<ResultType> arguments = new ArrayList<>();
-		for (int i = 0; i < getDefinitions().getArguments().length; i++) {
-			String argumentType = getDefinitions().getArguments()[i];
-			Type type = Type.fromString(argumentType);
-			ResultType resultType = script.getStack(type).pop();
-			arguments.add(resultType);
+		if(defs.getArguments() != null) {
+			for (int i = 0; i < getDefinitions().getArguments().length; i++) {
+				String argumentType = getDefinitions().getArguments()[i];
+				Type type = Type.fromString(argumentType);
+				ResultType resultType = script.getStack(type).pop();
+				arguments.add(resultType);
+			}
 		}
+		if(results == null) results = script.getResults();
 		if(defs.getReturnType() == null)
-			script.getResults().add(new SimpleResult(defs, arguments));
+			results.add(new SimpleResult(defs, arguments));
 		else if(defs.getReturnType().contains(",")) {
 			//TODO - multiple return types
 			throw new UnsupportedOperationException("Multiple return types are not supported yet for instruction: " + defs.name());

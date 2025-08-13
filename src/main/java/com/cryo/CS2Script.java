@@ -19,7 +19,7 @@ public class CS2Script {
 	private HashMap<Integer, Variable> variables;
 	private HashMap<Integer, Variable> arguments;
 	private HashMap<Integer, ArrayList<SwitchCase>> switches;
-	private ArrayList<Instruction> instructions;
+	private LinkedList<Instruction> instructions;
 
 	private final Stack<ResultType> intStack;
 	private final Stack<ResultType> stringStack;
@@ -74,14 +74,14 @@ public class CS2Script {
 		Type[] types = {Type.INT, Type.STRING, Type.LONG};
 		int[] argCounts = {intArgsCount, stringArgsCount, longArgsCount};
 		int[] localCounts = {intVarsCount, stringVarsCount, longVarsCount};
-		String[] prefixes = {"i", "s", "l"};
+		String[] prefixes = {"int", "string", "long"};
 
 		// Add all arguments first
 		for (int t = 0; t < 3; t++) {
 			for (int i = 0; i < argCounts[t]; i++) {
 				String name = "arg" + argIndex;
 				this.arguments.put(argIndex, new Variable(argIndex, types[t], name, true));
-				this.variables.put(variableIndex++, new Variable(typeIndexes[t]++, types[t], name, true));
+				this.variables.put(variableIndex++, new Variable(typeIndexes[t]++, types[t], name, true)); //typeIndexes should be variableIndex
 				argIndex++;
 			}
 		}
@@ -89,7 +89,7 @@ public class CS2Script {
 		// Add local variables
 		for (int t = 0; t < 3; t++) {
 			for (int i = 0; i < localCounts[t] - argCounts[t]; i++) {
-				String name = prefixes[t] + "Var" + i;
+				String name = prefixes[t] + i;
 				this.variables.put(variableIndex++, new Variable(typeIndexes[t]++, types[t], name, false));
 			}
 		}
@@ -111,7 +111,7 @@ public class CS2Script {
 
 		String name = stream.readNullString();
 
-		instructions = new ArrayList<>();
+		instructions = new LinkedList<>();
 
 		while(stream.getOffset() < instructionLength) {
 			int opcode = stream.readUnsignedShort();
@@ -130,22 +130,27 @@ public class CS2Script {
 				case PUSH_LONG -> value = stream.readLong();
 				default -> value = defs.hasExtra() ? stream.readInt() : stream.readUnsignedByte();
 			}
-			if(defs.getClazz() == null) {
+			Instruction instruction = getInstructionClassFromDefs(defs, value);
+			if(instruction == null) {
 				Logger.err(this.getClass(), "No class added yet for instruction: "+defs.name());
 				continue;
 			}
-			try {
-				Instruction instruction = defs.getClazz().getConstructor(InstructionDefinitions.class, CS2Script.class, Object.class)
-						.newInstance(defs, this, value);
-				instructions.add(instruction);
-			} catch (ReflectiveOperationException e) {
-				Logger.err(this.getClass(), "Failed to create instruction for: " + defs.name() + " in script id: " + id);
-			}
+			instructions.add(instruction);
 		}
 	}
 
 	public void process() {
-		instructions.forEach(Instruction::process);
+		for(Iterator<Instruction> it = instructions.iterator(); it.hasNext();) {
+			Instruction instruction = it.next();
+			try {
+				Logger.log(this.getClass(), "Processing instruction: "+instruction.getDefinitions().name());
+				instruction.process(it, null);
+			} catch (Exception e) {
+				Logger.err(this.getClass(), "Error processing instruction: " + instruction.getDefinitions().name() + " in script id: " + id);
+				e.printStackTrace();
+				return;
+			}
+		}
 	}
 
 	public void print() {
@@ -168,6 +173,18 @@ public class CS2Script {
 		printer.outdent();
 		printer.print("}");
 		printer.save();
+	}
+
+	public Instruction getInstructionClassFromDefs(InstructionDefinitions defs, Object value) {
+		if(defs.getClazz() == null) return null;
+		try {
+			Instruction instruction = defs.getClazz().getConstructor(InstructionDefinitions.class, CS2Script.class, Object.class)
+					.newInstance(defs, this, value);
+			return instruction;
+		} catch (ReflectiveOperationException e) {
+			Logger.err(this.getClass(), "Failed to create instruction for: " + defs.name() + " in script id: " + id);
+		}
+		return null;
 	}
 
 	public Stack<ResultType> getStack(Type type) {
@@ -196,7 +213,7 @@ public class CS2Script {
 		return arguments;
 	}
 
-	public ArrayList<Instruction> getInstructions() {
+	public LinkedList<Instruction> getInstructions() {
 		return instructions;
 	}
 }

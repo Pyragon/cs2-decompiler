@@ -18,9 +18,4 @@ public class ResultType {
 		printer.print(";");
 		printer.newLine();
 	}
-
-	public enum ResultTypes {
-		LITERAL,
-		LOAD
-	}
 }

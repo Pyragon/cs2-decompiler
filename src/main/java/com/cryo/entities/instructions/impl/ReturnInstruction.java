@@ -7,6 +7,9 @@ import com.cryo.entities.instructions.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.ReturnResult;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class ReturnInstruction extends Instruction {
 
 	public ReturnInstruction(InstructionDefinitions defs, CS2Script script, Object value) {
@@ -14,7 +17,7 @@ public class ReturnInstruction extends Instruction {
 	}
 
 	@Override
-	public void process() {
+	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
 		//TODO - add checks to ensure the return type matches the expected type
 		//TODO - handle multiple return types
 		ResultType type = null;
@@ -24,6 +27,7 @@ public class ReturnInstruction extends Instruction {
 			type = script.getStack(Type.STRING).pop();
 		else if(!script.getStack(Type.LONG).empty())
 			type = script.getStack(Type.LONG).pop();
-		script.getResults().add(new ReturnResult(type));
+		if(results == null) results = script.getResults();
+		results.add(new ReturnResult(type));
 	}
 }

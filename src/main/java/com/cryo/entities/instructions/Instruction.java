@@ -1,6 +1,10 @@
 package com.cryo.entities.instructions;
 
 import com.cryo.CS2Script;
+import com.cryo.entities.resulttypes.ResultType;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Instruction {
 
@@ -14,7 +18,7 @@ public class Instruction {
 		this.value = value;
 	}
 
-	public void process() {
+	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
 
 	}
 

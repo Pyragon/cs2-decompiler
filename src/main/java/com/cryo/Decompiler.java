@@ -9,7 +9,7 @@ public class Decompiler {
 	public static void main(String[] args) throws IOException {
 		Cache.init(Settings.PACKED_PATH);
 
-		CS2Script script = new CS2Script(11);
+		CS2Script script = new CS2Script(1);
 
 		System.out.println(script.getArguments().size() + " arguments: "+
 				script.getArguments().values().stream()
