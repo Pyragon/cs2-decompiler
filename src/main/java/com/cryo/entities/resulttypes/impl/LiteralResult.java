@@ -22,4 +22,8 @@ public class LiteralResult extends ResultType {
 			case STRING -> printer.print((String) value);
 		}
 	}
+
+	public Type getType() {
+		return type;
+	}
 }

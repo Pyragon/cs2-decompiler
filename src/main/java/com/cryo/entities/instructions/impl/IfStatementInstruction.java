@@ -3,13 +3,13 @@ package com.cryo.entities.instructions.impl;
 import com.cryo.CS2Script;
 import com.cryo.entities.Type;
 import com.cryo.entities.instructions.Instruction;
-import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.IfStatementResult;
 import com.cryo.utils.Logger;
+import com.cryo.utils.PeekableIterator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class IfStatementInstruction extends Instruction {
 
@@ -23,7 +23,7 @@ public class IfStatementInstruction extends Instruction {
 	}
 
 	@Override
-	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
+	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
 		Type type = Type.INT;
 		if(defs.name().startsWith("LONG"))
 			type = Type.LONG;
@@ -58,13 +58,14 @@ public class IfStatementInstruction extends Instruction {
 				Type type2 = Type.INT;
 				if(nextInstruction.getDefinitions().name().startsWith("LONG"))
 					type2 = Type.LONG;
-				Instruction nextGotoInstruction = iterator.next();
+				Instruction nextGotoInstruction = iterator.peek();
 				if(nextGotoInstruction.getDefinitions() != InstructionDefinitions.GOTO) {
 					throw new IllegalStateException("Next instruction after IfStatement is not a GOTO: " + nextGotoInstruction.getDefinitions().name());
 				}
 				int nextLength = (int) nextGotoInstruction.getValue();
 				if(nextLength != length - (i + 2)) { //account for the fact that we took two instructions off
-					throw new IllegalStateException("Next GOTO length does not match expected length: " + nextLength + " != " + (length - i) + " for instruction: " + defs.name());
+					nextInstruction.process(iterator, resultTypes);
+					continue;
 				}
 				ResultType right2 = script.getStack(type2).pop();
 				if(right2 == null) {

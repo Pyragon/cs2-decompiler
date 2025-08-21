@@ -1,10 +1,11 @@
 package com.cryo.entities.instructions;
 
 import com.cryo.CS2Script;
+import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
+import com.cryo.utils.PeekableIterator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Instruction {
 
@@ -18,7 +19,7 @@ public class Instruction {
 		this.value = value;
 	}
 
-	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
+	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
 
 	}
 

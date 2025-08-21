@@ -2,12 +2,14 @@ package com.cryo;
 
 import com.cryo.cache.Cache;
 import com.cryo.cache.IndexType;
+import com.cryo.db.ScriptDefinitions;
 import com.cryo.entities.*;
 import com.cryo.entities.instructions.Instruction;
-import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.io.InputStream;
 import com.cryo.utils.Logger;
+import com.cryo.utils.PeekableIterator;
 import com.cryo.utils.Printer;
 
 import java.util.*;
@@ -15,7 +17,6 @@ import java.util.*;
 public class CS2Script {
 
 	private final int id;
-	private Type returnType;
 	private HashMap<Integer, Variable> variables;
 	private HashMap<Integer, Variable> arguments;
 	private HashMap<Integer, ArrayList<SwitchCase>> switches;
@@ -27,6 +28,8 @@ public class CS2Script {
 
 	private final ArrayList<ResultType> results;
 
+	private ScriptDefinitions defs;
+
 	public CS2Script(int id) {
 		this.id = id;
 		this.intStack = new Stack<>();
@@ -37,6 +40,11 @@ public class CS2Script {
 	}
 
 	public void init() {
+		defs = ScriptDefinitions.getScript(id);
+		if(defs == null) {
+			Logger.err(this.getClass(), "No script definitions found for id: " + id);
+			return;
+		}
 		byte[] data = Cache.STORE.getIndex(IndexType.CS2_SCRIPTS).getFile(id, 0);
 		if(data == null || data.length == 0) {
 			Logger.err(this.getClass(), "Invalid data for script id: " + id);
@@ -140,7 +148,8 @@ public class CS2Script {
 	}
 
 	public void process() {
-		for(Iterator<Instruction> it = instructions.iterator(); it.hasNext();) {
+		PeekableIterator<Instruction> it = new PeekableIterator<>(instructions);
+		while(it.hasNext()) {
 			Instruction instruction = it.next();
 			try {
 				Logger.log(this.getClass(), "Processing instruction: "+instruction.getDefinitions().name());
@@ -164,7 +173,8 @@ public class CS2Script {
 			printer.print(arg.name() + ": " + arg.type().name().toLowerCase());
 		}
 		printer.print("): ");
-		printer.print(returnType != null ? returnType.name().toLowerCase() : "void {");
+		printer.print(defs.getReturnType() != null ? defs.getReturnType().name().toLowerCase() : "void");
+		printer.print(" {");
 		printer.indent();
 		printer.newLine();
 
@@ -192,7 +202,12 @@ public class CS2Script {
 			case INT -> intStack;
 			case STRING -> stringStack;
 			case LONG -> longStack;
+			default -> throw new IllegalArgumentException("Invalid stack type: " + type);
 		};
+	}
+
+	public ScriptDefinitions getDefs() {
+		return defs;
 	}
 
 	public ArrayList<ResultType> getResults() {

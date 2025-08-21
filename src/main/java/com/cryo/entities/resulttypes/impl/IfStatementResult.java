@@ -1,6 +1,6 @@
 package com.cryo.entities.resulttypes.impl;
 
-import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.instructions.impl.IfStatementInstruction;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.utils.Printer;

@@ -3,12 +3,13 @@ package com.cryo.entities.instructions.impl;
 import com.cryo.CS2Script;
 import com.cryo.entities.Type;
 import com.cryo.entities.instructions.Instruction;
-import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.SimpleResult;
+import com.cryo.utils.PeekableIterator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 
 public class SimpleInstruction extends Instruction {
 
@@ -17,7 +18,7 @@ public class SimpleInstruction extends Instruction {
 	}
 
 	@Override
-	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
+	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
 		ArrayList<ResultType> arguments = new ArrayList<>();
 		if(defs.getArguments() != null) {
 			for (int i = 0; i < getDefinitions().getArguments().length; i++) {
@@ -27,6 +28,7 @@ public class SimpleInstruction extends Instruction {
 				arguments.add(resultType);
 			}
 		}
+		Collections.reverse(arguments);
 		if(results == null) results = script.getResults();
 		if(defs.getReturnType() == null)
 			results.add(new SimpleResult(defs, arguments));

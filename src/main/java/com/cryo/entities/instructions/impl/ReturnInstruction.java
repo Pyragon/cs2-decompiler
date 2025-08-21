@@ -3,12 +3,12 @@ package com.cryo.entities.instructions.impl;
 import com.cryo.CS2Script;
 import com.cryo.entities.Type;
 import com.cryo.entities.instructions.Instruction;
-import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.ReturnResult;
+import com.cryo.utils.PeekableIterator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class ReturnInstruction extends Instruction {
 
@@ -17,7 +17,7 @@ public class ReturnInstruction extends Instruction {
 	}
 
 	@Override
-	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
+	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
 		//TODO - add checks to ensure the return type matches the expected type
 		//TODO - handle multiple return types
 		ResultType type = null;

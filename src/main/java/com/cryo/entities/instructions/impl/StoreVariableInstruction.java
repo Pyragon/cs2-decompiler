@@ -3,12 +3,12 @@ package com.cryo.entities.instructions.impl;
 import com.cryo.CS2Script;
 import com.cryo.entities.Type;
 import com.cryo.entities.instructions.Instruction;
-import com.cryo.entities.instructions.InstructionDefinitions;
+import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.StoreVariableResult;
+import com.cryo.utils.PeekableIterator;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class StoreVariableInstruction extends Instruction {
 
@@ -17,7 +17,7 @@ public class StoreVariableInstruction extends Instruction {
 	}
 
 	@Override
-	public void process(Iterator<Instruction> iterator, ArrayList<ResultType> results) {
+	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
 		if(!(value instanceof Integer)) {
 			throw new IllegalArgumentException("StoreVariableInstruction value must be an Integer representing the variable index.");
 		}

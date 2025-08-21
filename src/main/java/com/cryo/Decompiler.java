@@ -1,15 +1,20 @@
 package com.cryo;
 
 import com.cryo.cache.Cache;
+import com.cryo.db.ScriptDefinitions;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Decompiler {
 
 	public static void main(String[] args) throws IOException {
 		Cache.init(Settings.PACKED_PATH);
 
-		CS2Script script = new CS2Script(1);
+		ScriptDefinitions.loadDefinitions();
+
+		CS2Script script = new CS2Script(20);
 
 		System.out.println(script.getArguments().size() + " arguments: "+
 				script.getArguments().values().stream()

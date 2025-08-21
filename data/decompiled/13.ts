@@ -1,0 +1,29 @@
+function script_13(arg0: int, arg1: int): void {
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return arg1;
+	return -1;
+	return 0;
+}

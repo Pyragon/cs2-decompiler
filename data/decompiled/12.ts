@@ -1,0 +1,29 @@
+function script_12(arg0: int): void {
+	return 15;
+	return 8;
+	return 15;
+	return 11;
+	return 4;
+	return 11;
+	return 3;
+	return 10;
+	return 8;
+	return 9;
+	return 13;
+	return 9;
+	return 7;
+	return 16;
+	return 8;
+	return 16;
+	return 9;
+	return 8;
+	return 7;
+	return 5;
+	return 13;
+	return 16;
+	return 16;
+	return 8;
+	return 6;
+	return -1;
+	return 0;
+}
