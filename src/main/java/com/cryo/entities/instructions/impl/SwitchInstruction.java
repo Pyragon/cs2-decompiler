@@ -20,19 +20,6 @@ public class SwitchInstruction extends Instruction {
 		super(defs, script, value);
 	}
 
-	//TODO - multipe cases with the same scope i.e
-	/*
-		switch(x) {
-			case 1:
-			case 2: {
-				doSomething();
-				break;
-			}
-		}
-	 */
-	//TODO - https://i.imgur.com/OTnovar.png
-	//I think maybe the cases ending but still having a GOTO on there also means there's a default case?
-
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
 		super.process(iterator, results);
@@ -69,46 +56,27 @@ public class SwitchInstruction extends Instruction {
 				} else
 					break;
 			}
-			Logger.log(this.getClass(), "Processing switch case: "+switchCase.getCaseNum()+" "+switchCase.getAddress());
 			instruction = iterator.next();
-			int size;
-			if(i == cases.size() - 1) {
-				size = (int) instruction.getValue();
-			} else {
-				SwitchCase nextCase = cases.get(i + 1);
-				size = nextCase.getAddress() - switchCase.getAddress() - 1;
-			}
 			if(instruction.getDefinitions() != InstructionDefinitions.GOTO) {
 				throw new IllegalStateException("Expected GOTO instruction at address: " + switchCase.getAddress() + " but found: " + instruction.getDefinitions().name());
 			}
 			ArrayList<ResultType> scope = new ArrayList<>();
-			for(int k = 0; k < size; k++) {
-				Instruction scopedInstruction = iterator.next();
-				scopedInstruction.process(iterator, scope);
+			while((instruction = iterator.peek()).getDefinitions() != InstructionDefinitions.GOTO) {
+				iterator.next();
+				instruction.process(iterator, scope);
 			}
 			scopes.add(new CaseResult(switchCases, scope));
 		}
-//		for(int i = 0; i < cases.size(); i++) {
-//			SwitchCase switchCase = cases.get(i);
-//			Logger.log(this.getClass(), "Processing switch case: "+switchCase.getCaseNum()+" "+switchCase.getAddress());
-//			instruction = iterator.next();
-//			int size;
-//			if(i == cases.size() - 1) {
-//				size = (int) instruction.getValue();
-//			} else {
-//				SwitchCase nextCase = cases.get(i + 1);
-//				size = nextCase.getAddress() - switchCase.getAddress() - 1;
-//			}
-//			if(instruction.getDefinitions() != InstructionDefinitions.GOTO) {
-//				throw new IllegalStateException("Expected GOTO instruction at address: " + switchCase.getAddress() + " but found: " + instruction.getDefinitions().name());
-//			}
-//			ArrayList<ResultType> scope = new ArrayList<>();
-//			for(int k = 0; k < size; k++) {
-//				Instruction scopedInstruction = iterator.next();
-//				scopedInstruction.process(iterator, scope);
-//			}
-//			scopes.add(new CaseResult(switchCase, scope));
-//		}
+		if((instruction = iterator.peek()).getDefinitions() == InstructionDefinitions.GOTO) {
+			int size = (int) instruction.getValue();
+			ArrayList<ResultType> scope = new ArrayList<>();
+			iterator.next();
+			for(int i = 0; i < size; i++) {
+				instruction = iterator.next();
+				instruction.process(iterator, scope);
+			}
+			defaultCase = new CaseResult(null, scope, true);
+		}
 		script.getResults().add(new SwitchResult(switchValue, scopes, defaultCase));
 	}
 }
