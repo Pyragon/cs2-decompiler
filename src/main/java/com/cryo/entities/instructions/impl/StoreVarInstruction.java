@@ -18,6 +18,7 @@ public class StoreVarInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		Type type = defs == InstructionDefinitions.STORE_VARC_STRING ? Type.STRING : Type.INT;
 		ResultType value = script.getStack(type).pop();
 		if (value == null)
@@ -25,6 +26,7 @@ public class StoreVarInstruction extends Instruction {
 		int id = (int) this.value;
 		if (id < 0)
 			throw new IllegalStateException("ID cannot be negative: " + id + " in instruction: " + defs.name());
-		script.getResults().add(new StoreVarResult(defs, value, id));
+		if(results == null) results = script.getResults();
+		results.add(new StoreVarResult(defs, value, id));
 	}
 }

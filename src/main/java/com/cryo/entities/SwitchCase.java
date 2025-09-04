@@ -17,4 +17,9 @@ public class SwitchCase {
 	public int getAddress() {
 		return address;
 	}
+
+	@Override
+	public String toString() {
+		return "Case: " + caseNum + " -> Address: " + address;
+	}
 }

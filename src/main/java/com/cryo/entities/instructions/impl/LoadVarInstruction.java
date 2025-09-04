@@ -18,6 +18,7 @@ public class LoadVarInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		String name = defs.name().toLowerCase();
 		Type type = name.contains("long") ? Type.LONG : name.contains("string") ? Type.STRING : Type.INT;
 		script.getStack(type).push(new LoadVarResult(defs, (int) value));

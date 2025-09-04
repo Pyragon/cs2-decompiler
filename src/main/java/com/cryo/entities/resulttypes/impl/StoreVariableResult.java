@@ -17,7 +17,5 @@ public class StoreVariableResult extends ResultType {
 	public void print(Printer printer) {
 		printer.print(name + " = ");
 		type.print(printer);
-		printer.print(";");
-		printer.newLine();
 	}
 }

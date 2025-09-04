@@ -19,6 +19,7 @@ public class PushInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		Type type;
 		switch(defs) {
 			case PUSH_INT -> type = Type.INT;

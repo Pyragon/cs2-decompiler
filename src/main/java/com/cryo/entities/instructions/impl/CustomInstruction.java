@@ -7,6 +7,7 @@ import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.entities.resulttypes.impl.misc.AppendResult;
 import com.cryo.entities.resulttypes.impl.misc.StringLengthResult;
+import com.cryo.entities.resulttypes.impl.misc.ToLowerCaseResult;
 import com.cryo.entities.resulttypes.impl.misc.ToStringResult;
 import com.cryo.utils.PeekableIterator;
 
@@ -20,6 +21,7 @@ public class CustomInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		switch(defs) {
 			case TO_STRING -> {
 				ResultType toConvert = script.getStack(Type.INT).pop();

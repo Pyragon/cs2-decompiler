@@ -2,7 +2,9 @@ package com.cryo.entities.instructions;
 
 import com.cryo.CS2Script;
 import com.cryo.db.InstructionDefinitions;
+import com.cryo.entities.Type;
 import com.cryo.entities.resulttypes.ResultType;
+import com.cryo.utils.Logger;
 import com.cryo.utils.PeekableIterator;
 
 import java.util.ArrayList;
@@ -20,7 +22,12 @@ public class Instruction {
 	}
 
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
-
+		Logger.log(this.getClass(), "Processing instruction: " + defs.name() + " with value: " + value);
+		Logger.log(this.getClass(), "Current stack: "+
+				"intStack=" + script.getStack(Type.INT).size() +
+				", stringStack=" + script.getStack(Type.STRING).size() +
+				", longStack=" + script.getStack(Type.LONG).size()
+		);
 	}
 
 	public InstructionDefinitions getDefinitions() {

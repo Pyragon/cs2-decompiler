@@ -19,6 +19,11 @@ public class CS2Script {
 	private final int id;
 	private HashMap<Integer, Variable> variables;
 	private HashMap<Integer, Variable> arguments;
+
+	// New data structures for type-specific access
+	private HashMap<Type, HashMap<Integer, Variable>> variablesByType;
+	private HashMap<Type, HashMap<Integer, Variable>> argumentsByType;
+
 	private HashMap<Integer, ArrayList<SwitchCase>> switches;
 	private LinkedList<Instruction> instructions;
 
@@ -76,29 +81,55 @@ public class CS2Script {
 		variables = new HashMap<>();
 		arguments = new HashMap<>();
 
+		// Initialize type-specific maps
+		variablesByType = new HashMap<>();
+		argumentsByType = new HashMap<>();
+		Type[] types = {Type.INT, Type.STRING, Type.LONG};
+		for (Type type : types) {
+			variablesByType.put(type, new HashMap<>());
+			argumentsByType.put(type, new HashMap<>());
+		}
+
 		int argIndex = 0;
 		int variableIndex = 0;
-		int[] typeIndexes = {0, 0, 0}; // int, string, long indexes
-		Type[] types = {Type.INT, Type.STRING, Type.LONG};
+		int[] typeCounters = {0, 0, 0}; // int, string, long type-specific counters
 		int[] argCounts = {intArgsCount, stringArgsCount, longArgsCount};
 		int[] localCounts = {intVarsCount, stringVarsCount, longVarsCount};
 		String[] prefixes = {"int", "string", "long"};
 
 		// Add all arguments first
-		for (int t = 0; t < 3; t++) {
+		for (int t = 0; t < types.length; t++) {
+			Type currentType = types[t];
 			for (int i = 0; i < argCounts[t]; i++) {
-				String name = "arg" + argIndex;
-				this.arguments.put(argIndex, new Variable(argIndex, types[t], name, true));
-				this.variables.put(variableIndex++, new Variable(typeIndexes[t]++, types[t], name, true)); //typeIndexes should be variableIndex
-				argIndex++;
+				String name = prefixes[t] + typeCounters[t];
+				Variable variable = new Variable(variableIndex, currentType, name, true);
+
+				// Store in existing maps
+				this.arguments.put(argIndex++, variable);
+				this.variables.put(variableIndex++, variable);
+
+				// Store in type-specific maps
+				argumentsByType.get(currentType).put(typeCounters[t], variable);
+				variablesByType.get(currentType).put(typeCounters[t], variable);
+
+				typeCounters[t]++;
 			}
 		}
 
 		// Add local variables
-		for (int t = 0; t < 3; t++) {
+		for (int t = 0; t < types.length; t++) {
+			Type currentType = types[t];
 			for (int i = 0; i < localCounts[t] - argCounts[t]; i++) {
-				String name = prefixes[t] + i;
-				this.variables.put(variableIndex++, new Variable(typeIndexes[t]++, types[t], name, false));
+				String name = prefixes[t] + typeCounters[t];
+				Variable variable = new Variable(variableIndex, currentType, name, false);
+
+				// Store in existing maps
+				this.variables.put(variableIndex++, variable);
+
+				// Store in type-specific map
+				variablesByType.get(currentType).put(typeCounters[t], variable);
+
+				typeCounters[t]++;
 			}
 		}
 
@@ -145,6 +176,19 @@ public class CS2Script {
 			}
 			instructions.add(instruction);
 		}
+
+		//TODO - Should probably actually find out why this happens and figure out a better way to do this.
+		if(defs.getReturnType() != Type.VOID) {
+			Logger.log(this.getClass(), "Script " + id + " has a return type: " + defs.getReturnType().name() + ".");
+			Logger.log(this.getClass(), "Removing the last two instructions");
+			Logger.log(this.getClass(), "Old: "+instructionLength+". New: "+ (instructionLength - 2) + ".");
+			if(instructions.size() < 2) {
+				Logger.err(this.getClass(), "Not enough instructions to remove the last two for script id: " + id);
+				return;
+			}
+			instructions.removeLast(); // Remove the last instruction (usually a return)
+			instructions.removeLast(); // Remove the second last instruction (usually a return value push)
+		}
 	}
 
 	public void process() {
@@ -152,8 +196,12 @@ public class CS2Script {
 		while(it.hasNext()) {
 			Instruction instruction = it.next();
 			try {
-				Logger.log(this.getClass(), "Processing instruction: "+instruction.getDefinitions().name());
 				instruction.process(it, null);
+				Logger.log(this.getClass(), "Processed instruction: " + instruction.getDefinitions().name());Logger.log(this.getClass(), "Current stack: "+
+						"intStack=" + getStack(Type.INT).size() +
+						", stringStack=" + getStack(Type.STRING).size() +
+						", longStack=" + getStack(Type.LONG).size()
+				);
 			} catch (Exception e) {
 				Logger.err(this.getClass(), "Error processing instruction: " + instruction.getDefinitions().name() + " in script id: " + id);
 				e.printStackTrace();
@@ -206,6 +254,47 @@ public class CS2Script {
 		};
 	}
 
+	// New methods for type-specific variable access
+
+	/**
+	 * Get a variable by its type and type-specific index
+	 * @param type The variable type (INT, STRING, LONG)
+	 * @param index The type-specific index (e.g., 0 for first string variable)
+	 * @return The variable, or null if not found
+	 */
+	public Variable getVariableByType(Type type, int index) {
+		return variablesByType.get(type).get(index);
+	}
+
+	/**
+	 * Get an argument by its type and type-specific index
+	 * @param type The argument type (INT, STRING, LONG)
+	 * @param index The type-specific index (e.g., 0 for first string argument)
+	 * @return The argument variable, or null if not found
+	 */
+	public Variable getArgumentByType(Type type, int index) {
+		return argumentsByType.get(type).get(index);
+	}
+
+	/**
+	 * Get all variables of a specific type
+	 * @param type The variable type
+	 * @return Map of type-specific index to Variable
+	 */
+	public Map<Integer, Variable> getVariablesOfType(Type type) {
+		return variablesByType.get(type);
+	}
+
+	/**
+	 * Get all arguments of a specific type
+	 * @param type The argument type
+	 * @return Map of type-specific index to Variable
+	 */
+	public Map<Integer, Variable> getArgumentsOfType(Type type) {
+		return argumentsByType.get(type);
+	}
+
+	// Existing getters
 	public ScriptDefinitions getDefs() {
 		return defs;
 	}
@@ -230,5 +319,9 @@ public class CS2Script {
 
 	public LinkedList<Instruction> getInstructions() {
 		return instructions;
+	}
+
+	public HashMap<Integer, ArrayList<SwitchCase>> getSwitches() {
+		return switches;
 	}
 }

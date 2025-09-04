@@ -19,6 +19,7 @@ public class MathsInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		ResultType right = script.getStack(Type.INT).pop();
 		if(right == null) {
 			throw new IllegalStateException("Right operand is null for instruction: " + defs.name());

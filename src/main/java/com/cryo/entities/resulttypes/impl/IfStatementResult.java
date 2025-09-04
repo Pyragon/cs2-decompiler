@@ -10,38 +10,51 @@ import java.util.ArrayList;
 public class IfStatementResult extends ResultType {
 
 	private final InstructionDefinitions defs;
-	private final ArrayList<IfStatementInstruction.IfStatement> andInstructions;
-	private final ArrayList<ResultType> resultTypes;
+	private final ArrayList<IfStatementInstruction.IfStatement> ifStatements;
+	private final ArrayList<ResultType> scope;
+	private final ArrayList<ResultType> elseScope;
 
-	public IfStatementResult(InstructionDefinitions defs, ArrayList<IfStatementInstruction.IfStatement> andInstructions, ArrayList<ResultType> resultTypes) {
+	public IfStatementResult(InstructionDefinitions defs, ArrayList<IfStatementInstruction.IfStatement> ifStatements, ArrayList<ResultType> scope, ArrayList<ResultType> elseScope) {
 		this.defs = defs;
-		this.andInstructions = andInstructions;
-		this.resultTypes = resultTypes;
+		this.ifStatements = ifStatements;
+		this.scope = scope;
+		this.elseScope = elseScope;
 	}
 
 	public void print(Printer printer) {
 		printer.print("if(");
-		for(int i = 0; i < andInstructions.size(); i++) {
-			IfStatementInstruction.IfStatement ifStatement = andInstructions.get(i);
+		for(int i = 0; i < ifStatements.size(); i++) {
+			IfStatementInstruction.IfStatement ifStatement = ifStatements.get(i);
+			if(ifStatement.statementType() != IfStatementInstruction.IfStatementType.DEFAULT) {
+				if(ifStatement.statementType() == IfStatementInstruction.IfStatementType.AND) {
+					printer.print(" && ");
+				} else if(ifStatement.statementType() == IfStatementInstruction.IfStatementType.OR) {
+					printer.print(" || ");
+				} else {
+					throw new IllegalStateException("Unknown IfStatementType: " + ifStatement.statementType());
+				}
+			}
 			ifStatement.left().print(printer);
 			printer.print(" "+getExpressionSymbol(defs)+" ");
 			ifStatement.right().print(printer);
-			if(i < andInstructions.size() - 1) {
-				printer.print(" && ");
-			}
 		}
-		//TODO - && || support
 		printer.print(") {");
 		printer.indent();
 		printer.newLine();
-		resultTypes.forEach(resultType -> {
-			printer.printIndent();
-			resultType.print(printer);
-			printer.newLine();
-		});
+		scope.forEach(resultType -> resultType.print(printer, true));
 		printer.outdent();
 		printer.printIndent();
-		printer.print("}");
+		if(elseScope.isEmpty())
+			printer.print("}");
+		else {
+			printer.print("} else {");
+			printer.indent();
+			printer.newLine();
+			elseScope.forEach(resultType -> resultType.print(printer, true));
+			printer.outdent();
+			printer.printIndent();
+			printer.print("}");
+		}
 	}
 
 	public String getExpressionSymbol(InstructionDefinitions defs) {

@@ -19,6 +19,7 @@ public class SimpleInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		ArrayList<ResultType> arguments = new ArrayList<>();
 		if(defs.getArguments() != null) {
 			for (int i = 0; i < getDefinitions().getArguments().length; i++) {

@@ -1,5 +1,7 @@
 package com.cryo.utils;
 
+import com.cryo.entities.resulttypes.ResultType;
+
 public class Logger {
 
 	public static void handleException(Class<?> c, String message, Exception exception) {

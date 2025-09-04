@@ -18,6 +18,7 @@ public class ReturnInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		//TODO - add checks to ensure the return type matches the expected type
 		//TODO - handle multiple return types
 		ResultType type = null;

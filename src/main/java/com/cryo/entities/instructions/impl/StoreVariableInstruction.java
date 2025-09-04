@@ -18,14 +18,11 @@ public class StoreVariableInstruction extends Instruction {
 
 	@Override
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		if(!(value instanceof Integer)) {
 			throw new IllegalArgumentException("StoreVariableInstruction value must be an Integer representing the variable index.");
 		}
 		int index = (int) value;
-		if(!script.getVariables().containsKey(index)) {
-			throw new IllegalArgumentException("Variable with index " + index + " does not exist in the script variables.");
-		}
-		CS2Script.Variable variable = script.getVariables().get(index);
 		Type type;
 		switch(defs) {
 			case STORE_INT -> type = Type.INT;
@@ -33,6 +30,14 @@ public class StoreVariableInstruction extends Instruction {
 			case STORE_STRING -> type = Type.STRING;
 			default -> throw new IllegalArgumentException("Invalid instruction definition for StoreVariableInstruction: " + defs);
 		}
+//		if(!script.getVariables().containsKey(index)) {
+//			throw new IllegalArgumentException("Variable with index " + index + " does not exist in the script variables.");
+//		}
+		if(!script.getVariablesOfType(type).containsKey(index)) {
+			throw new IllegalArgumentException("Variable with index " + index + " and type " + type + " does not exist in the script variables.");
+		}
+//		CS2Script.Variable variable = script.getVariables().get(index);
+		CS2Script.Variable variable = script.getVariableByType(type, index);
 		if(variable.type() != type) {
 			throw new IllegalArgumentException("Variable type mismatch: expected " + type + " but found " + variable.type() + " for variable index " + index);
 		}

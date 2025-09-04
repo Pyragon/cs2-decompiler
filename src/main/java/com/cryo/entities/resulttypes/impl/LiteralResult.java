@@ -19,11 +19,15 @@ public class LiteralResult extends ResultType {
 		switch(type) {
 			case INT -> printer.print(Integer.toString((int) value));
 			case LONG -> printer.print(Long.toString((long) value));
-			case STRING -> printer.print((String) value);
+			case STRING -> printer.print("\""+value+"\"");
 		}
 	}
 
 	public Type getType() {
 		return type;
+	}
+
+	public Object getValue() {
+		return value;
 	}
 }

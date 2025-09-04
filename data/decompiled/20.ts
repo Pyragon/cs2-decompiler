@@ -9,5 +9,4 @@ function script_20(arg0: int): string {
 		return (arg0 / 1000).toString() + "K"
 	};
 	return arg0.toString();
-	return "";
 }
