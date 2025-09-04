@@ -46,6 +46,13 @@ public class CustomInstruction extends Instruction {
 				}
 				script.getStack(Type.STRING).push(new AppendResult(value, toAppend));
 			}
+			case LOWER_STRING -> {
+				ResultType toLower = script.getStack(Type.STRING).pop();
+				if(toLower == null) {
+					throw new IllegalStateException("String value is null for instruction: " + defs.name());
+				}
+				script.getStack(Type.STRING).push(new ToLowerCaseResult(toLower));
+			}
 		}
 	}
 }

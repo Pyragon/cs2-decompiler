@@ -668,7 +668,7 @@ public enum InstructionDefinitions {
 	CC_GETWIDTH(545, false, false, false, null, "int"),
 	CC_SETTEXTALIGN(546, false, false, false, new String[]{"i", "i", "i"}, null),
 	INSTR6129(552, false, false, false, new String[]{"i", "i", "i"}, null),
-	LOWER_STRING(556, false, false, false, new String[]{"s"}, "string"),
+	LOWER_STRING(556, false, false, false, new String[]{"s"}, "string", CustomInstruction.class),
 	ACTIVECLANSETTINGS_GETAFFINEDSLOT(557, false, false, false, new String[]{"s"}, "int"),
 	CLAN_VARS_ENABLED(559, false, false, false, null, "int"),
 	IF_GETHIDE(578, false, false, false, new String[]{"ic"}, "int"),
