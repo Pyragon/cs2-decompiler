@@ -44,9 +44,11 @@ public class CaseResult extends ResultType {
 			ResultType result = scope.get(i);
 			result.print(printer, true);
 		}
-		printer.printIndent();
-		printer.print("break;");
-		printer.newLine();
+		if(!(scope.getLast() instanceof ReturnResult)) {
+			printer.printIndent();
+			printer.print("break;");
+			printer.newLine();
+		}
 		printer.outdent();
 		printer.printIndent();
 		printer.print("};");
