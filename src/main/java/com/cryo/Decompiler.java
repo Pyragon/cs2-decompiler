@@ -15,7 +15,7 @@ public class Decompiler {
 
 		ScriptDefinitions.loadDefinitions();
 
-		CS2Script script = new CS2Script(2091);
+		CS2Script script = new CS2Script(2);
 
 		System.out.println(script.getArguments().size() + " arguments: "+
 				script.getArguments().values().stream()
@@ -36,14 +36,9 @@ public class Decompiler {
 		);
 
 		//print out script.getSwitches with addresses
-		System.out.println(script.getSwitches().size() + " switches: " +
-				script.getSwitches().entrySet().stream()
-						.map(entry -> "Switch ID " + entry.getKey() + " with cases: " +
-								entry.getValue().stream()
-										.map(switchCase -> "case " + switchCase.getCaseNum() + " at address " + switchCase.getAddress())
-										.reduce((a, b) -> a + ", " + b).orElse("none"))
-						.reduce((a, b) -> a + "; " + b).orElse("none")
-		);
+		if(script.getSwitches() != null) {
+			System.out.println(script.getSwitches().size() + " switches: " + script.getSwitches().entrySet().stream().map(entry -> "Switch ID " + entry.getKey() + " with cases: " + entry.getValue().stream().map(switchCase -> "case " + switchCase.getCaseNum() + " at address " + switchCase.getAddress()).reduce((a, b) -> a + ", " + b).orElse("none")).reduce((a, b) -> a + "; " + b).orElse("none"));
+		}
 
 		script.process();
 
