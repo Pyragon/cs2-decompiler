@@ -28,14 +28,23 @@ public class CaseResult extends ResultType {
 		if(isDefault)
 			printer.print("default: {");
 		else {
-			for(int i = 0; i < switchCases.size(); i++) {
-				SwitchCase switchCase = switchCases.get(i);
-				printer.print("case "+switchCase.getCaseNum()+":");
-				if(i != switchCases.size() - 1) {
-					printer.newLine();
-					printer.printIndent();
-				} else
-					printer.print(" {");
+			if(switchCases.size() <= 3) {
+				printer.print("case ");
+				for(int i = 0; i < switchCases.size(); i++) {
+					if(i != 0)
+						printer.print(", ");
+					printer.print(Integer.toString(switchCases.get(i).getCaseNum()));
+				}
+				printer.print(": {");
+			} else {
+				for (int i = 0; i < switchCases.size(); i++) {
+					SwitchCase switchCase = switchCases.get(i);
+					printer.print("case " + switchCase.getCaseNum() + ":");
+					if (i != switchCases.size() - 1) {
+						printer.newLine();
+						printer.printIndent();
+					} else printer.print(" {");
+				}
 			}
 		}
 		printer.indent();

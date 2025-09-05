@@ -27,7 +27,7 @@ public class SwitchInstruction extends Instruction {
 		if(switchValue == null) {
 			throw new IllegalStateException("Switch value is null for instruction: " + defs.name());
 		}
-		ArrayList<SwitchCase> cases = script.getSwitches().get((Integer) value);
+		ArrayList<SwitchCase> cases = script.getSwitches().get((int) value);
 		if(cases == null) {
 			throw new IllegalStateException("No cases found for switch id: " + value);
 		}
