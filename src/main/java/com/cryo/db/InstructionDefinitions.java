@@ -11,11 +11,11 @@ public enum InstructionDefinitions {
 	PUSH_LONG(633, true, false, false, null, null, PushInstruction.class),
 	STORE_INT(168, true, false, false, null, null, StoreVariableInstruction.class),
 	STRUCT_PARAM(594, false, true, false, null, null),
-	HOOK_MOUSE_PRESS(881, false, false, true, null, null),
+	IF_SETONCLICK(881, false, false, true, null, null, HookInstruction.class),
 	INSTR6393(486, false, false, true, null, null),
-	IF_SETONMOUSEOVER(753, false, false, true, null, null),
-	INSTR6253(532, false, false, true, null, null),
-	INSTR6248(730, false, false, true, null, null),
+	IF_SETONMOUSEOVER(753, false, false, true, null, null, HookInstruction.class),
+	INSTR6253(532, false, false, true, null, null, HookInstruction.class),
+	INSTR6248(730, false, false, true, null, null, HookInstruction.class),
 	STORE_STRING(356, true, false, false, null, null, StoreVariableInstruction.class),
 	STORE_VARC_STRING(21, true, false, false, null, null, StoreVarInstruction.class),
 	STORE_VARPBIT(371, true, false, false, null, null, StoreVarInstruction.class),
@@ -36,7 +36,7 @@ public enum InstructionDefinitions {
 	RETURN(184, false, false, false, null, null, ReturnInstruction.class),
 	ARRAY_LOAD(859, true, false, false, null, null, LoadArrayInstruction.class),
 	ARRAY_STORE(116, true, false, false, null, null, StoreArrayInstruction.class),
-	MERGE_STRINGS(531, true, false, false, null, null),
+	MERGE_STRINGS(531, true, false, false, null, null, CustomInstruction.class),
 	LOAD_VARC(311, true, false, false, null, null, LoadVarInstruction.class),
 	STORE_VARC(510, true, false, false, null, null, StoreVarInstruction.class),
 	CALL_CS2(902, true, false, false, null, null, CallScriptInstruction.class),
@@ -52,7 +52,7 @@ public enum InstructionDefinitions {
 	LONG_GE(142, true, false, false, null, null, IfStatementInstruction.class),
 	INT_GE(319, true, false, false, null, null, IfStatementInstruction.class),
 	INSTR6091(1, false, false, false, null, null),
-	INSTR6687(457, false, false, false, null, null),
+	CC_SETONOP(457, false, false, false, null, null, HookInstruction.class),
 	INSTR6092(665, false, false, false, null, null),
 	CC_SETONMOUSEOVER(207, false, false, false, null, null),
 	INSTR6224(705, false, false, false, null, null),
@@ -309,9 +309,9 @@ public enum InstructionDefinitions {
 	INSTR6595(324, false, false, false, new String[]{"i", "i"}, "int"),
 	INSTR6581(10, false, false, false, new String[]{"i"}, "int"),
 	INSTR6657(6, false, false, false, new String[]{"i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i"}, null),
-	IF_SETPOSITION(937, false, false, false, new String[]{"ic", "i", "i", "i", "i"}, null),
-	IF_SETSIZE(982, false, false, false, new String[]{"ic", "i", "i", "i", "i"}, null),
-	IF_SETTEXTFONT(85, false, false, false, new String[]{"ic", "i"}, null),
+	IF_SETPOSITION(937, false, false, false, new String[]{"ic", "i", "i", "i", "i"}, null, SimpleInstruction.class),
+	IF_SETSIZE(982, false, false, false, new String[]{"ic", "i", "i", "i", "i"}, null, SimpleInstruction.class),
+	IF_SETTEXTFONT(85, false, false, false, new String[]{"ic", "i"}, null, SimpleInstruction.class),
 	IF_SETHIDE(590, false, false, false, new String[]{"ic", "bool"}, null, SimpleInstruction.class),
 	INV_TOTAL(485, false, false, false, new String[]{"i", "i"}, "int", SimpleInstruction.class),
 	CC_DELETEALL(572, false, false, false, new String[]{"ic"}, null, SimpleInstruction.class),
@@ -337,7 +337,7 @@ public enum InstructionDefinitions {
 	SUBSTRING(108, false, false, false, new String[]{"s", "i", "i"}, "string"),
 	IF_ISOPEN(888, false, false, false, new String[]{"i"}, "int"),
 	CC_SETHIDE(112, false, false, false, new String[]{"i"}, null),
-	CC_CREATE(113, false, false, false, new String[]{"i", "i", "i"}, null),
+	CC_CREATE(113, false, false, false, new String[]{"i", "i", "i"}, null, SimpleInstruction.class),
 	RESUME_COUNTDIALOG(117, false, false, false, new String[]{"s"}, null),
 	ACTIVECLANCHANNEL_FIND_LISTENED(884, false, false, false, null, "int"),
 	INSTR6288(997, false, false, false, new String[]{"i"}, "int,int"),
@@ -374,7 +374,7 @@ public enum InstructionDefinitions {
 	INSTR6790(607, false, false, false, new String[]{"i", "i"}, null),
 	INSTR6088(813, false, false, false, null, null),
 	ACTIVECLANCHANNEL_GETCLANNAME(370, false, false, false, null, "string"),
-	REMOVETAGS(41, false, false, false, new String[]{"s"}, "string"),
+	REMOVETAGS(41, false, false, false, new String[]{"s"}, "string", SimpleInstruction.class),
 	INSTR6666(110, false, false, false, new String[]{"i", "i"}, null),
 	IF_GETY(170, false, false, false, new String[]{"ic"}, "int"),
 	IGNORE_ADD(177, false, false, false, new String[]{"s"}, null),
@@ -416,12 +416,12 @@ public enum InstructionDefinitions {
 	CC_DRAGPICKUP(259, false, false, false, new String[]{"i", "i"}, null),
 	IF_GETWIDTH(263, false, false, false, new String[]{"ic"}, "int", SimpleInstruction.class),
 	CC_SETCOLOR(274, false, false, false, new String[]{"i"}, null),
-	CC_SETOPBASE(275, false, false, false, new String[]{"s"}, null),
+	CC_SETOPBASE(275, false, false, false, new String[]{"s"}, null, SimpleInstruction.class),
 	BIT_FLAGGED(278, false, false, false, new String[]{"i", "i"}, "int"),
 	TOSTRING_LOCALIZED(280, false, false, false, new String[]{"i", "i"}, "string"),
 	APPEND(286, false, false, false, new String[]{"s", "s"}, "string", CustomInstruction.class),
 	ITEM_USEONNAME(289, false, false, false, new String[]{"i", "s"}, null),
-	CHAT_PLAYERNAME(292, false, false, false, null, "string"),
+	CHAT_PLAYERNAME(292, false, false, false, null, "string", SimpleInstruction.class),
 	FC_JOINCHAT(293, false, false, false, new String[]{"s"}, null, SimpleInstruction.class),
 	INSTR6507(768, false, false, true, null, null),
 	INSTR6251(416, false, false, true, null, null),
@@ -629,8 +629,8 @@ public enum InstructionDefinitions {
 	CC_CONTAINERITEMID(36, false, false, false, null, "int"),
 	CC_SETMODELANGLE(528, false, false, false, new String[]{"i", "i", "i", "i", "i", "i"}, null),
 	CHATLINE_GETCYCLES20MS(272, false, false, false, new String[]{"i"}, "int"),
-	WINDOWED_GETMODE(297, false, false, false, null, "int"),
-	INSTR6342(300, false, false, true, null, null),
+	WINDOWED_GETMODE(297, false, false, false, null, "int", SimpleInstruction.class),
+	INSTR6342(300, false, false, true, null, null, HookInstruction.class),
 	STAT(301, false, false, false, new String[]{"i"}, "int", SimpleInstruction.class),
 	GET_DISPLAYNAME(309, false, false, false, null, "string"),
 	ITEM_UNCERT(313, false, false, false, new String[]{"i"}, "int"),
@@ -674,7 +674,7 @@ public enum InstructionDefinitions {
 	IF_GETHIDE(578, false, false, false, new String[]{"ic"}, "int"),
 	STRING_INDEXOF_CHAR(593, false, false, false, new String[]{"s", "i", "i"}, "int"),
 	CC_SETVFLIP(599, false, false, false, new String[]{"i"}, null),
-	HOOK_MOUSE_EXIT(600, false, false, true, null, null),
+	IF_SETONMOUSELEAVE(600, false, false, true, null, null, HookInstruction.class),
 	IF_SETMODELANGLE(605, false, false, false, new String[]{"ic", "i", "i", "i", "i", "i", "i"}, null),
 	FRIEND_ADD(609, false, false, false, new String[]{"s"}, null),
 	INVOTHER_GETITEM(612, false, false, false, new String[]{"i", "i"}, "int"),
@@ -684,7 +684,7 @@ public enum InstructionDefinitions {
 	CC_SETPARAM_STRING(639, false, false, false, new String[]{"i", "s"}, null),
 	INSTR6180(651, false, false, false, new String[]{"i", "i"}, null),
 	GENDER(657, false, false, false, null, "int"),
-	CC_SETOP(671, false, false, false, new String[]{"s", "i"}, null),
+	CC_SETOP(671, false, false, false, new String[]{"s", "i"}, null, SimpleInstruction.class),
 	ACTIVECLANCHANNEL_GETUSERRANK(673, false, false, false, new String[]{"i"}, "int"),
 	CC_FIND(677, false, false, false, new String[]{"i", "ic"}, "int", SimpleInstruction.class),
 	CHATLINE_GETTYPE(681, false, false, false, new String[]{"i"}, "int"),
@@ -728,7 +728,7 @@ public enum InstructionDefinitions {
 	INSTR6584(958, false, false, false, new String[]{"i"}, "int"),
 	IGNORE_TEST(966, false, false, false, new String[]{"s"}, "int"),
 	HOOK_MOUSE_ENTER(968, false, false, true, null, null),
-	CC_SETTEXT(972, false, false, false, new String[]{"s"}, null),
+	CC_SETTEXT(972, false, false, false, new String[]{"s"}, null, SimpleInstruction.class),
 	IF_GETSCROLLHEIGHT(978, false, false, false, new String[]{"i"}, "int"),
 	CC_GETTEXT(979, false, false, false, null, "string"),
 	IF_GETNEXTSUBID(1000, false, false, false, new String[]{"ic"}, "int");
@@ -736,7 +736,7 @@ public enum InstructionDefinitions {
 	private final int opcode;
 	private final boolean hasExtra;
 	private final boolean hasExtraValue;
-	private final boolean hasExtraHook;
+	private final boolean hasComponent;
 	private final String[] arguments;
 	private final String returnType;
 	private final Class<? extends Instruction> clazz;
@@ -751,15 +751,15 @@ public enum InstructionDefinitions {
 			byOpcodeMap.put(instruction.getOpcode(), instruction);
 	}
 
-	InstructionDefinitions(int opcode, boolean hasExtra, boolean hasExtraValue, boolean hasExtraHook, String[] arguments, String returnType) {
-		this(opcode, hasExtra, hasExtraValue, hasExtraHook, arguments, returnType, null);
+	InstructionDefinitions(int opcode, boolean hasExtra, boolean hasExtraValue, boolean hasComponent, String[] arguments, String returnType) {
+		this(opcode, hasExtra, hasExtraValue, hasComponent, arguments, returnType, null);
 	}
 
-	InstructionDefinitions(int opcode, boolean hasExtra, boolean hasExtraValue, boolean hasExtraHook, String[] arguments, String returnType, Class<? extends Instruction> clazz) {
+	InstructionDefinitions(int opcode, boolean hasExtra, boolean hasExtraValue, boolean hasComponent, String[] arguments, String returnType, Class<? extends Instruction> clazz) {
 		this.opcode = opcode;
 		this.hasExtra = hasExtra;
 		this.hasExtraValue = hasExtraValue;
-		this.hasExtraHook = hasExtraHook;
+		this.hasComponent = hasComponent;
 		this.arguments = arguments;
 		this.returnType = returnType;
 		this.clazz = clazz;
@@ -777,8 +777,8 @@ public enum InstructionDefinitions {
 		return hasExtraValue;
 	}
 
-	public boolean hasExtraHook() {
-		return hasExtraHook;
+	public boolean hasComponent() {
+		return hasComponent;
 	}
 
 	public String[] getArguments() {

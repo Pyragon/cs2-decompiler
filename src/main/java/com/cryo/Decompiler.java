@@ -10,12 +10,19 @@ import java.util.stream.Collectors;
 
 public class Decompiler {
 
+	//TODO: Overall Tweaks:
+	//TODO: Figure out there ++i, why are they doing this? How did they know?
+	//TODO: Figure out how/when they are using template literals
+	//TODO: Change 0/1 to false/true where applicable
+	//TODO: Change component hashes to comp(i, c) where applicable
+	//TODO: Figure out how they know what types to cast to
+
 	public static void main(String[] args) throws IOException {
 		Cache.init(Settings.PACKED_PATH);
 
 		ScriptDefinitions.loadDefinitions();
 
-		CS2Script script = new CS2Script(2);
+		CS2Script script = new CS2Script(111);
 
 		System.out.println(script.getArguments().size() + " arguments: "+
 				script.getArguments().values().stream()

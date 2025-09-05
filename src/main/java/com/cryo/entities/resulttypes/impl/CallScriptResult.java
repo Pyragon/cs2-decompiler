@@ -17,7 +17,7 @@ public class CallScriptResult extends ResultType {
 
 	@Override
 	public void print(Printer printer) {
-		printer.print("script"+scriptId+"(");
+		printer.print("script_"+scriptId+"(");
 		for(int i = 0; i < arguments.size(); i++) {
 			arguments.get(i).print(printer);
 			if(i < arguments.size() - 1)

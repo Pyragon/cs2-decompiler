@@ -5,13 +5,12 @@ import com.cryo.entities.Type;
 import com.cryo.entities.instructions.Instruction;
 import com.cryo.db.InstructionDefinitions;
 import com.cryo.entities.resulttypes.ResultType;
-import com.cryo.entities.resulttypes.impl.misc.AppendResult;
-import com.cryo.entities.resulttypes.impl.misc.StringLengthResult;
-import com.cryo.entities.resulttypes.impl.misc.ToLowerCaseResult;
-import com.cryo.entities.resulttypes.impl.misc.ToStringResult;
+import com.cryo.entities.resulttypes.impl.misc.*;
+import com.cryo.utils.Logger;
 import com.cryo.utils.PeekableIterator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CustomInstruction extends Instruction {
 
@@ -54,6 +53,19 @@ public class CustomInstruction extends Instruction {
 					throw new IllegalStateException("String value is null for instruction: " + defs.name());
 				}
 				script.getStack(Type.STRING).push(new ToLowerCaseResult(toLower));
+			}
+			case MERGE_STRINGS -> {
+				ArrayList<ResultType> strings = new ArrayList<>();
+				int size = (int) value;
+				for(int i = 0; i < size; i++) {
+					ResultType str = script.getStack(Type.STRING).pop();
+					if(str == null) {
+						throw new IllegalStateException("String value is null for instruction: " + defs.name());
+					}
+					strings.add(str);
+				}
+				Collections.reverse(strings);
+				script.getStack(Type.STRING).push(new MergeStringsResult(strings));
 			}
 		}
 	}
