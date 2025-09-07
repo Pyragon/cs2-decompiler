@@ -31,12 +31,13 @@ public class CallScriptInstruction extends Instruction {
 			arguments.add(script.getStack(argumentType).pop());
 		Collections.reverse(arguments);
 		CallScriptResult result = new CallScriptResult(scriptId, arguments);
-		if(scriptDefinitions.getReturnType() != null && scriptDefinitions.getReturnType() != Type.VOID)
-			script.getStack(scriptDefinitions.getReturnType()).push(result);
-		else {
+		if(scriptDefinitions.getReturnType() == null || scriptDefinitions.getReturnType()[0] == Type.VOID) {
 			if(results == null)
 				results = script.getResults();
 			results.add(result);
-		}
+		} else if(scriptDefinitions.getReturnType().length > 1)
+			throw new IllegalStateException("Multiple return types not supported yet on script: "+script.getId()+" for call cs2: "+value);
+		else
+			script.getStack(scriptDefinitions.getReturnType()[0]).push(result);
 	}
 }

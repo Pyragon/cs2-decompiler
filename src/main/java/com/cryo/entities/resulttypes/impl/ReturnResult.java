@@ -4,25 +4,27 @@ import com.cryo.entities.Type;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.utils.Printer;
 
+import java.util.ArrayList;
+
 public class ReturnResult extends ResultType {
 
-	private final ResultType returnType;
+	private final ArrayList<ResultType> returnValues;
 
-	public ReturnResult(ResultType returnType) {
-		this.returnType = returnType;
+	public ReturnResult(ArrayList<ResultType> returnValues) {
+		this.returnValues = returnValues;
 	}
 
 	@Override
 	public void print(Printer printer) {
 		printer.print("return");
-		if(returnType != null) {
+		if(returnValues != null) {
 			printer.print(" ");
-			boolean literalString = false;
-			if(returnType instanceof LiteralResult result && result.getType() == Type.STRING)
-				literalString = true;
-			if(literalString) printer.print("\"");
-			returnType.print(printer);
-			if(literalString) printer.print("\"");
+			if(returnValues.size() > 1) printer.print("[ ");
+			for(int i = 0; i < returnValues.size(); i++) {
+				if(i > 0) printer.print(", ");
+				returnValues.get(i).print(printer);
+			}
+			if(returnValues.size() > 1) printer.print(" ]");
 		}
 	}
 }

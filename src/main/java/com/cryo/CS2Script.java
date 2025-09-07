@@ -178,8 +178,8 @@ public class CS2Script {
 		}
 
 		//TODO - Should probably actually find out why this happens and figure out a better way to do this.
-		if(defs.getReturnType() != Type.VOID) {
-			Logger.log(this.getClass(), "Script " + id + " has a return type: " + defs.getReturnType().name() + ".");
+		if(defs.getReturnType().length == 1 && defs.getReturnType()[0] != Type.VOID) {
+			Logger.log(this.getClass(), "Script " + id + " has a return type: " + defs.getReturnType()[0].name() + ".");
 			Logger.log(this.getClass(), "Removing the last two instructions");
 			Logger.log(this.getClass(), "Old: "+instructionLength+". New: "+ (instructionLength - 2) + ".");
 			if(instructions.size() < 2) {
@@ -221,7 +221,18 @@ public class CS2Script {
 			printer.print(arg.name() + ": " + arg.type().name().toLowerCase());
 		}
 		printer.print("): ");
-		printer.print(defs.getReturnType() != null ? defs.getReturnType().name().toLowerCase() : "void");
+		if(defs.getReturnType().length == 0 || (defs.getReturnType().length == 1 && defs.getReturnType()[0] == Type.VOID))
+			printer.print("void");
+		else if(defs.getReturnType().length == 1)
+			printer.print(defs.getReturnType()[0].name().toLowerCase());
+		else {
+			printer.print("[");
+			for(int i = 0; i < defs.getReturnType().length; i++) {
+				if(i > 0) printer.print(", ");
+				printer.print(defs.getReturnType()[i].name().toLowerCase());
+			}
+			printer.print("]");
+		}
 		printer.print(" {");
 		printer.indent();
 		printer.newLine();

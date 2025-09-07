@@ -10,17 +10,18 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.stream.Stream;
 
 public class ScriptDefinitions {
 
 	private final int id;
 	private final String name;
 	private final Type[] argTypes;
-	private final Type returnType;
+	private final Type[] returnType;
 
 	private static HashMap<Integer, ScriptDefinitions> definitions;
 
-	public ScriptDefinitions(int id, String name, Type[] argTypes, Type returnType) {
+	public ScriptDefinitions(int id, String name, Type[] argTypes, Type[] returnType) {
 		this.id = id;
 		this.name = name;
 		this.argTypes = argTypes;
@@ -55,22 +56,20 @@ public class ScriptDefinitions {
 						Logger.err(ScriptDefinitions.class, "Invalid type for script id: " + id + ", type: " + argTypesString[i] + ", name: " + name);
 					}
 				}
-				Type returnType;
+				Type[] returnType;
 				if(!item.containsKey("returnType"))
-					returnType = Type.VOID;
+					returnType = new Type[] { Type.VOID };
 				else {
 					String returnTypeString = (String) item.get("returnType");
-					if(returnTypeString.contains("struct"))
-						returnType = Type.VOID;
+					if(!returnTypeString.contains(","))
+						returnType = new Type[] { Type.fromString(returnTypeString) };
 					else
-						returnType = Type.fromString((String) item.get("returnType"));
+						returnType = Stream.of(returnTypeString.split(",")).map(Type::fromString).toArray(Type[]::new);
 				}
 				ScriptDefinitions definition = new ScriptDefinitions(id, name, argTypes, returnType);
 				definitions.put(id, definition);
 			}
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		} catch (ParseException e) {
+		} catch (IOException | ParseException e) {
 			throw new RuntimeException(e);
 		}
 	}
@@ -91,7 +90,7 @@ public class ScriptDefinitions {
 		return argTypes;
 	}
 
-	public Type getReturnType() {
+	public Type[] getReturnType() {
 		return returnType;
 	}
 
