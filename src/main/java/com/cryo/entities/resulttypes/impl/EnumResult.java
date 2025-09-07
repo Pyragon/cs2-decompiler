@@ -20,9 +20,9 @@ public class EnumResult extends ResultType {
 	@Override
 	public void print(Printer printer) {
 		printer.print("enum(");
-		printer.print(String.valueOf((char) keyType.getValue()));
+		printer.print("\""+((char) ((int) keyType.getValue()))+"\"");
 		printer.print(", ");
-		printer.print(String.valueOf((char) valueType.getValue()));
+		printer.print("\""+((char) ((int) valueType.getValue()))+"\"");
 		printer.print(", ");
 		enumId.print(printer);
 		printer.print(", ");

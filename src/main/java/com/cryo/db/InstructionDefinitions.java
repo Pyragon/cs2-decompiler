@@ -1,9 +1,12 @@
 package com.cryo.db;
 
+import com.cryo.entities.Type;
 import com.cryo.entities.instructions.Instruction;
 import com.cryo.entities.instructions.impl.*;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Stream;
 
 public enum InstructionDefinitions {
 	PUSH_INT(79, true, false, false, null, null, PushInstruction.class),
@@ -79,7 +82,7 @@ public enum InstructionDefinitions {
 	INSTR6632(288, false, false, false, new String[]{"i", "i"}, null),
 	INSTR6803_1(233, false, false, false, new String[]{"i", "i"}, null),
 	USERDETAIL_LOBBY_CCEXPIRY(679, false, false, false, null, "int"),
-	FRIEND_GETNAMES(252, false, false, false, new String[]{"i"}, "string,string"),
+	FRIEND_GETNAMES(252, false, false, false, new String[]{"i"}, "string,string", SimpleInstruction.class),
 	INSTR6663(893, false, false, false, null, null),
 	INSTR6108(868, false, false, false, null, null),
 	INSTR6684(483, false, false, false, null, null),
@@ -147,7 +150,7 @@ public enum InstructionDefinitions {
 	FC_KICKUSER(421, false, false, false, new String[]{"s"}, null),
 	FRIEND_GETRANK(732, false, false, false, new String[]{"i"}, "int"),
 	INSTR6599(711, false, false, false, new String[]{"s", "i"}, "int"),
-	FRIEND_SETRANK(647, false, false, false, new String[]{"s", "i"}, null),
+	FRIEND_SETRANK(647, false, false, false, new String[]{"i", "s"}, null, SimpleInstruction.class),
 	DETAILSET_BRIGHTNESS(849, false, false, false, new String[]{"i"}, null),
 	INSTR6612(16, false, false, false, null, "int,int"),
 	DETAILGET_IDLE_ANIMATIONS(794, false, false, false, null, "int"),
@@ -738,7 +741,7 @@ public enum InstructionDefinitions {
 	private final boolean hasExtraValue;
 	private final boolean hasComponent;
 	private final String[] arguments;
-	private final String returnType;
+	private final Type[] returnType;
 	private final Class<? extends Instruction> clazz;
 
 	private static HashMap<String, InstructionDefinitions> byNameMap = new HashMap<>();
@@ -761,8 +764,14 @@ public enum InstructionDefinitions {
 		this.hasExtraValue = hasExtraValue;
 		this.hasComponent = hasComponent;
 		this.arguments = arguments;
-		this.returnType = returnType;
 		this.clazz = clazz;
+		if(returnType == null || returnType.isEmpty())
+			this.returnType = new Type[] { Type.VOID };
+		else if(!returnType.contains(","))
+			this.returnType = new Type[] { Type.fromString(returnType) };
+		else {
+			this.returnType = Stream.of(returnType.split(",")).map(s -> Type.fromString(s.trim())).toArray(Type[]::new);
+		}
 	}
 
 	public int getOpcode() {
@@ -785,7 +794,7 @@ public enum InstructionDefinitions {
 		return arguments;
 	}
 
-	public String getReturnType() {
+	public Type[] getReturnType() {
 		return returnType;
 	}
 
