@@ -22,12 +22,12 @@ public class Instruction {
 	}
 
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
-		Logger.log(this.getClass(), "Processing instruction: " + defs.name() + " with value: " + value);
-		Logger.log(this.getClass(), "Current stack: "+
-				"intStack=" + script.getStack(Type.INT).size() +
-				", stringStack=" + script.getStack(Type.STRING).size() +
-				", longStack=" + script.getStack(Type.LONG).size()
-		);
+		Logger.log(this.getClass(), "Processing instruction: " + defs.name() + " with value: " + value+" HasScope: "+(results != null));
+//		Logger.log(this.getClass(), "Current stack: "+
+//				"intStack=" + script.getStack(Type.INT).size() +
+//				", stringStack=" + script.getStack(Type.STRING).size() +
+//				", longStack=" + script.getStack(Type.LONG).size()
+//		);
 	}
 
 	public InstructionDefinitions getDefinitions() {

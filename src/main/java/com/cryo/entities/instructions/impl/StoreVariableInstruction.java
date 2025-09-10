@@ -46,6 +46,6 @@ public class StoreVariableInstruction extends Instruction {
 		}
 		ResultType resultType = script.getStack(type).pop();
 		if(results == null) results = script.getResults();
-		results.add(new StoreVariableResult(variable.name(), resultType));
+		results.add(new StoreVariableResult(variable, resultType));
 	}
 }

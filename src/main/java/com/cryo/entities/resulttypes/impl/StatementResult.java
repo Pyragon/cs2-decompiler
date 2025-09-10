@@ -1,42 +1,45 @@
 package com.cryo.entities.resulttypes.impl;
 
 import com.cryo.db.InstructionDefinitions;
-import com.cryo.entities.instructions.impl.IfStatementInstruction;
+import com.cryo.entities.instructions.impl.StatementInstruction;
 import com.cryo.entities.resulttypes.ResultType;
+import com.cryo.utils.Logger;
 import com.cryo.utils.Printer;
 
 import java.util.ArrayList;
 
-public class IfStatementResult extends ResultType {
+public class StatementResult extends ResultType {
 
 	private final InstructionDefinitions defs;
-	private final ArrayList<IfStatementInstruction.IfStatement> ifStatements;
+	private final boolean isWhile;
+	private final ArrayList<StatementInstruction.Statement> statements;
 	private final ArrayList<ResultType> scope;
 	private final ArrayList<ResultType> elseScope;
 
-	public IfStatementResult(InstructionDefinitions defs, ArrayList<IfStatementInstruction.IfStatement> ifStatements, ArrayList<ResultType> scope, ArrayList<ResultType> elseScope) {
+	public StatementResult(InstructionDefinitions defs, boolean isWhile, ArrayList<StatementInstruction.Statement> statements, ArrayList<ResultType> scope, ArrayList<ResultType> elseScope) {
 		this.defs = defs;
-		this.ifStatements = ifStatements;
+		this.isWhile = isWhile;
+		this.statements = statements;
 		this.scope = scope;
 		this.elseScope = elseScope;
 	}
 
 	public void print(Printer printer) {
-		printer.print("if(");
-		for(int i = 0; i < ifStatements.size(); i++) {
-			IfStatementInstruction.IfStatement ifStatement = ifStatements.get(i);
-			if(ifStatement.statementType() != IfStatementInstruction.IfStatementType.DEFAULT) {
-				if(ifStatement.statementType() == IfStatementInstruction.IfStatementType.AND) {
+		printer.print(isWhile ? "while(" : "if(");
+		for(int i = 0; i < statements.size(); i++) {
+			StatementInstruction.Statement statement = statements.get(i);
+			if(statement.statementType() != StatementInstruction.StatementType.DEFAULT) {
+				if(statement.statementType() == StatementInstruction.StatementType.AND) {
 					printer.print(" && ");
-				} else if(ifStatement.statementType() == IfStatementInstruction.IfStatementType.OR) {
+				} else if(statement.statementType() == StatementInstruction.StatementType.OR) {
 					printer.print(" || ");
 				} else {
-					throw new IllegalStateException("Unknown IfStatementType: " + ifStatement.statementType());
+					throw new IllegalStateException("Unknown StatementType: " + statement.statementType());
 				}
 			}
-			ifStatement.left().print(printer);
-			printer.print(" "+getExpressionSymbol(defs)+" ");
-			ifStatement.right().print(printer);
+			statement.left().print(printer);
+			printer.print(" "+getExpressionSymbol(statement.defs())+" ");
+			statement.right().print(printer);
 		}
 		printer.print(") {");
 		printer.indent();

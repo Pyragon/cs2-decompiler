@@ -23,4 +23,16 @@ public class MathsResult extends ResultType {
 		right.print(printer);
 		printer.print(")");
 	}
+
+	public ResultType getLeft() {
+		return left;
+	}
+
+	public ResultType getRight() {
+		return right;
+	}
+
+	public String getOperator() {
+		return operator;
+	}
 }

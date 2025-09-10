@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class PeekableIterator<T> implements Iterator<T> {
+	private int index;
 	private Iterator<T> iterator;
 	private T peekedElement;
 	private boolean hasPeeked;
@@ -39,6 +40,7 @@ public class PeekableIterator<T> implements Iterator<T> {
 			}
 			peekedElement = iterator.next();
 			hasPeeked = true;
+			index++;
 		}
 		return peekedElement;
 	}
@@ -62,6 +64,7 @@ public class PeekableIterator<T> implements Iterator<T> {
 			peekedElement = null;
 			return result;
 		}
+		index++;
 		return iterator.next();
 	}
 
@@ -75,5 +78,9 @@ public class PeekableIterator<T> implements Iterator<T> {
 			throw new IllegalStateException("Cannot remove after peek() without calling next() first");
 		}
 		iterator.remove();
+	}
+
+	public int getIndex() {
+		return index;
 	}
 }

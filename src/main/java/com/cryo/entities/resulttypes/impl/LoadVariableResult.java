@@ -1,18 +1,24 @@
 package com.cryo.entities.resulttypes.impl;
 
+import com.cryo.CS2Script;
 import com.cryo.entities.resulttypes.ResultType;
+import com.cryo.utils.Printer;
 
 public class LoadVariableResult extends ResultType {
 
-	private final String name;
+	private final CS2Script.Variable variable;
 
-	public LoadVariableResult(String name) {
+	public LoadVariableResult(CS2Script.Variable variable) {
 		super();
-		this.name = name;
+		this.variable = variable;
 	}
 
 	@Override
-	public void print(com.cryo.utils.Printer printer) {
-		printer.print(name);
+	public void print(Printer printer) {
+		printer.print(variable.name());
+	}
+
+	public CS2Script.Variable getVariable() {
+		return variable;
 	}
 }

@@ -64,7 +64,7 @@ public class SimpleInstruction extends Instruction {
 			}
 			Collections.reverse(variables);
 			if(results == null) results = script.getResults();
-			results.add(new MultiStoreVariableResult(variables.toArray(CS2Script.Variable[]::new), defs, arguments));
+			results.add(new MultiStoreVariableResult(variables.toArray(CS2Script.Variable[]::new), defs.name(), arguments));
 		}
 	}
 }

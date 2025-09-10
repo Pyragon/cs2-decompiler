@@ -16,10 +16,13 @@ public class StoreArrayInstruction extends Instruction {
 		super(defs, script, value);
 	}
 
-	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> resultTypes) {
+	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> results) {
+		super.process(iterator, results);
 		int index = (int) this.value;
 		ResultType value = script.getStack(Type.INT).pop();
 		ResultType arrayIndex = script.getStack(Type.INT).pop();
-		script.getResults().add(new StoreArrayResult(index, arrayIndex, value));
+		if(results == null)
+			results = script.getResults();
+		results.add(new StoreArrayResult(index, arrayIndex, value));
 	}
 }

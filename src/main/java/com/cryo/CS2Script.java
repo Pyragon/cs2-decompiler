@@ -6,6 +6,7 @@ import com.cryo.db.ScriptDefinitions;
 import com.cryo.entities.*;
 import com.cryo.entities.instructions.Instruction;
 import com.cryo.db.InstructionDefinitions;
+import com.cryo.entities.instructions.impl.*;
 import com.cryo.entities.resulttypes.ResultType;
 import com.cryo.io.InputStream;
 import com.cryo.utils.Logger;
@@ -164,10 +165,11 @@ public class CS2Script {
 				Logger.err(this.getClass(), "Unknown opcode: " + opcode + " in script id: " + id);
 				return;
 			}
+			boolean readInt = false;
 			switch(defs) {
 				case PUSH_STRING -> value = stream.readString();
 				case PUSH_LONG -> value = stream.readLong();
-				default -> value = defs.hasExtra() ? stream.readInt() : stream.readUnsignedByte();
+				default -> value = defs.readsInt() ? stream.readInt() : stream.readUnsignedByte();
 			}
 			Instruction instruction = getInstructionClassFromDefs(defs, value);
 			if(instruction == null) {
@@ -197,11 +199,11 @@ public class CS2Script {
 			Instruction instruction = it.next();
 			try {
 				instruction.process(it, null);
-				Logger.log(this.getClass(), "Processed instruction: " + instruction.getDefinitions().name());Logger.log(this.getClass(), "Current stack: "+
-						"intStack=" + getStack(Type.INT).size() +
-						", stringStack=" + getStack(Type.STRING).size() +
-						", longStack=" + getStack(Type.LONG).size()
-				);
+//				Logger.log(this.getClass(), "Processed instruction: " + instruction.getDefinitions().name());Logger.log(this.getClass(), "Current stack: "+
+//						"intStack=" + getStack(Type.INT).size() +
+//						", stringStack=" + getStack(Type.STRING).size() +
+//						", longStack=" + getStack(Type.LONG).size()
+//				);
 			} catch (Exception e) {
 				Logger.err(this.getClass(), "Error processing instruction: " + instruction.getDefinitions().name() + " in script id: " + id);
 				e.printStackTrace();
@@ -314,7 +316,47 @@ public class CS2Script {
 		return results;
 	}
 
-	public record Variable(int index, Type type, String name, boolean isArgument) {}
+	public class Variable {
+
+		private final int index;
+		private final Type type;
+		private final String name;
+		private final boolean isArgument;
+
+		private boolean assigned;
+
+		public Variable(int index, Type type, String name, boolean isArgument) {
+			this.index = index;
+			this.type = type;
+			this.name = name;
+			this.isArgument = isArgument;
+		}
+
+		public int index() {
+			return index;
+		}
+
+		public Type type() {
+			return type;
+		}
+
+		public String name() {
+			return name;
+		}
+
+		public boolean isArgument() {
+			return isArgument;
+		}
+
+		public boolean isAssigned() {
+			return assigned;
+		}
+
+		public void assign() {
+			assigned = true;
+		}
+
+	}
 
 	public int getId() {
 		return id;

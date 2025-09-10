@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class MultiStoreVariableResult extends ResultType {
 
 	private final CS2Script.Variable[] variables;
-	private final InstructionDefinitions defs;
+	private final String name;
 	private final ArrayList<ResultType> arguments;
 
-	public MultiStoreVariableResult(CS2Script.Variable[] variables, InstructionDefinitions defs, ArrayList<ResultType> arguments) {
+	public MultiStoreVariableResult(CS2Script.Variable[] variables, String name, ArrayList<ResultType> arguments) {
 		this.variables = variables;
-		this.defs = defs;
+		this.name = name;
 		this.arguments = arguments;
 	}
 
@@ -28,7 +28,7 @@ public class MultiStoreVariableResult extends ResultType {
 				printer.print(", ");
 		}
 		printer.print(" ] = ");
-		printer.print(defs.name()+"(");
+		printer.print(name+"(");
 		for(int i = 0; i < arguments.size(); i++) {
 			arguments.get(i).print(printer);
 			if(i != arguments.size() - 1)

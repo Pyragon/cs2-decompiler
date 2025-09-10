@@ -41,6 +41,6 @@ public class LoadVariableInstruction extends Instruction {
 		if(variable.type() != type) {
 			throw new IllegalArgumentException("Variable type mismatch: expected " + type + " but found " + variable.type() + " for variable index " + index);
 		}
-		script.getStack(type).push(new LoadVariableResult(variable.name()));
+		script.getStack(type).push(new LoadVariableResult(variable));
 	}
 }

@@ -24,10 +24,7 @@ public class HookInstruction extends Instruction {
 		ArrayList<ResultType> params = new ArrayList<>();
 		if(defs.hasComponent()) {
 			ResultType component = script.getStack(Type.INT).pop();
-			if(!(component instanceof LiteralResult hashResult)) {
-				throw new RuntimeException("Hook "+defs.name()+" component is not a literal!");
-			}
-			params.add(new LiteralResult(hashResult.getValue(), Type.INT));
+			params.add(component);
 		}
 		ResultType hookParams = script.getStack(Type.STRING).pop();
 		if(!(hookParams instanceof LiteralResult paramsResult)) {
@@ -39,6 +36,9 @@ public class HookInstruction extends Instruction {
 			String[] paramTypes = callbackParamsString.split("");
 			for(int i = paramTypes.length - 1; i >= 0; i--) {
 				Type type = Type.fromString(paramTypes[i]);
+				if(script.getStack(type).isEmpty()) {
+					throw new RuntimeException("Hook "+defs.name()+" stack is empty when trying to pop param of type "+type);
+				}
 				ResultType param = script.getStack(type).pop();
 				callbackParams.add(param);
 			}

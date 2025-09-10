@@ -17,6 +17,7 @@ public class LoadArrayInstruction extends Instruction {
 	}
 
 	public void process(PeekableIterator<Instruction> iterator, ArrayList<ResultType> resultTypes) {
+		super.process(iterator, resultTypes);
 		int index = (int) this.value;
 		ResultType arrayIndex = script.getStack(Type.INT).pop();
 		script.getStack(Type.INT).push(new LoadArrayResult(index, arrayIndex));

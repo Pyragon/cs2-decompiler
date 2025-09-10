@@ -16,13 +16,14 @@ public class Decompiler {
 	//TODO: Change 0/1 to false/true where applicable
 	//TODO: Change component hashes to comp(i, c) where applicable
 	//TODO: Figure out how they know what types to cast to
+	//TODO: Figure out else/ifs
 
 	public static void main(String[] args) throws IOException {
 		Cache.init(Settings.PACKED_PATH);
 
 		ScriptDefinitions.loadDefinitions();
 
-		CS2Script script = new CS2Script(111);
+		CS2Script script = new CS2Script(84);
 
 		System.out.println(script.getArguments().size() + " arguments: "+
 				script.getArguments().values().stream()
@@ -39,7 +40,7 @@ public class Decompiler {
 		System.out.println(script.getInstructions().size() +" instructions: "+
 				script.getInstructions().stream()
 						.map(instruction -> instruction.getDefinitions().name() + " " + instruction.getValue())
-						.reduce((a, b) -> a + ", " + b).orElse("none")
+						.reduce((a, b) -> a + "\n " + b).orElse("none")
 		);
 
 		//print out script.getSwitches with addresses
@@ -48,8 +49,6 @@ public class Decompiler {
 		}
 
 		script.process();
-
-		script.getResults().forEach(r -> System.out.println(r.getClass().getSimpleName()));
 
 		script.print();
 		//script.getInstructions();

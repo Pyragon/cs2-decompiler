@@ -14,8 +14,6 @@ public class ResultType {
 	}
 
 	public void print(Printer printer, boolean outer) {
-		if(this instanceof ReturnResult)
-			Logger.log(this.getClass(), "We hit a return result. Printing...");
 		if(outer)
 			printer.printIndent();
 		print(printer);
